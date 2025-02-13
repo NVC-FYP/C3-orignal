@@ -27,7 +27,7 @@ import jax
 import jax.numpy as jnp
 import numpy as np
 
-from c3_neural_compression.model import laplace
+from model import laplace
 
 Array = chex.Array
 

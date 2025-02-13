@@ -24,7 +24,7 @@ import haiku as hk
 import jax
 import jax.numpy as jnp
 
-from c3_neural_compression.model import model_coding
+from model import model_coding
 
 Array = chex.Array
 

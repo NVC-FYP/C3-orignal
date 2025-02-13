@@ -37,10 +37,10 @@ import numpy as np
 import optax
 import scipy
 
-from c3_neural_compression.experiments import base
-from c3_neural_compression.model import entropy_models
-from c3_neural_compression.utils import experiment as experiment_utils
-from c3_neural_compression.utils import psnr as psnr_utils
+from experiments import base
+from model import entropy_models
+from utils import experiment as experiment_utils
+from utils import psnr as psnr_utils
 
 
 Array = chex.Array

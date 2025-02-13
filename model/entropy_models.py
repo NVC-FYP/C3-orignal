@@ -25,9 +25,9 @@ import jax.numpy as jnp
 from ml_collections import config_dict
 import numpy as np
 
-from c3_neural_compression.model import laplace
-from c3_neural_compression.model import layers as layers_lib
-from c3_neural_compression.model import model_coding
+from model import laplace
+from model import layers as layers_lib
+from model import model_coding
 
 
 Array = chex.Array

@@ -17,7 +17,7 @@
 
 from ml_collections import config_dict
 
-from c3_neural_compression.configs import base
+from configs import base
 
 
 def get_config() -> config_dict.ConfigDict:

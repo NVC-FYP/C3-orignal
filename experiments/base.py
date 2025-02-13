@@ -25,12 +25,12 @@ from jaxline import experiment
 from ml_collections import config_dict
 import numpy as np
 
-from c3_neural_compression.model import latents
-from c3_neural_compression.model import synthesis
-from c3_neural_compression.model import upsampling
-from c3_neural_compression.utils import data_loading
-from c3_neural_compression.utils import experiment as experiment_utils
-from c3_neural_compression.utils import macs
+from model import latents
+from model import synthesis
+from model import upsampling
+from utils import data_loading
+from utils import experiment as experiment_utils
+from utils import macs
 
 Array = chex.Array
 
