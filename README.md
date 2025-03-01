@@ -92,19 +92,19 @@ make sure `pwd` is the parent directory of `c3_neural_compression` and run the
 [JAXline](https://github.com/deepmind/jaxline) experiment via command:
 
 ```shell
-python3 -m experiments.image --config=c3_neural_compression/configs/kodak.py
+python3 -m experiments.image --config=configs/kodak.py
 ```
 
 or
 
 ```shell
-python3 -m experiments.image --config=c3_neural_compression/configs/clic2020.py
+python3 -m experiments.image --config=configs/clic2020.py
 ```
 
 or
 
 ```shell
-python3 -m experiments.video --config=c3_neural_compression/configs/uvg.py
+python3 -m experiments.video --config=configs/uvg.py
 ```
 
 Note that for the UVG experiment, the value of `exp.dataset.root_dir` must match the value of the `ROOT` variable used for `download_uvg.sh`.
