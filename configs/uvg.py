@@ -30,7 +30,7 @@ def get_config() -> config_dict.ConfigDict:
   # Dataset config
   exp.dataset.name = 'uvg'
   # Make sure root_dir matches the directory where data files are stored.
-  exp.dataset.root_dir = '/tmp/uvg'
+  exp.dataset.root_dir = '/home/shitty-gang/Desktop/Datasets/UVG'
   exp.dataset.num_frames = 30
   # Optionally have data loader return patches of size
   # (num_frames, *spatial_patch_size) for each datum.
