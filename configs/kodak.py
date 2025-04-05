@@ -25,6 +25,12 @@ def get_config() -> config_dict.ConfigDict:
 
   config = base.get_config()
   exp = config.experiment_kwargs.config
+  
+  # --- Enable KAN ---
+  exp.model.kan.use_kan = True
+  # Optional: Adjust KAN hyperparameters if needed
+  # exp.model.kan.grid_size = 5
+  # exp.model.kan.spline_order = 3
 
   # Dataset config
   exp.dataset.name = 'kodak'

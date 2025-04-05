@@ -63,10 +63,22 @@ def get_config() -> config_dict.ConfigDict:
   exp.model.entropy = config_dict.ConfigDict()
   exp.model.upsampling = config_dict.ConfigDict()
   exp.model.quant = config_dict.ConfigDict()
+  # Add KAN specific config
+  exp.model.kan = config_dict.ConfigDict()
+
 
   # Whether to log per-datum metrics.
   exp.log_per_datum_metrics = True
   # Log gradient norms for different sets of params
   exp.log_gradient_norms = False
+
+  # --- KAN Config ---
+  # Whether to use KAN instead of MLP in the entropy model
+  exp.model.kan.use_kan = True
+  # KAN hyperparameters (sensible defaults, may need tuning)
+  exp.model.kan.grid_size = 5  # Corresponds to 'grid' in pykan
+  exp.model.kan.spline_order = 3  # Corresponds to 'k' in pykan
+  # Width for KAN layers will be derived from entropy model layers in the model code
+
 
   return config
