@@ -1,0 +1,1643 @@
+2025-04-05 19:18:27.627851: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-04-05 19:18:27.645688: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-04-05 19:18:27.651089: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-05 19:18:28.574014: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+I0405 19:18:32.726550 135671054521856 train.py:76] Training with config:
+best_checkpoint_all_hosts: false
+best_model_eval_metric: ''
+best_model_eval_metric_higher_is_better: true
+binary_args:
+- !!python/tuple
+  - --define cudnn_embed_so
+  - 1
+- !!python/tuple
+  - --define=cuda_compress
+  - 1
+checkpoint_dir: /tmp/training/
+checkpoint_interval_type: null
+eval_initial_weights: false
+eval_modes: !!python/tuple []
+eval_specific_checkpoint_dir: ''
+experiment_kwargs:
+  config:
+    dataset:
+      name: kodak
+      num_examples: 1
+      num_frames: null
+      root_dir: /home/shitty-gang/Desktop/Datasets/Kodak
+      skip_examples: 0
+      spatial_patch_size: null
+      video_idx: null
+    eval: {}
+    log_gradient_norms: false
+    log_per_datum_metrics: true
+    loss:
+      rd_weight: 0.001
+      rd_weight_warmup_steps: 0
+    model:
+      entropy:
+        activation_fn: gelu
+        clip_like_cool_chic: true
+        conditional_spec:
+          interpolation: bilinear
+          prev_kernel_shape: &id001 !!python/tuple
+          - 3
+          - 3
+          use_conditioning: false
+          use_prev_grid: false
+        context_num_rows_cols: *id001
+        layers: &id002 !!python/tuple
+        - 18
+        - 18
+        scale_range: !!python/tuple
+        - 0.001
+        - 150
+        shift_log_scale: 8.0
+        use_linear_w_init: true
+      latents:
+        add_gains: true
+        downsampling_exponents: !!python/tuple
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        downsampling_factor: 2.0
+        gain_factor: null
+        gain_values: null
+        learnable_gains: false
+        num_grids: 7
+        q_step: 0.4
+      quant:
+        q_steps_bias:
+        - 5.0e-05
+        - 0.0001
+        - 0.0005
+        - 0.001
+        - 0.003
+        - 0.006
+        - 0.01
+        q_steps_weight:
+        - 5.0e-05
+        - 0.0001
+        - 0.0005
+        - 0.001
+        - 0.003
+        - 0.006
+        - 0.01
+      synthesis:
+        activation_fn: gelu
+        add_activation_before_residual: false
+        add_layer_norm: false
+        b_last_init_input_mean: false
+        clip_range: !!python/tuple
+        - 0.0
+        - 1.0
+        kernel_shape: 1
+        layers: *id002
+        num_residual_layers: 2
+        residual_kernel_shape: 3
+      upsampling:
+        kwargs:
+          interpolation_method: bilinear
+        type: image_resize
+    opt:
+      cosine_decay_schedule: true
+      cosine_decay_schedule_kwargs:
+        alpha: 0.0
+        decay_steps: 100000
+        init_value: 0.01
+      grad_norm_clip: 0.1
+      max_num_ste_steps: 10000
+      noise_log_every: 100
+      num_noise_steps: 100000
+      ste_break_at_lr: 1.0e-08
+      ste_init_lr: 0.0001
+      ste_log_every: 50
+      ste_lr_decay_factor: 0.8
+      ste_num_steps_not_improved: 20
+      ste_reset_params_at_lr_decay: true
+      ste_uses_cosine_decay: false
+    quant:
+      kumaraswamy_decay_steps: 100000
+      kumaraswamy_end_value: 1.0
+      kumaraswamy_init_value: 2.0
+      noise_quant_type: soft_round
+      soft_round_temp_end: 0.1
+      soft_round_temp_start: 0.3
+      ste_quant_type: ste_soft_round
+      ste_soft_round_temp: 0.0001
+      use_kumaraswamy_noise: true
+interval_type: steps
+legacy_random_seed_behavior: false
+log_all_hosts: false
+log_all_train_data: false
+log_async: true
+log_tensors_interval: 1
+log_train_data_interval: 1.0
+logging_interval_type: null
+max_checkpoints_to_keep: 5
+one_off_evaluate: false
+periodic_action_growth_ratios: null
+random_mode_eval: same_host_same_device
+random_mode_train: unique_host_unique_device
+random_seed: 0
+save_checkpoint_interval: -1
+save_initial_train_checkpoint: false
+train_checkpoint_all_hosts: false
+training_steps: 1
+
+I0405 19:18:32.753894 135671054521856 xla_bridge.py:689] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: CUDA
+I0405 19:18:32.754709 135671054521856 xla_bridge.py:689] Unable to initialize backend 'tpu': INTERNAL: Failed to open libtpu.so: libtpu.so: cannot open shared object file: No such file or directory
+I0405 19:18:33.142756 135671054521856 utils.py:309] [jaxline] experiment init starting...
+I0405 19:18:33.144363 135671054521856 utils.py:316] [jaxline] experiment init finished.
+I0405 19:18:33.189787 135671054521856 utils.py:309] [jaxline] training loop starting...
+I0405 19:18:33.290888 135671054521856 image.py:592] inputs shape: (512, 768, 3)
+I0405 19:18:33.291307 135671054521856 image.py:593] num_pixels: 393216
+I0405 19:18:34.945306 135671054521856 experiment.py:34] 526247 params, size: 2.10 MB
+I0405 19:18:34.945541 135671054521856 experiment.py:36] Parameter shapes
+I0405 19:18:34.945627 135671054521856 experiment.py:38] autoregressive_entropy_model_conv_image/~/layer_1/b: (18,)
+I0405 19:18:34.945687 135671054521856 experiment.py:38] autoregressive_entropy_model_conv_image/~/layer_1/w: (1, 1, 18, 18)
+I0405 19:18:34.945739 135671054521856 experiment.py:38] autoregressive_entropy_model_conv_image/~/layer_2/b: (2,)
+I0405 19:18:34.945788 135671054521856 experiment.py:38] autoregressive_entropy_model_conv_image/~/layer_2/w: (1, 1, 18, 2)
+I0405 19:18:34.945836 135671054521856 experiment.py:38] autoregressive_entropy_model_conv_image/~/masked_layer_0/b: (18,)
+I0405 19:18:34.945890 135671054521856 experiment.py:38] autoregressive_entropy_model_conv_image/~/masked_layer_0/w: (7, 7, 1, 18)
+I0405 19:18:34.945935 135671054521856 experiment.py:38] latent/latent_grid_0: (512, 768)
+I0405 19:18:34.945979 135671054521856 experiment.py:38] latent/latent_grid_1: (256, 384)
+I0405 19:18:34.946020 135671054521856 experiment.py:38] latent/latent_grid_2: (128, 192)
+I0405 19:18:34.946062 135671054521856 experiment.py:38] latent/latent_grid_3: (64, 96)
+I0405 19:18:34.946104 135671054521856 experiment.py:38] latent/latent_grid_4: (32, 48)
+I0405 19:18:34.946145 135671054521856 experiment.py:38] latent/latent_grid_5: (16, 24)
+I0405 19:18:34.946187 135671054521856 experiment.py:38] latent/latent_grid_6: (8, 12)
+I0405 19:18:34.946231 135671054521856 experiment.py:38] synthesis/~/conv2_d/b: (18,)
+I0405 19:18:34.946272 135671054521856 experiment.py:38] synthesis/~/conv2_d/w: (1, 1, 7, 18)
+I0405 19:18:34.946314 135671054521856 experiment.py:38] synthesis/~/conv2_d_1/b: (18,)
+I0405 19:18:34.946356 135671054521856 experiment.py:38] synthesis/~/conv2_d_1/w: (1, 1, 18, 18)
+I0405 19:18:34.946399 135671054521856 experiment.py:38] synthesis/~/conv2_d_2/b: (3,)
+I0405 19:18:34.946441 135671054521856 experiment.py:38] synthesis/~/conv2_d_2/w: (1, 1, 18, 3)
+I0405 19:18:34.946483 135671054521856 experiment.py:38] synthesis/~/residual_conv/b: (3,)
+I0405 19:18:34.946538 135671054521856 experiment.py:38] synthesis/~/residual_conv/w: (3, 3, 3, 3)
+I0405 19:18:34.946604 135671054521856 experiment.py:38] synthesis/~/residual_conv_1/b: (3,)
+I0405 19:18:34.946651 135671054521856 experiment.py:38] synthesis/~/residual_conv_1/w: (3, 3, 3, 3)
+I0405 19:18:35.135468 135671054521856 image.py:212] `single_train_step` was recompiled.
+2025-04-05 19:18:39.475833: E external/xla/xla/service/slow_operation_alarm.cc:65] Constant folding an instruction is taking > 1s:
+
+  %pad.1 = f32[514,770,3]{2,1,0} pad(f32[514,770,1]{2,1,0} %broadcast.848, f32[] %constant.271), padding=0_0x0_0x0_2, metadata={op_name="jit(single_train_step)/jit(main)/transpose(jvp(synthesis))/sequential_2/residual_wrapper_1/sequential_1/jit(_pad)/pad[padding_config=((0, 0, 0), (0, 0, 0), (0, 2, 0))]" source_file="/home/shitty-gang/Desktop/C3-orignal/model/synthesis.py" source_line=78}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime. XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be able to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+2025-04-05 19:18:39.518435: E external/xla/xla/service/slow_operation_alarm.cc:133] The operation took 1.042697739s
+Constant folding an instruction is taking > 1s:
+
+  %pad.1 = f32[514,770,3]{2,1,0} pad(f32[514,770,1]{2,1,0} %broadcast.848, f32[] %constant.271), padding=0_0x0_0x0_2, metadata={op_name="jit(single_train_step)/jit(main)/transpose(jvp(synthesis))/sequential_2/residual_wrapper_1/sequential_1/jit(_pad)/pad[padding_config=((0, 0, 0), (0, 0, 0), (0, 2, 0))]" source_file="/home/shitty-gang/Desktop/C3-orignal/model/synthesis.py" source_line=78}
+
+This isn't necessarily a bug; constant-folding is inherently a trade-off between compilation time and speed at runtime. XLA has some guards that attempt to keep constant folding from taking too long, but fundamentally you'll always be able to come up with an input program that takes a long time.
+
+If you'd like to file a bug, run with envvar XLA_FLAGS=--xla_dump_to=/tmp/foo and attach the results.
+I0405 19:18:48.121093 135671054521856 image.py:297] 0/100000+10000,loss=1.976450e-01, psnr=7.041, bpp=0.0032,
+rd_weight=1.000000e-03, soft_round_temp=3.000000e-01, time=13.1356.
+I0405 19:18:48.739053 135671054521856 image.py:297] 100/100000+10000,loss=1.972353e-02, psnr=17.101, bpp=0.2299,
+rd_weight=1.000000e-03, soft_round_temp=2.998000e-01, time=0.5988.
+I0405 19:18:49.116530 135671054521856 image.py:297] 200/100000+10000,loss=1.508377e-02, psnr=18.360, bpp=0.4959,
+rd_weight=1.000000e-03, soft_round_temp=2.996000e-01, time=0.3586.
+I0405 19:18:49.494103 135671054521856 image.py:297] 300/100000+10000,loss=7.858642e-03, psnr=21.458, bpp=0.7101,
+rd_weight=1.000000e-03, soft_round_temp=2.994000e-01, time=0.3586.
+I0405 19:18:49.872758 135671054521856 image.py:297] 400/100000+10000,loss=4.597641e-03, psnr=24.248, bpp=0.8376,
+rd_weight=1.000000e-03, soft_round_temp=2.992000e-01, time=0.3595.
+I0405 19:18:50.252967 135671054521856 image.py:297] 500/100000+10000,loss=3.796430e-03, psnr=25.374, bpp=0.8949,
+rd_weight=1.000000e-03, soft_round_temp=2.990000e-01, time=0.3611.
+I0405 19:18:50.647738 135671054521856 image.py:297] 600/100000+10000,loss=3.312169e-03, psnr=26.205, bpp=0.9158,
+rd_weight=1.000000e-03, soft_round_temp=2.988000e-01, time=0.3743.
+I0405 19:18:51.032561 135671054521856 image.py:297] 700/100000+10000,loss=2.909475e-03, psnr=27.057, bpp=0.9404,
+rd_weight=1.000000e-03, soft_round_temp=2.986000e-01, time=0.3657.
+I0405 19:18:51.415616 135671054521856 image.py:297] 800/100000+10000,loss=2.471193e-03, psnr=28.147, bpp=0.9390,
+rd_weight=1.000000e-03, soft_round_temp=2.984000e-01, time=0.3639.
+I0405 19:18:51.794795 135671054521856 image.py:297] 900/100000+10000,loss=2.325748e-03, psnr=28.557, bpp=0.9315,
+rd_weight=1.000000e-03, soft_round_temp=2.982000e-01, time=0.3600.
+I0405 19:18:52.173019 135671054521856 image.py:297] 1000/100000+10000,loss=2.389471e-03, psnr=28.363, bpp=0.9316,
+rd_weight=1.000000e-03, soft_round_temp=2.980000e-01, time=0.3593.
+I0405 19:18:52.562421 135671054521856 image.py:297] 1100/100000+10000,loss=2.154495e-03, psnr=29.116, bpp=0.9286,
+rd_weight=1.000000e-03, soft_round_temp=2.978000e-01, time=0.3699.
+I0405 19:18:52.948996 135671054521856 image.py:297] 1200/100000+10000,loss=2.143520e-03, psnr=29.153, bpp=0.9281,
+rd_weight=1.000000e-03, soft_round_temp=2.976000e-01, time=0.3669.
+I0405 19:18:53.334802 135671054521856 image.py:297] 1300/100000+10000,loss=2.070117e-03, psnr=29.416, bpp=0.9261,
+rd_weight=1.000000e-03, soft_round_temp=2.974000e-01, time=0.3658.
+I0405 19:18:53.721390 135671054521856 image.py:297] 1400/100000+10000,loss=1.988318e-03, psnr=29.739, bpp=0.9263,
+rd_weight=1.000000e-03, soft_round_temp=2.972000e-01, time=0.3671.
+I0405 19:18:54.107193 135671054521856 image.py:297] 1500/100000+10000,loss=1.994604e-03, psnr=29.691, bpp=0.9208,
+rd_weight=1.000000e-03, soft_round_temp=2.970000e-01, time=0.3664.
+I0405 19:18:54.490872 135671054521856 image.py:297] 1600/100000+10000,loss=1.952309e-03, psnr=29.880, bpp=0.9242,
+rd_weight=1.000000e-03, soft_round_temp=2.968000e-01, time=0.3646.
+I0405 19:18:54.876505 135671054521856 image.py:297] 1700/100000+10000,loss=1.931328e-03, psnr=29.923, bpp=0.9134,
+rd_weight=1.000000e-03, soft_round_temp=2.966000e-01, time=0.3660.
+I0405 19:18:55.261943 135671054521856 image.py:297] 1800/100000+10000,loss=1.893845e-03, psnr=30.140, bpp=0.9255,
+rd_weight=1.000000e-03, soft_round_temp=2.964000e-01, time=0.3656.
+I0405 19:18:55.648277 135671054521856 image.py:297] 1900/100000+10000,loss=1.942567e-03, psnr=29.876, bpp=0.9136,
+rd_weight=1.000000e-03, soft_round_temp=2.962000e-01, time=0.3671.
+I0405 19:18:56.033777 135671054521856 image.py:297] 2000/100000+10000,loss=1.951244e-03, psnr=29.832, bpp=0.9117,
+rd_weight=1.000000e-03, soft_round_temp=2.960000e-01, time=0.3657.
+I0405 19:18:56.418771 135671054521856 image.py:297] 2100/100000+10000,loss=3.695786e-03, psnr=25.601, bpp=0.9424,
+rd_weight=1.000000e-03, soft_round_temp=2.958000e-01, time=0.3651.
+I0405 19:18:56.804705 135671054521856 image.py:297] 2200/100000+10000,loss=1.754973e-03, psnr=30.770, bpp=0.9174,
+rd_weight=1.000000e-03, soft_round_temp=2.956000e-01, time=0.3665.
+I0405 19:18:57.191412 135671054521856 image.py:297] 2300/100000+10000,loss=1.793233e-03, psnr=30.528, bpp=0.9077,
+rd_weight=1.000000e-03, soft_round_temp=2.954000e-01, time=0.3674.
+I0405 19:18:57.576860 135671054521856 image.py:297] 2400/100000+10000,loss=1.734625e-03, psnr=30.825, bpp=0.9076,
+rd_weight=1.000000e-03, soft_round_temp=2.952000e-01, time=0.3658.
+I0405 19:18:57.963003 135671054521856 image.py:297] 2500/100000+10000,loss=1.720249e-03, psnr=30.879, bpp=0.9036,
+rd_weight=1.000000e-03, soft_round_temp=2.950000e-01, time=0.3668.
+I0405 19:18:58.350239 135671054521856 image.py:297] 2600/100000+10000,loss=1.793051e-03, psnr=30.506, bpp=0.9031,
+rd_weight=1.000000e-03, soft_round_temp=2.948000e-01, time=0.3682.
+I0405 19:18:58.731664 135671054521856 image.py:297] 2700/100000+10000,loss=1.722811e-03, psnr=30.863, bpp=0.9030,
+rd_weight=1.000000e-03, soft_round_temp=2.946000e-01, time=0.3625.
+I0405 19:18:59.110286 135671054521856 image.py:297] 2800/100000+10000,loss=1.751307e-03, psnr=30.750, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=2.943999e-01, time=0.3596.
+I0405 19:18:59.494130 135671054521856 image.py:297] 2900/100000+10000,loss=1.742678e-03, psnr=30.762, bpp=0.9035,
+rd_weight=1.000000e-03, soft_round_temp=2.941999e-01, time=0.3648.
+I0405 19:18:59.880865 135671054521856 image.py:297] 3000/100000+10000,loss=1.684248e-03, psnr=31.076, bpp=0.9038,
+rd_weight=1.000000e-03, soft_round_temp=2.939999e-01, time=0.3677.
+I0405 19:19:00.267062 135671054521856 image.py:297] 3100/100000+10000,loss=1.699203e-03, psnr=30.986, bpp=0.9023,
+rd_weight=1.000000e-03, soft_round_temp=2.937999e-01, time=0.3669.
+I0405 19:19:00.652299 135671054521856 image.py:297] 3200/100000+10000,loss=1.669276e-03, psnr=31.162, bpp=0.9039,
+rd_weight=1.000000e-03, soft_round_temp=2.935999e-01, time=0.3660.
+I0405 19:19:01.042334 135671054521856 image.py:297] 3300/100000+10000,loss=1.743847e-03, psnr=30.751, bpp=0.9026,
+rd_weight=1.000000e-03, soft_round_temp=2.933999e-01, time=0.3695.
+I0405 19:19:01.425306 135671054521856 image.py:297] 3400/100000+10000,loss=1.903983e-03, psnr=29.978, bpp=0.8990,
+rd_weight=1.000000e-03, soft_round_temp=2.931999e-01, time=0.3639.
+I0405 19:19:01.809790 135671054521856 image.py:297] 3500/100000+10000,loss=1.686196e-03, psnr=31.057, bpp=0.9022,
+rd_weight=1.000000e-03, soft_round_temp=2.930000e-01, time=0.3646.
+I0405 19:19:02.196537 135671054521856 image.py:297] 3600/100000+10000,loss=1.826562e-03, psnr=30.318, bpp=0.8973,
+rd_weight=1.000000e-03, soft_round_temp=2.927999e-01, time=0.3677.
+I0405 19:19:02.584115 135671054521856 image.py:297] 3700/100000+10000,loss=1.789701e-03, psnr=30.478, bpp=0.8940,
+rd_weight=1.000000e-03, soft_round_temp=2.925999e-01, time=0.3680.
+I0405 19:19:02.963454 135671054521856 image.py:297] 3800/100000+10000,loss=1.664389e-03, psnr=31.148, bpp=0.8967,
+rd_weight=1.000000e-03, soft_round_temp=2.923999e-01, time=0.3601.
+I0405 19:19:03.342408 135671054521856 image.py:297] 3900/100000+10000,loss=1.666320e-03, psnr=31.140, bpp=0.8971,
+rd_weight=1.000000e-03, soft_round_temp=2.921999e-01, time=0.3600.
+I0405 19:19:03.725984 135671054521856 image.py:297] 4000/100000+10000,loss=1.868048e-03, psnr=30.156, bpp=0.9033,
+rd_weight=1.000000e-03, soft_round_temp=2.919999e-01, time=0.3643.
+I0405 19:19:04.121623 135671054521856 image.py:297] 4100/100000+10000,loss=1.648385e-03, psnr=31.253, bpp=0.8989,
+rd_weight=1.000000e-03, soft_round_temp=2.917999e-01, time=0.3746.
+I0405 19:19:04.511232 135671054521856 image.py:297] 4200/100000+10000,loss=1.699027e-03, psnr=30.955, bpp=0.8965,
+rd_weight=1.000000e-03, soft_round_temp=2.915999e-01, time=0.3700.
+I0405 19:19:04.899649 135671054521856 image.py:297] 4300/100000+10000,loss=1.646714e-03, psnr=31.251, bpp=0.8971,
+rd_weight=1.000000e-03, soft_round_temp=2.913999e-01, time=0.3683.
+I0405 19:19:05.289416 135671054521856 image.py:297] 4400/100000+10000,loss=1.698557e-03, psnr=30.951, bpp=0.8952,
+rd_weight=1.000000e-03, soft_round_temp=2.911999e-01, time=0.3698.
+I0405 19:19:05.680675 135671054521856 image.py:297] 4500/100000+10000,loss=1.655519e-03, psnr=31.279, bpp=0.9106,
+rd_weight=1.000000e-03, soft_round_temp=2.909999e-01, time=0.3876.
+I0405 19:19:06.069154 135671054521856 image.py:297] 4600/100000+10000,loss=1.747089e-03, psnr=30.727, bpp=0.9013,
+rd_weight=1.000000e-03, soft_round_temp=2.907999e-01, time=0.3684.
+I0405 19:19:06.457900 135671054521856 image.py:297] 4700/100000+10000,loss=1.642701e-03, psnr=31.269, bpp=0.8960,
+rd_weight=1.000000e-03, soft_round_temp=2.905999e-01, time=0.3805.
+I0405 19:19:06.849095 135671054521856 image.py:297] 4800/100000+10000,loss=1.639802e-03, psnr=31.303, bpp=0.8990,
+rd_weight=1.000000e-03, soft_round_temp=2.903999e-01, time=0.3705.
+I0405 19:19:07.236443 135671054521856 image.py:297] 4900/100000+10000,loss=1.666654e-03, psnr=31.149, bpp=0.8991,
+rd_weight=1.000000e-03, soft_round_temp=2.901999e-01, time=0.3676.
+I0405 19:19:07.627775 135671054521856 image.py:297] 5000/100000+10000,loss=1.763620e-03, psnr=30.603, bpp=0.8933,
+rd_weight=1.000000e-03, soft_round_temp=2.899999e-01, time=0.3717.
+I0405 19:19:08.013658 135671054521856 image.py:297] 5100/100000+10000,loss=1.662400e-03, psnr=31.158, bpp=0.8964,
+rd_weight=1.000000e-03, soft_round_temp=2.897999e-01, time=0.3667.
+I0405 19:19:08.400111 135671054521856 image.py:297] 5200/100000+10000,loss=1.678125e-03, psnr=31.074, bpp=0.8972,
+rd_weight=1.000000e-03, soft_round_temp=2.895999e-01, time=0.3662.
+I0405 19:19:08.785674 135671054521856 image.py:297] 5300/100000+10000,loss=1.740807e-03, psnr=30.729, bpp=0.8954,
+rd_weight=1.000000e-03, soft_round_temp=2.893999e-01, time=0.3662.
+I0405 19:19:09.170516 135671054521856 image.py:297] 5400/100000+10000,loss=1.674922e-03, psnr=31.073, bpp=0.8938,
+rd_weight=1.000000e-03, soft_round_temp=2.891999e-01, time=0.3744.
+I0405 19:19:09.556625 135671054521856 image.py:297] 5500/100000+10000,loss=1.605057e-03, psnr=31.477, bpp=0.8933,
+rd_weight=1.000000e-03, soft_round_temp=2.889999e-01, time=0.3661.
+I0405 19:19:09.942522 135671054521856 image.py:297] 5600/100000+10000,loss=1.663874e-03, psnr=31.157, bpp=0.8977,
+rd_weight=1.000000e-03, soft_round_temp=2.887999e-01, time=0.3662.
+I0405 19:19:10.328038 135671054521856 image.py:297] 5700/100000+10000,loss=1.607455e-03, psnr=31.473, bpp=0.8950,
+rd_weight=1.000000e-03, soft_round_temp=2.885999e-01, time=0.3662.
+I0405 19:19:10.713257 135671054521856 image.py:297] 5800/100000+10000,loss=1.730199e-03, psnr=30.809, bpp=0.9002,
+rd_weight=1.000000e-03, soft_round_temp=2.883999e-01, time=0.3651.
+I0405 19:19:11.098254 135671054521856 image.py:297] 5900/100000+10000,loss=1.646218e-03, psnr=31.271, bpp=0.8999,
+rd_weight=1.000000e-03, soft_round_temp=2.881999e-01, time=0.3648.
+I0405 19:19:11.483837 135671054521856 image.py:297] 6000/100000+10000,loss=1.640506e-03, psnr=31.276, bpp=0.8951,
+rd_weight=1.000000e-03, soft_round_temp=2.879999e-01, time=0.3658.
+I0405 19:19:11.869828 135671054521856 image.py:297] 6100/100000+10000,loss=1.652559e-03, psnr=31.218, bpp=0.8972,
+rd_weight=1.000000e-03, soft_round_temp=2.877999e-01, time=0.3663.
+I0405 19:19:12.255201 135671054521856 image.py:297] 6200/100000+10000,loss=1.602742e-03, psnr=31.496, bpp=0.8942,
+rd_weight=1.000000e-03, soft_round_temp=2.875999e-01, time=0.3656.
+I0405 19:19:12.641240 135671054521856 image.py:297] 6300/100000+10000,loss=1.615034e-03, psnr=31.425, bpp=0.8948,
+rd_weight=1.000000e-03, soft_round_temp=2.873999e-01, time=0.3661.
+I0405 19:19:13.027084 135671054521856 image.py:297] 6400/100000+10000,loss=1.602887e-03, psnr=31.501, bpp=0.8950,
+rd_weight=1.000000e-03, soft_round_temp=2.871999e-01, time=0.3667.
+I0405 19:19:13.413945 135671054521856 image.py:297] 6500/100000+10000,loss=1.670913e-03, psnr=31.085, bpp=0.8920,
+rd_weight=1.000000e-03, soft_round_temp=2.869999e-01, time=0.3666.
+I0405 19:19:13.803115 135671054521856 image.py:297] 6600/100000+10000,loss=1.621466e-03, psnr=31.375, bpp=0.8929,
+rd_weight=1.000000e-03, soft_round_temp=2.867999e-01, time=0.3700.
+I0405 19:19:14.189387 135671054521856 image.py:297] 6700/100000+10000,loss=1.642877e-03, psnr=31.238, bpp=0.8910,
+rd_weight=1.000000e-03, soft_round_temp=2.865999e-01, time=0.3666.
+I0405 19:19:14.575691 135671054521856 image.py:297] 6800/100000+10000,loss=1.634227e-03, psnr=31.306, bpp=0.8940,
+rd_weight=1.000000e-03, soft_round_temp=2.863999e-01, time=0.3662.
+I0405 19:19:14.963493 135671054521856 image.py:297] 6900/100000+10000,loss=1.637891e-03, psnr=31.276, bpp=0.8925,
+rd_weight=1.000000e-03, soft_round_temp=2.861999e-01, time=0.3682.
+I0405 19:19:15.348390 135671054521856 image.py:297] 7000/100000+10000,loss=1.588822e-03, psnr=31.594, bpp=0.8960,
+rd_weight=1.000000e-03, soft_round_temp=2.859999e-01, time=0.3659.
+I0405 19:19:15.734120 135671054521856 image.py:297] 7100/100000+10000,loss=1.628414e-03, psnr=31.316, bpp=0.8898,
+rd_weight=1.000000e-03, soft_round_temp=2.857999e-01, time=0.3656.
+I0405 19:19:16.122848 135671054521856 image.py:297] 7200/100000+10000,loss=1.892322e-03, psnr=29.983, bpp=0.8885,
+rd_weight=1.000000e-03, soft_round_temp=2.855999e-01, time=0.3693.
+I0405 19:19:16.509098 135671054521856 image.py:297] 7300/100000+10000,loss=1.738796e-03, psnr=30.706, bpp=0.8888,
+rd_weight=1.000000e-03, soft_round_temp=2.853999e-01, time=0.3671.
+I0405 19:19:16.902969 135671054521856 image.py:297] 7400/100000+10000,loss=1.614660e-03, psnr=31.383, bpp=0.8874,
+rd_weight=1.000000e-03, soft_round_temp=2.851999e-01, time=0.3741.
+I0405 19:19:17.294035 135671054521856 image.py:297] 7500/100000+10000,loss=1.632966e-03, psnr=31.281, bpp=0.8884,
+rd_weight=1.000000e-03, soft_round_temp=2.849998e-01, time=0.3703.
+I0405 19:19:17.684020 135671054521856 image.py:297] 7600/100000+10000,loss=1.705901e-03, psnr=30.949, bpp=0.9021,
+rd_weight=1.000000e-03, soft_round_temp=2.847998e-01, time=0.3707.
+I0405 19:19:18.075545 135671054521856 image.py:297] 7700/100000+10000,loss=1.623043e-03, psnr=31.348, bpp=0.8898,
+rd_weight=1.000000e-03, soft_round_temp=2.845999e-01, time=0.3719.
+I0405 19:19:18.472068 135671054521856 image.py:297] 7800/100000+10000,loss=1.625224e-03, psnr=31.346, bpp=0.8917,
+rd_weight=1.000000e-03, soft_round_temp=2.843998e-01, time=0.3770.
+I0405 19:19:18.853888 135671054521856 image.py:297] 7900/100000+10000,loss=1.641583e-03, psnr=31.244, bpp=0.8906,
+rd_weight=1.000000e-03, soft_round_temp=2.841999e-01, time=0.3626.
+I0405 19:19:19.243564 135671054521856 image.py:297] 8000/100000+10000,loss=1.607675e-03, psnr=31.451, bpp=0.8917,
+rd_weight=1.000000e-03, soft_round_temp=2.839998e-01, time=0.3692.
+I0405 19:19:19.624084 135671054521856 image.py:297] 8100/100000+10000,loss=1.633028e-03, psnr=31.297, bpp=0.8911,
+rd_weight=1.000000e-03, soft_round_temp=2.837999e-01, time=0.3614.
+I0405 19:19:20.006198 135671054521856 image.py:297] 8200/100000+10000,loss=1.591297e-03, psnr=31.541, bpp=0.8899,
+rd_weight=1.000000e-03, soft_round_temp=2.835998e-01, time=0.3622.
+I0405 19:19:20.392971 135671054521856 image.py:297] 8300/100000+10000,loss=1.600675e-03, psnr=31.485, bpp=0.8902,
+rd_weight=1.000000e-03, soft_round_temp=2.833999e-01, time=0.3678.
+I0405 19:19:20.777578 135671054521856 image.py:297] 8400/100000+10000,loss=1.588698e-03, psnr=31.568, bpp=0.8917,
+rd_weight=1.000000e-03, soft_round_temp=2.831998e-01, time=0.3651.
+I0405 19:19:21.164497 135671054521856 image.py:297] 8500/100000+10000,loss=1.626775e-03, psnr=31.340, bpp=0.8922,
+rd_weight=1.000000e-03, soft_round_temp=2.829998e-01, time=0.3679.
+I0405 19:19:21.544303 135671054521856 image.py:297] 8600/100000+10000,loss=1.570196e-03, psnr=31.683, bpp=0.8915,
+rd_weight=1.000000e-03, soft_round_temp=2.827998e-01, time=0.3607.
+I0405 19:19:21.924635 135671054521856 image.py:297] 8700/100000+10000,loss=1.596404e-03, psnr=31.501, bpp=0.8886,
+rd_weight=1.000000e-03, soft_round_temp=2.825998e-01, time=0.3604.
+I0405 19:19:22.310868 135671054521856 image.py:297] 8800/100000+10000,loss=1.585533e-03, psnr=31.557, bpp=0.8869,
+rd_weight=1.000000e-03, soft_round_temp=2.823998e-01, time=0.3671.
+I0405 19:19:22.691103 135671054521856 image.py:297] 8900/100000+10000,loss=1.659232e-03, psnr=31.131, bpp=0.8886,
+rd_weight=1.000000e-03, soft_round_temp=2.821998e-01, time=0.3609.
+I0405 19:19:23.074710 135671054521856 image.py:297] 9000/100000+10000,loss=1.632342e-03, psnr=31.299, bpp=0.8908,
+rd_weight=1.000000e-03, soft_round_temp=2.819998e-01, time=0.3646.
+I0405 19:19:23.457173 135671054521856 image.py:297] 9100/100000+10000,loss=1.726660e-03, psnr=30.799, bpp=0.8947,
+rd_weight=1.000000e-03, soft_round_temp=2.817998e-01, time=0.3634.
+I0405 19:19:23.836941 135671054521856 image.py:297] 9200/100000+10000,loss=1.589360e-03, psnr=31.533, bpp=0.8868,
+rd_weight=1.000000e-03, soft_round_temp=2.815998e-01, time=0.3603.
+I0405 19:19:24.218189 135671054521856 image.py:297] 9300/100000+10000,loss=1.575702e-03, psnr=31.641, bpp=0.8903,
+rd_weight=1.000000e-03, soft_round_temp=2.813998e-01, time=0.3622.
+I0405 19:19:24.600539 135671054521856 image.py:297] 9400/100000+10000,loss=1.559354e-03, psnr=31.708, bpp=0.8844,
+rd_weight=1.000000e-03, soft_round_temp=2.811998e-01, time=0.3629.
+I0405 19:19:24.983340 135671054521856 image.py:297] 9500/100000+10000,loss=1.567435e-03, psnr=31.678, bpp=0.8879,
+rd_weight=1.000000e-03, soft_round_temp=2.809998e-01, time=0.3632.
+I0405 19:19:25.368241 135671054521856 image.py:297] 9600/100000+10000,loss=1.602787e-03, psnr=31.453, bpp=0.8871,
+rd_weight=1.000000e-03, soft_round_temp=2.807998e-01, time=0.3652.
+I0405 19:19:25.758636 135671054521856 image.py:297] 9700/100000+10000,loss=1.682888e-03, psnr=30.980, bpp=0.8850,
+rd_weight=1.000000e-03, soft_round_temp=2.805998e-01, time=0.3704.
+I0405 19:19:26.139984 135671054521856 image.py:297] 9800/100000+10000,loss=1.591055e-03, psnr=31.532, bpp=0.8883,
+rd_weight=1.000000e-03, soft_round_temp=2.803998e-01, time=0.3620.
+I0405 19:19:26.519284 135671054521856 image.py:297] 9900/100000+10000,loss=1.562428e-03, psnr=31.703, bpp=0.8869,
+rd_weight=1.000000e-03, soft_round_temp=2.801998e-01, time=0.3602.
+I0405 19:19:26.903350 135671054521856 image.py:297] 10000/100000+10000,loss=1.569073e-03, psnr=31.643, bpp=0.8840,
+rd_weight=1.000000e-03, soft_round_temp=2.799998e-01, time=0.3642.
+I0405 19:19:27.286213 135671054521856 image.py:297] 10100/100000+10000,loss=1.578852e-03, psnr=31.596, bpp=0.8864,
+rd_weight=1.000000e-03, soft_round_temp=2.797998e-01, time=0.3632.
+I0405 19:19:27.669854 135671054521856 image.py:297] 10200/100000+10000,loss=1.594132e-03, psnr=31.510, bpp=0.8878,
+rd_weight=1.000000e-03, soft_round_temp=2.795998e-01, time=0.3706.
+I0405 19:19:28.063901 135671054521856 image.py:297] 10300/100000+10000,loss=1.569064e-03, psnr=31.666, bpp=0.8877,
+rd_weight=1.000000e-03, soft_round_temp=2.793998e-01, time=0.3740.
+I0405 19:19:28.448711 135671054521856 image.py:297] 10400/100000+10000,loss=1.573523e-03, psnr=31.613, bpp=0.8837,
+rd_weight=1.000000e-03, soft_round_temp=2.791998e-01, time=0.3656.
+I0405 19:19:28.828952 135671054521856 image.py:297] 10500/100000+10000,loss=1.558891e-03, psnr=31.732, bpp=0.8877,
+rd_weight=1.000000e-03, soft_round_temp=2.789998e-01, time=0.3610.
+I0405 19:19:29.208665 135671054521856 image.py:297] 10600/100000+10000,loss=1.667927e-03, psnr=31.073, bpp=0.8869,
+rd_weight=1.000000e-03, soft_round_temp=2.787998e-01, time=0.3603.
+I0405 19:19:29.589673 135671054521856 image.py:297] 10700/100000+10000,loss=1.552013e-03, psnr=31.753, bpp=0.8841,
+rd_weight=1.000000e-03, soft_round_temp=2.785998e-01, time=0.3619.
+I0405 19:19:29.973362 135671054521856 image.py:297] 10800/100000+10000,loss=1.557271e-03, psnr=31.717, bpp=0.8839,
+rd_weight=1.000000e-03, soft_round_temp=2.783998e-01, time=0.3646.
+I0405 19:19:30.354864 135671054521856 image.py:297] 10900/100000+10000,loss=1.552268e-03, psnr=31.753, bpp=0.8843,
+rd_weight=1.000000e-03, soft_round_temp=2.781998e-01, time=0.3622.
+I0405 19:19:30.738532 135671054521856 image.py:297] 11000/100000+10000,loss=1.550902e-03, psnr=31.781, bpp=0.8874,
+rd_weight=1.000000e-03, soft_round_temp=2.779998e-01, time=0.3646.
+I0405 19:19:31.117350 135671054521856 image.py:297] 11100/100000+10000,loss=1.564446e-03, psnr=31.670, bpp=0.8836,
+rd_weight=1.000000e-03, soft_round_temp=2.777998e-01, time=0.3598.
+I0405 19:19:31.501846 135671054521856 image.py:297] 11200/100000+10000,loss=1.576779e-03, psnr=31.594, bpp=0.8840,
+rd_weight=1.000000e-03, soft_round_temp=2.775998e-01, time=0.3652.
+I0405 19:19:31.884632 135671054521856 image.py:297] 11300/100000+10000,loss=1.612892e-03, psnr=31.362, bpp=0.8821,
+rd_weight=1.000000e-03, soft_round_temp=2.773998e-01, time=0.3634.
+I0405 19:19:32.263375 135671054521856 image.py:297] 11400/100000+10000,loss=1.624706e-03, psnr=31.299, bpp=0.8832,
+rd_weight=1.000000e-03, soft_round_temp=2.771998e-01, time=0.3595.
+I0405 19:19:32.642709 135671054521856 image.py:297] 11500/100000+10000,loss=1.584912e-03, psnr=31.512, bpp=0.8789,
+rd_weight=1.000000e-03, soft_round_temp=2.769998e-01, time=0.3604.
+I0405 19:19:33.021733 135671054521856 image.py:297] 11600/100000+10000,loss=1.639822e-03, psnr=31.203, bpp=0.8817,
+rd_weight=1.000000e-03, soft_round_temp=2.767998e-01, time=0.3601.
+I0405 19:19:33.403728 135671054521856 image.py:297] 11700/100000+10000,loss=1.573985e-03, psnr=31.589, bpp=0.8803,
+rd_weight=1.000000e-03, soft_round_temp=2.765998e-01, time=0.3627.
+I0405 19:19:33.783703 135671054521856 image.py:297] 11800/100000+10000,loss=1.554331e-03, psnr=31.717, bpp=0.8809,
+rd_weight=1.000000e-03, soft_round_temp=2.763998e-01, time=0.3609.
+I0405 19:19:34.164736 135671054521856 image.py:297] 11900/100000+10000,loss=1.567053e-03, psnr=31.635, bpp=0.8808,
+rd_weight=1.000000e-03, soft_round_temp=2.761998e-01, time=0.3620.
+I0405 19:19:34.544232 135671054521856 image.py:297] 12000/100000+10000,loss=1.624860e-03, psnr=31.300, bpp=0.8836,
+rd_weight=1.000000e-03, soft_round_temp=2.759998e-01, time=0.3599.
+I0405 19:19:34.928763 135671054521856 image.py:297] 12100/100000+10000,loss=1.573270e-03, psnr=31.601, bpp=0.8816,
+rd_weight=1.000000e-03, soft_round_temp=2.757998e-01, time=0.3651.
+I0405 19:19:35.307564 135671054521856 image.py:297] 12200/100000+10000,loss=1.577565e-03, psnr=31.583, bpp=0.8830,
+rd_weight=1.000000e-03, soft_round_temp=2.755997e-01, time=0.3597.
+I0405 19:19:35.690351 135671054521856 image.py:297] 12300/100000+10000,loss=1.607393e-03, psnr=31.389, bpp=0.8810,
+rd_weight=1.000000e-03, soft_round_temp=2.753998e-01, time=0.3631.
+I0405 19:19:36.071498 135671054521856 image.py:297] 12400/100000+10000,loss=1.590128e-03, psnr=31.488, bpp=0.8802,
+rd_weight=1.000000e-03, soft_round_temp=2.751997e-01, time=0.3619.
+I0405 19:19:36.452380 135671054521856 image.py:297] 12500/100000+10000,loss=1.580741e-03, psnr=31.567, bpp=0.8837,
+rd_weight=1.000000e-03, soft_round_temp=2.749998e-01, time=0.3618.
+I0405 19:19:36.831795 135671054521856 image.py:297] 12600/100000+10000,loss=1.562804e-03, psnr=31.668, bpp=0.8817,
+rd_weight=1.000000e-03, soft_round_temp=2.747998e-01, time=0.3600.
+I0405 19:19:37.210936 135671054521856 image.py:297] 12700/100000+10000,loss=1.556055e-03, psnr=31.698, bpp=0.8797,
+rd_weight=1.000000e-03, soft_round_temp=2.745998e-01, time=0.3600.
+I0405 19:19:37.592108 135671054521856 image.py:297] 12800/100000+10000,loss=1.537723e-03, psnr=31.827, bpp=0.8811,
+rd_weight=1.000000e-03, soft_round_temp=2.743998e-01, time=0.3613.
+I0405 19:19:37.971820 135671054521856 image.py:297] 12900/100000+10000,loss=1.563864e-03, psnr=31.650, bpp=0.8799,
+rd_weight=1.000000e-03, soft_round_temp=2.741998e-01, time=0.3606.
+I0405 19:19:38.352161 135671054521856 image.py:297] 13000/100000+10000,loss=1.594190e-03, psnr=31.479, bpp=0.8827,
+rd_weight=1.000000e-03, soft_round_temp=2.739998e-01, time=0.3612.
+I0405 19:19:38.731470 135671054521856 image.py:297] 13100/100000+10000,loss=1.543364e-03, psnr=31.778, bpp=0.8794,
+rd_weight=1.000000e-03, soft_round_temp=2.737997e-01, time=0.3604.
+I0405 19:19:39.115533 135671054521856 image.py:297] 13200/100000+10000,loss=1.585049e-03, psnr=31.508, bpp=0.8783,
+rd_weight=1.000000e-03, soft_round_temp=2.735997e-01, time=0.3651.
+I0405 19:19:39.497980 135671054521856 image.py:297] 13300/100000+10000,loss=1.551454e-03, psnr=31.731, bpp=0.8801,
+rd_weight=1.000000e-03, soft_round_temp=2.733997e-01, time=0.3626.
+I0405 19:19:39.880403 135671054521856 image.py:297] 13400/100000+10000,loss=1.570705e-03, psnr=31.620, bpp=0.8821,
+rd_weight=1.000000e-03, soft_round_temp=2.731997e-01, time=0.3634.
+I0405 19:19:40.268123 135671054521856 image.py:297] 13500/100000+10000,loss=1.608090e-03, psnr=31.377, bpp=0.8798,
+rd_weight=1.000000e-03, soft_round_temp=2.729997e-01, time=0.3679.
+I0405 19:19:40.654673 135671054521856 image.py:297] 13600/100000+10000,loss=1.618664e-03, psnr=31.321, bpp=0.8809,
+rd_weight=1.000000e-03, soft_round_temp=2.727997e-01, time=0.3674.
+I0405 19:19:41.033637 135671054521856 image.py:297] 13700/100000+10000,loss=1.539979e-03, psnr=31.820, bpp=0.8823,
+rd_weight=1.000000e-03, soft_round_temp=2.725997e-01, time=0.3600.
+I0405 19:19:41.414304 135671054521856 image.py:297] 13800/100000+10000,loss=1.546064e-03, psnr=31.771, bpp=0.8810,
+rd_weight=1.000000e-03, soft_round_temp=2.723997e-01, time=0.3617.
+I0405 19:19:41.794984 135671054521856 image.py:297] 13900/100000+10000,loss=1.554161e-03, psnr=31.711, bpp=0.8798,
+rd_weight=1.000000e-03, soft_round_temp=2.721997e-01, time=0.3616.
+I0405 19:19:42.174229 135671054521856 image.py:297] 14000/100000+10000,loss=1.572865e-03, psnr=31.610, bpp=0.8826,
+rd_weight=1.000000e-03, soft_round_temp=2.719997e-01, time=0.3600.
+I0405 19:19:42.555325 135671054521856 image.py:297] 14100/100000+10000,loss=1.560555e-03, psnr=31.676, bpp=0.8807,
+rd_weight=1.000000e-03, soft_round_temp=2.717997e-01, time=0.3621.
+I0405 19:19:42.934435 135671054521856 image.py:297] 14200/100000+10000,loss=1.530284e-03, psnr=31.860, bpp=0.8786,
+rd_weight=1.000000e-03, soft_round_temp=2.715997e-01, time=0.3600.
+I0405 19:19:43.315259 135671054521856 image.py:297] 14300/100000+10000,loss=1.614087e-03, psnr=31.346, bpp=0.8806,
+rd_weight=1.000000e-03, soft_round_temp=2.713997e-01, time=0.3618.
+I0405 19:19:43.706307 135671054521856 image.py:297] 14400/100000+10000,loss=1.600882e-03, psnr=31.409, bpp=0.8780,
+rd_weight=1.000000e-03, soft_round_temp=2.711997e-01, time=0.3719.
+I0405 19:19:44.095110 135671054521856 image.py:297] 14500/100000+10000,loss=1.628629e-03, psnr=31.280, bpp=0.8839,
+rd_weight=1.000000e-03, soft_round_temp=2.709997e-01, time=0.3689.
+I0405 19:19:44.474250 135671054521856 image.py:297] 14600/100000+10000,loss=1.537880e-03, psnr=31.825, bpp=0.8809,
+rd_weight=1.000000e-03, soft_round_temp=2.707997e-01, time=0.3601.
+I0405 19:19:44.854270 135671054521856 image.py:297] 14700/100000+10000,loss=1.543753e-03, psnr=31.774, bpp=0.8790,
+rd_weight=1.000000e-03, soft_round_temp=2.705997e-01, time=0.3611.
+I0405 19:19:45.233565 135671054521856 image.py:297] 14800/100000+10000,loss=1.591309e-03, psnr=31.493, bpp=0.8822,
+rd_weight=1.000000e-03, soft_round_temp=2.703997e-01, time=0.3603.
+I0405 19:19:45.614167 135671054521856 image.py:297] 14900/100000+10000,loss=1.648159e-03, psnr=31.163, bpp=0.8831,
+rd_weight=1.000000e-03, soft_round_temp=2.701997e-01, time=0.3616.
+I0405 19:19:45.994098 135671054521856 image.py:297] 15000/100000+10000,loss=1.581679e-03, psnr=31.538, bpp=0.8799,
+rd_weight=1.000000e-03, soft_round_temp=2.699997e-01, time=0.3608.
+I0405 19:19:46.373419 135671054521856 image.py:297] 15100/100000+10000,loss=1.577443e-03, psnr=31.567, bpp=0.8804,
+rd_weight=1.000000e-03, soft_round_temp=2.697997e-01, time=0.3603.
+I0405 19:19:46.754251 135671054521856 image.py:297] 15200/100000+10000,loss=1.552821e-03, psnr=31.723, bpp=0.8803,
+rd_weight=1.000000e-03, soft_round_temp=2.695997e-01, time=0.3617.
+I0405 19:19:47.134361 135671054521856 image.py:297] 15300/100000+10000,loss=1.581440e-03, psnr=31.538, bpp=0.8797,
+rd_weight=1.000000e-03, soft_round_temp=2.693997e-01, time=0.3610.
+I0405 19:19:47.514151 135671054521856 image.py:297] 15400/100000+10000,loss=1.576523e-03, psnr=31.578, bpp=0.8813,
+rd_weight=1.000000e-03, soft_round_temp=2.691997e-01, time=0.3605.
+I0405 19:19:47.894140 135671054521856 image.py:297] 15500/100000+10000,loss=1.539992e-03, psnr=31.817, bpp=0.8819,
+rd_weight=1.000000e-03, soft_round_temp=2.689997e-01, time=0.3609.
+I0405 19:19:48.274461 135671054521856 image.py:297] 15600/100000+10000,loss=1.554438e-03, psnr=31.727, bpp=0.8826,
+rd_weight=1.000000e-03, soft_round_temp=2.687997e-01, time=0.3613.
+I0405 19:19:48.654355 135671054521856 image.py:297] 15700/100000+10000,loss=1.541269e-03, psnr=31.783, bpp=0.8780,
+rd_weight=1.000000e-03, soft_round_temp=2.685997e-01, time=0.3610.
+I0405 19:19:49.035076 135671054521856 image.py:297] 15800/100000+10000,loss=1.537019e-03, psnr=31.850, bpp=0.8839,
+rd_weight=1.000000e-03, soft_round_temp=2.683997e-01, time=0.3617.
+I0405 19:19:49.415292 135671054521856 image.py:297] 15900/100000+10000,loss=1.559219e-03, psnr=31.679, bpp=0.8799,
+rd_weight=1.000000e-03, soft_round_temp=2.681997e-01, time=0.3611.
+I0405 19:19:49.795339 135671054521856 image.py:297] 16000/100000+10000,loss=1.551625e-03, psnr=31.732, bpp=0.8805,
+rd_weight=1.000000e-03, soft_round_temp=2.679997e-01, time=0.3610.
+I0405 19:19:50.175380 135671054521856 image.py:297] 16100/100000+10000,loss=1.553157e-03, psnr=31.728, bpp=0.8814,
+rd_weight=1.000000e-03, soft_round_temp=2.677997e-01, time=0.3609.
+I0405 19:19:50.555031 135671054521856 image.py:297] 16200/100000+10000,loss=1.542391e-03, psnr=31.794, bpp=0.8808,
+rd_weight=1.000000e-03, soft_round_temp=2.675997e-01, time=0.3606.
+I0405 19:19:50.935910 135671054521856 image.py:297] 16300/100000+10000,loss=1.536615e-03, psnr=31.838, bpp=0.8816,
+rd_weight=1.000000e-03, soft_round_temp=2.673997e-01, time=0.3618.
+I0405 19:19:51.315880 135671054521856 image.py:297] 16400/100000+10000,loss=1.567133e-03, psnr=31.639, bpp=0.8815,
+rd_weight=1.000000e-03, soft_round_temp=2.671997e-01, time=0.3609.
+I0405 19:19:51.695732 135671054521856 image.py:297] 16500/100000+10000,loss=1.536472e-03, psnr=31.836, bpp=0.8812,
+rd_weight=1.000000e-03, soft_round_temp=2.669997e-01, time=0.3608.
+I0405 19:19:52.075564 135671054521856 image.py:297] 16600/100000+10000,loss=1.538095e-03, psnr=31.824, bpp=0.8811,
+rd_weight=1.000000e-03, soft_round_temp=2.667997e-01, time=0.3607.
+I0405 19:19:52.455702 135671054521856 image.py:297] 16700/100000+10000,loss=1.544333e-03, psnr=31.775, bpp=0.8799,
+rd_weight=1.000000e-03, soft_round_temp=2.665997e-01, time=0.3610.
+I0405 19:19:52.835995 135671054521856 image.py:297] 16800/100000+10000,loss=1.559206e-03, psnr=31.690, bpp=0.8816,
+rd_weight=1.000000e-03, soft_round_temp=2.663997e-01, time=0.3612.
+I0405 19:19:53.216060 135671054521856 image.py:297] 16900/100000+10000,loss=1.601271e-03, psnr=31.420, bpp=0.8802,
+rd_weight=1.000000e-03, soft_round_temp=2.661997e-01, time=0.3610.
+I0405 19:19:53.596528 135671054521856 image.py:297] 17000/100000+10000,loss=1.535218e-03, psnr=31.851, bpp=0.8823,
+rd_weight=1.000000e-03, soft_round_temp=2.659997e-01, time=0.3607.
+I0405 19:19:53.975846 135671054521856 image.py:297] 17100/100000+10000,loss=1.535638e-03, psnr=31.847, bpp=0.8820,
+rd_weight=1.000000e-03, soft_round_temp=2.657997e-01, time=0.3603.
+I0405 19:19:54.355999 135671054521856 image.py:297] 17200/100000+10000,loss=1.544696e-03, psnr=31.803, bpp=0.8845,
+rd_weight=1.000000e-03, soft_round_temp=2.655997e-01, time=0.3609.
+I0405 19:19:54.735970 135671054521856 image.py:297] 17300/100000+10000,loss=1.536865e-03, psnr=31.835, bpp=0.8814,
+rd_weight=1.000000e-03, soft_round_temp=2.653997e-01, time=0.3608.
+I0405 19:19:55.115659 135671054521856 image.py:297] 17400/100000+10000,loss=1.535365e-03, psnr=31.834, bpp=0.8798,
+rd_weight=1.000000e-03, soft_round_temp=2.651997e-01, time=0.3607.
+I0405 19:19:55.495836 135671054521856 image.py:297] 17500/100000+10000,loss=1.549110e-03, psnr=31.744, bpp=0.8798,
+rd_weight=1.000000e-03, soft_round_temp=2.649997e-01, time=0.3610.
+I0405 19:19:55.876111 135671054521856 image.py:297] 17600/100000+10000,loss=1.544546e-03, psnr=31.786, bpp=0.8818,
+rd_weight=1.000000e-03, soft_round_temp=2.647997e-01, time=0.3610.
+I0405 19:19:56.256421 135671054521856 image.py:297] 17700/100000+10000,loss=1.533368e-03, psnr=31.850, bpp=0.8802,
+rd_weight=1.000000e-03, soft_round_temp=2.645997e-01, time=0.3612.
+I0405 19:19:56.636584 135671054521856 image.py:297] 17800/100000+10000,loss=1.540408e-03, psnr=31.795, bpp=0.8790,
+rd_weight=1.000000e-03, soft_round_temp=2.643996e-01, time=0.3610.
+I0405 19:19:57.016380 135671054521856 image.py:297] 17900/100000+10000,loss=1.543456e-03, psnr=31.800, bpp=0.8828,
+rd_weight=1.000000e-03, soft_round_temp=2.641996e-01, time=0.3607.
+I0405 19:19:57.396234 135671054521856 image.py:297] 18000/100000+10000,loss=1.544043e-03, psnr=31.790, bpp=0.8818,
+rd_weight=1.000000e-03, soft_round_temp=2.639996e-01, time=0.3609.
+I0405 19:19:57.776236 135671054521856 image.py:297] 18100/100000+10000,loss=1.543662e-03, psnr=31.799, bpp=0.8828,
+rd_weight=1.000000e-03, soft_round_temp=2.637996e-01, time=0.3608.
+I0405 19:19:58.156067 135671054521856 image.py:297] 18200/100000+10000,loss=1.549842e-03, psnr=31.747, bpp=0.8811,
+rd_weight=1.000000e-03, soft_round_temp=2.635996e-01, time=0.3608.
+I0405 19:19:58.536113 135671054521856 image.py:297] 18300/100000+10000,loss=1.546016e-03, psnr=31.774, bpp=0.8814,
+rd_weight=1.000000e-03, soft_round_temp=2.633996e-01, time=0.3609.
+I0405 19:19:58.915655 135671054521856 image.py:297] 18400/100000+10000,loss=1.555026e-03, psnr=31.717, bpp=0.8816,
+rd_weight=1.000000e-03, soft_round_temp=2.631997e-01, time=0.3605.
+I0405 19:19:59.295122 135671054521856 image.py:297] 18500/100000+10000,loss=1.565230e-03, psnr=31.639, bpp=0.8797,
+rd_weight=1.000000e-03, soft_round_temp=2.629996e-01, time=0.3604.
+I0405 19:19:59.674545 135671054521856 image.py:297] 18600/100000+10000,loss=1.546409e-03, psnr=31.775, bpp=0.8819,
+rd_weight=1.000000e-03, soft_round_temp=2.627996e-01, time=0.3604.
+I0405 19:20:00.055565 135671054521856 image.py:297] 18700/100000+10000,loss=1.564148e-03, psnr=31.670, bpp=0.8835,
+rd_weight=1.000000e-03, soft_round_temp=2.625996e-01, time=0.3618.
+I0405 19:20:00.434932 135671054521856 image.py:297] 18800/100000+10000,loss=1.541414e-03, psnr=31.798, bpp=0.8804,
+rd_weight=1.000000e-03, soft_round_temp=2.623996e-01, time=0.3603.
+I0405 19:20:00.814265 135671054521856 image.py:297] 18900/100000+10000,loss=1.553597e-03, psnr=31.732, bpp=0.8824,
+rd_weight=1.000000e-03, soft_round_temp=2.621996e-01, time=0.3602.
+I0405 19:20:01.193549 135671054521856 image.py:297] 19000/100000+10000,loss=1.532106e-03, psnr=31.850, bpp=0.8789,
+rd_weight=1.000000e-03, soft_round_temp=2.619996e-01, time=0.3603.
+I0405 19:20:01.573069 135671054521856 image.py:297] 19100/100000+10000,loss=1.548301e-03, psnr=31.751, bpp=0.8801,
+rd_weight=1.000000e-03, soft_round_temp=2.617996e-01, time=0.3605.
+I0405 19:20:01.952460 135671054521856 image.py:297] 19200/100000+10000,loss=1.584500e-03, psnr=31.528, bpp=0.8811,
+rd_weight=1.000000e-03, soft_round_temp=2.615996e-01, time=0.3604.
+I0405 19:20:02.331849 135671054521856 image.py:297] 19300/100000+10000,loss=1.552140e-03, psnr=31.731, bpp=0.8809,
+rd_weight=1.000000e-03, soft_round_temp=2.613996e-01, time=0.3605.
+I0405 19:20:02.711234 135671054521856 image.py:297] 19400/100000+10000,loss=1.560635e-03, psnr=31.677, bpp=0.8809,
+rd_weight=1.000000e-03, soft_round_temp=2.611996e-01, time=0.3604.
+I0405 19:20:03.090739 135671054521856 image.py:297] 19500/100000+10000,loss=1.577616e-03, psnr=31.570, bpp=0.8810,
+rd_weight=1.000000e-03, soft_round_temp=2.609996e-01, time=0.3606.
+I0405 19:20:03.470362 135671054521856 image.py:297] 19600/100000+10000,loss=1.555576e-03, psnr=31.725, bpp=0.8834,
+rd_weight=1.000000e-03, soft_round_temp=2.607996e-01, time=0.3606.
+I0405 19:20:03.849771 135671054521856 image.py:297] 19700/100000+10000,loss=1.543312e-03, psnr=31.786, bpp=0.8806,
+rd_weight=1.000000e-03, soft_round_temp=2.605996e-01, time=0.3604.
+I0405 19:20:04.229111 135671054521856 image.py:297] 19800/100000+10000,loss=1.542506e-03, psnr=31.799, bpp=0.8816,
+rd_weight=1.000000e-03, soft_round_temp=2.603996e-01, time=0.3603.
+I0405 19:20:04.608546 135671054521856 image.py:297] 19900/100000+10000,loss=1.572017e-03, psnr=31.615, bpp=0.8825,
+rd_weight=1.000000e-03, soft_round_temp=2.601996e-01, time=0.3605.
+I0405 19:20:04.987987 135671054521856 image.py:297] 20000/100000+10000,loss=1.560601e-03, psnr=31.695, bpp=0.8838,
+rd_weight=1.000000e-03, soft_round_temp=2.599996e-01, time=0.3604.
+I0405 19:20:05.367346 135671054521856 image.py:297] 20100/100000+10000,loss=1.535235e-03, psnr=31.845, bpp=0.8814,
+rd_weight=1.000000e-03, soft_round_temp=2.597996e-01, time=0.3603.
+I0405 19:20:05.746635 135671054521856 image.py:297] 20200/100000+10000,loss=1.535816e-03, psnr=31.832, bpp=0.8799,
+rd_weight=1.000000e-03, soft_round_temp=2.595996e-01, time=0.3603.
+I0405 19:20:06.126112 135671054521856 image.py:297] 20300/100000+10000,loss=1.544347e-03, psnr=31.782, bpp=0.8810,
+rd_weight=1.000000e-03, soft_round_temp=2.593996e-01, time=0.3604.
+I0405 19:20:06.505620 135671054521856 image.py:297] 20400/100000+10000,loss=1.548598e-03, psnr=31.766, bpp=0.8827,
+rd_weight=1.000000e-03, soft_round_temp=2.591996e-01, time=0.3605.
+I0405 19:20:06.885593 135671054521856 image.py:297] 20500/100000+10000,loss=1.536944e-03, psnr=31.842, bpp=0.8827,
+rd_weight=1.000000e-03, soft_round_temp=2.589996e-01, time=0.3607.
+I0405 19:20:07.265176 135671054521856 image.py:297] 20600/100000+10000,loss=1.572350e-03, psnr=31.607, bpp=0.8816,
+rd_weight=1.000000e-03, soft_round_temp=2.587996e-01, time=0.3604.
+I0405 19:20:07.644777 135671054521856 image.py:297] 20700/100000+10000,loss=1.574404e-03, psnr=31.586, bpp=0.8804,
+rd_weight=1.000000e-03, soft_round_temp=2.585996e-01, time=0.3606.
+I0405 19:20:08.024226 135671054521856 image.py:297] 20800/100000+10000,loss=1.541780e-03, psnr=31.823, bpp=0.8845,
+rd_weight=1.000000e-03, soft_round_temp=2.583996e-01, time=0.3605.
+I0405 19:20:08.403790 135671054521856 image.py:297] 20900/100000+10000,loss=1.575257e-03, psnr=31.601, bpp=0.8836,
+rd_weight=1.000000e-03, soft_round_temp=2.581996e-01, time=0.3604.
+I0405 19:20:08.783246 135671054521856 image.py:297] 21000/100000+10000,loss=1.540753e-03, psnr=31.801, bpp=0.8803,
+rd_weight=1.000000e-03, soft_round_temp=2.579996e-01, time=0.3604.
+I0405 19:20:09.162754 135671054521856 image.py:297] 21100/100000+10000,loss=1.532423e-03, psnr=31.849, bpp=0.8791,
+rd_weight=1.000000e-03, soft_round_temp=2.577996e-01, time=0.3605.
+I0405 19:20:09.542515 135671054521856 image.py:297] 21200/100000+10000,loss=1.559234e-03, psnr=31.707, bpp=0.8842,
+rd_weight=1.000000e-03, soft_round_temp=2.575996e-01, time=0.3607.
+I0405 19:20:09.921919 135671054521856 image.py:297] 21300/100000+10000,loss=1.558263e-03, psnr=31.709, bpp=0.8836,
+rd_weight=1.000000e-03, soft_round_temp=2.573996e-01, time=0.3604.
+I0405 19:20:10.301092 135671054521856 image.py:297] 21400/100000+10000,loss=1.537818e-03, psnr=31.837, bpp=0.8828,
+rd_weight=1.000000e-03, soft_round_temp=2.571996e-01, time=0.3602.
+I0405 19:20:10.680583 135671054521856 image.py:297] 21500/100000+10000,loss=1.553030e-03, psnr=31.723, bpp=0.8806,
+rd_weight=1.000000e-03, soft_round_temp=2.569996e-01, time=0.3602.
+I0405 19:20:11.060003 135671054521856 image.py:297] 21600/100000+10000,loss=1.605013e-03, psnr=31.401, bpp=0.8808,
+rd_weight=1.000000e-03, soft_round_temp=2.567996e-01, time=0.3603.
+I0405 19:20:11.439297 135671054521856 image.py:297] 21700/100000+10000,loss=1.539607e-03, psnr=31.854, bpp=0.8871,
+rd_weight=1.000000e-03, soft_round_temp=2.565996e-01, time=0.3602.
+I0405 19:20:11.818526 135671054521856 image.py:297] 21800/100000+10000,loss=1.541252e-03, psnr=31.811, bpp=0.8822,
+rd_weight=1.000000e-03, soft_round_temp=2.563996e-01, time=0.3603.
+I0405 19:20:12.197621 135671054521856 image.py:297] 21900/100000+10000,loss=1.545976e-03, psnr=31.783, bpp=0.8827,
+rd_weight=1.000000e-03, soft_round_temp=2.561996e-01, time=0.3601.
+I0405 19:20:12.577050 135671054521856 image.py:297] 22000/100000+10000,loss=1.557679e-03, psnr=31.726, bpp=0.8856,
+rd_weight=1.000000e-03, soft_round_temp=2.559996e-01, time=0.3604.
+I0405 19:20:12.956232 135671054521856 image.py:297] 22100/100000+10000,loss=1.537961e-03, psnr=31.847, bpp=0.8844,
+rd_weight=1.000000e-03, soft_round_temp=2.557996e-01, time=0.3602.
+I0405 19:20:13.335309 135671054521856 image.py:297] 22200/100000+10000,loss=1.534892e-03, psnr=31.856, bpp=0.8826,
+rd_weight=1.000000e-03, soft_round_temp=2.555996e-01, time=0.3601.
+I0405 19:20:13.714474 135671054521856 image.py:297] 22300/100000+10000,loss=1.537399e-03, psnr=31.837, bpp=0.8823,
+rd_weight=1.000000e-03, soft_round_temp=2.553996e-01, time=0.3602.
+I0405 19:20:14.094080 135671054521856 image.py:297] 22400/100000+10000,loss=1.551869e-03, psnr=31.757, bpp=0.8846,
+rd_weight=1.000000e-03, soft_round_temp=2.551996e-01, time=0.3606.
+I0405 19:20:14.473102 135671054521856 image.py:297] 22500/100000+10000,loss=1.647866e-03, psnr=31.177, bpp=0.8852,
+rd_weight=1.000000e-03, soft_round_temp=2.549995e-01, time=0.3601.
+I0405 19:20:14.852087 135671054521856 image.py:297] 22600/100000+10000,loss=1.570994e-03, psnr=31.635, bpp=0.8847,
+rd_weight=1.000000e-03, soft_round_temp=2.547995e-01, time=0.3601.
+I0405 19:20:15.231258 135671054521856 image.py:297] 22700/100000+10000,loss=1.551130e-03, psnr=31.753, bpp=0.8832,
+rd_weight=1.000000e-03, soft_round_temp=2.545995e-01, time=0.3603.
+I0405 19:20:15.610567 135671054521856 image.py:297] 22800/100000+10000,loss=1.560370e-03, psnr=31.700, bpp=0.8843,
+rd_weight=1.000000e-03, soft_round_temp=2.543995e-01, time=0.3603.
+I0405 19:20:15.990047 135671054521856 image.py:297] 22900/100000+10000,loss=1.544672e-03, psnr=31.811, bpp=0.8856,
+rd_weight=1.000000e-03, soft_round_temp=2.541995e-01, time=0.3604.
+I0405 19:20:16.369302 135671054521856 image.py:297] 23000/100000+10000,loss=1.554944e-03, psnr=31.720, bpp=0.8819,
+rd_weight=1.000000e-03, soft_round_temp=2.539996e-01, time=0.3602.
+I0405 19:20:16.748517 135671054521856 image.py:297] 23100/100000+10000,loss=1.605082e-03, psnr=31.437, bpp=0.8868,
+rd_weight=1.000000e-03, soft_round_temp=2.537995e-01, time=0.3603.
+I0405 19:20:17.127442 135671054521856 image.py:297] 23200/100000+10000,loss=1.538888e-03, psnr=31.843, bpp=0.8847,
+rd_weight=1.000000e-03, soft_round_temp=2.535996e-01, time=0.3598.
+I0405 19:20:17.507025 135671054521856 image.py:297] 23300/100000+10000,loss=1.533247e-03, psnr=31.882, bpp=0.8849,
+rd_weight=1.000000e-03, soft_round_temp=2.533996e-01, time=0.3603.
+I0405 19:20:17.886272 135671054521856 image.py:297] 23400/100000+10000,loss=1.553618e-03, psnr=31.738, bpp=0.8834,
+rd_weight=1.000000e-03, soft_round_temp=2.531995e-01, time=0.3602.
+I0405 19:20:18.265897 135671054521856 image.py:297] 23500/100000+10000,loss=1.554416e-03, psnr=31.731, bpp=0.8831,
+rd_weight=1.000000e-03, soft_round_temp=2.529995e-01, time=0.3606.
+I0405 19:20:18.645686 135671054521856 image.py:297] 23600/100000+10000,loss=1.558034e-03, psnr=31.717, bpp=0.8845,
+rd_weight=1.000000e-03, soft_round_temp=2.527995e-01, time=0.3609.
+I0405 19:20:19.025236 135671054521856 image.py:297] 23700/100000+10000,loss=1.556847e-03, psnr=31.727, bpp=0.8850,
+rd_weight=1.000000e-03, soft_round_temp=2.525995e-01, time=0.3605.
+I0405 19:20:19.404469 135671054521856 image.py:297] 23800/100000+10000,loss=1.570545e-03, psnr=31.646, bpp=0.8860,
+rd_weight=1.000000e-03, soft_round_temp=2.523995e-01, time=0.3602.
+I0405 19:20:19.783711 135671054521856 image.py:297] 23900/100000+10000,loss=1.539091e-03, psnr=31.839, bpp=0.8843,
+rd_weight=1.000000e-03, soft_round_temp=2.521995e-01, time=0.3603.
+I0405 19:20:20.163308 135671054521856 image.py:297] 24000/100000+10000,loss=1.551000e-03, psnr=31.765, bpp=0.8849,
+rd_weight=1.000000e-03, soft_round_temp=2.519995e-01, time=0.3606.
+I0405 19:20:20.542766 135671054521856 image.py:297] 24100/100000+10000,loss=1.576624e-03, psnr=31.616, bpp=0.8874,
+rd_weight=1.000000e-03, soft_round_temp=2.517995e-01, time=0.3605.
+I0405 19:20:20.922178 135671054521856 image.py:297] 24200/100000+10000,loss=1.543672e-03, psnr=31.809, bpp=0.8844,
+rd_weight=1.000000e-03, soft_round_temp=2.515995e-01, time=0.3604.
+I0405 19:20:21.301700 135671054521856 image.py:297] 24300/100000+10000,loss=1.560268e-03, psnr=31.724, bpp=0.8879,
+rd_weight=1.000000e-03, soft_round_temp=2.513995e-01, time=0.3605.
+I0405 19:20:21.681205 135671054521856 image.py:297] 24400/100000+10000,loss=1.546702e-03, psnr=31.796, bpp=0.8855,
+rd_weight=1.000000e-03, soft_round_temp=2.511995e-01, time=0.3605.
+I0405 19:20:22.060699 135671054521856 image.py:297] 24500/100000+10000,loss=1.559708e-03, psnr=31.725, bpp=0.8875,
+rd_weight=1.000000e-03, soft_round_temp=2.509995e-01, time=0.3605.
+I0405 19:20:22.440170 135671054521856 image.py:297] 24600/100000+10000,loss=1.573011e-03, psnr=31.629, bpp=0.8858,
+rd_weight=1.000000e-03, soft_round_temp=2.507995e-01, time=0.3605.
+I0405 19:20:22.819647 135671054521856 image.py:297] 24700/100000+10000,loss=1.555094e-03, psnr=31.743, bpp=0.8857,
+rd_weight=1.000000e-03, soft_round_temp=2.505995e-01, time=0.3605.
+I0405 19:20:23.199369 135671054521856 image.py:297] 24800/100000+10000,loss=1.535863e-03, psnr=31.875, bpp=0.8865,
+rd_weight=1.000000e-03, soft_round_temp=2.503995e-01, time=0.3608.
+I0405 19:20:23.578680 135671054521856 image.py:297] 24900/100000+10000,loss=1.539563e-03, psnr=31.855, bpp=0.8873,
+rd_weight=1.000000e-03, soft_round_temp=2.501995e-01, time=0.3604.
+I0405 19:20:23.957935 135671054521856 image.py:297] 25000/100000+10000,loss=1.547176e-03, psnr=31.801, bpp=0.8867,
+rd_weight=1.000000e-03, soft_round_temp=2.499995e-01, time=0.3602.
+I0405 19:20:24.337354 135671054521856 image.py:297] 25100/100000+10000,loss=1.550964e-03, psnr=31.771, bpp=0.8859,
+rd_weight=1.000000e-03, soft_round_temp=2.497995e-01, time=0.3604.
+I0405 19:20:24.716996 135671054521856 image.py:297] 25200/100000+10000,loss=1.546091e-03, psnr=31.795, bpp=0.8846,
+rd_weight=1.000000e-03, soft_round_temp=2.495995e-01, time=0.3605.
+I0405 19:20:25.096519 135671054521856 image.py:297] 25300/100000+10000,loss=1.535335e-03, psnr=31.866, bpp=0.8846,
+rd_weight=1.000000e-03, soft_round_temp=2.493995e-01, time=0.3606.
+I0405 19:20:25.475825 135671054521856 image.py:297] 25400/100000+10000,loss=1.545917e-03, psnr=31.824, bpp=0.8888,
+rd_weight=1.000000e-03, soft_round_temp=2.491995e-01, time=0.3603.
+I0405 19:20:25.855183 135671054521856 image.py:297] 25500/100000+10000,loss=1.547425e-03, psnr=31.805, bpp=0.8875,
+rd_weight=1.000000e-03, soft_round_temp=2.489995e-01, time=0.3604.
+I0405 19:20:26.234584 135671054521856 image.py:297] 25600/100000+10000,loss=1.536473e-03, psnr=31.872, bpp=0.8866,
+rd_weight=1.000000e-03, soft_round_temp=2.487995e-01, time=0.3604.
+I0405 19:20:26.613962 135671054521856 image.py:297] 25700/100000+10000,loss=1.553713e-03, psnr=31.761, bpp=0.8870,
+rd_weight=1.000000e-03, soft_round_temp=2.485995e-01, time=0.3603.
+I0405 19:20:26.993336 135671054521856 image.py:297] 25800/100000+10000,loss=1.565508e-03, psnr=31.683, bpp=0.8868,
+rd_weight=1.000000e-03, soft_round_temp=2.483995e-01, time=0.3604.
+I0405 19:20:27.372600 135671054521856 image.py:297] 25900/100000+10000,loss=1.559047e-03, psnr=31.741, bpp=0.8892,
+rd_weight=1.000000e-03, soft_round_temp=2.481995e-01, time=0.3603.
+I0405 19:20:27.751979 135671054521856 image.py:297] 26000/100000+10000,loss=1.551225e-03, psnr=31.771, bpp=0.8861,
+rd_weight=1.000000e-03, soft_round_temp=2.479995e-01, time=0.3603.
+I0405 19:20:28.131221 135671054521856 image.py:297] 26100/100000+10000,loss=1.537485e-03, psnr=31.873, bpp=0.8878,
+rd_weight=1.000000e-03, soft_round_temp=2.477995e-01, time=0.3602.
+I0405 19:20:28.510462 135671054521856 image.py:297] 26200/100000+10000,loss=1.545028e-03, psnr=31.825, bpp=0.8881,
+rd_weight=1.000000e-03, soft_round_temp=2.475995e-01, time=0.3604.
+I0405 19:20:28.889685 135671054521856 image.py:297] 26300/100000+10000,loss=1.537065e-03, psnr=31.877, bpp=0.8879,
+rd_weight=1.000000e-03, soft_round_temp=2.473995e-01, time=0.3603.
+I0405 19:20:29.269072 135671054521856 image.py:297] 26400/100000+10000,loss=1.564785e-03, psnr=31.705, bpp=0.8894,
+rd_weight=1.000000e-03, soft_round_temp=2.471995e-01, time=0.3604.
+I0405 19:20:29.648641 135671054521856 image.py:297] 26500/100000+10000,loss=1.569855e-03, psnr=31.655, bpp=0.8867,
+rd_weight=1.000000e-03, soft_round_temp=2.469995e-01, time=0.3604.
+I0405 19:20:30.027970 135671054521856 image.py:297] 26600/100000+10000,loss=1.545591e-03, psnr=31.835, bpp=0.8902,
+rd_weight=1.000000e-03, soft_round_temp=2.467995e-01, time=0.3603.
+I0405 19:20:30.407179 135671054521856 image.py:297] 26700/100000+10000,loss=1.553809e-03, psnr=31.760, bpp=0.8871,
+rd_weight=1.000000e-03, soft_round_temp=2.465995e-01, time=0.3601.
+I0405 19:20:30.786898 135671054521856 image.py:297] 26800/100000+10000,loss=1.549680e-03, psnr=31.796, bpp=0.8883,
+rd_weight=1.000000e-03, soft_round_temp=2.463995e-01, time=0.3606.
+I0405 19:20:31.166254 135671054521856 image.py:297] 26900/100000+10000,loss=1.541856e-03, psnr=31.850, bpp=0.8887,
+rd_weight=1.000000e-03, soft_round_temp=2.461995e-01, time=0.3604.
+I0405 19:20:31.545503 135671054521856 image.py:297] 27000/100000+10000,loss=1.552957e-03, psnr=31.781, bpp=0.8894,
+rd_weight=1.000000e-03, soft_round_temp=2.459995e-01, time=0.3603.
+I0405 19:20:31.924869 135671054521856 image.py:297] 27100/100000+10000,loss=1.545510e-03, psnr=31.821, bpp=0.8880,
+rd_weight=1.000000e-03, soft_round_temp=2.457995e-01, time=0.3604.
+I0405 19:20:32.304393 135671054521856 image.py:297] 27200/100000+10000,loss=1.553933e-03, psnr=31.761, bpp=0.8873,
+rd_weight=1.000000e-03, soft_round_temp=2.455995e-01, time=0.3603.
+I0405 19:20:32.683768 135671054521856 image.py:297] 27300/100000+10000,loss=1.559954e-03, psnr=31.732, bpp=0.8888,
+rd_weight=1.000000e-03, soft_round_temp=2.453994e-01, time=0.3604.
+I0405 19:20:33.063270 135671054521856 image.py:297] 27400/100000+10000,loss=1.555758e-03, psnr=31.744, bpp=0.8865,
+rd_weight=1.000000e-03, soft_round_temp=2.451995e-01, time=0.3606.
+I0405 19:20:33.442594 135671054521856 image.py:297] 27500/100000+10000,loss=1.589419e-03, psnr=31.568, bpp=0.8925,
+rd_weight=1.000000e-03, soft_round_temp=2.449995e-01, time=0.3604.
+I0405 19:20:33.822025 135671054521856 image.py:297] 27600/100000+10000,loss=1.544778e-03, psnr=31.835, bpp=0.8894,
+rd_weight=1.000000e-03, soft_round_temp=2.447995e-01, time=0.3604.
+I0405 19:20:34.201367 135671054521856 image.py:297] 27700/100000+10000,loss=1.567349e-03, psnr=31.695, bpp=0.8905,
+rd_weight=1.000000e-03, soft_round_temp=2.445994e-01, time=0.3604.
+I0405 19:20:34.580809 135671054521856 image.py:297] 27800/100000+10000,loss=1.540893e-03, psnr=31.840, bpp=0.8863,
+rd_weight=1.000000e-03, soft_round_temp=2.443995e-01, time=0.3602.
+I0405 19:20:34.960183 135671054521856 image.py:297] 27900/100000+10000,loss=1.621216e-03, psnr=31.355, bpp=0.8893,
+rd_weight=1.000000e-03, soft_round_temp=2.441995e-01, time=0.3604.
+I0405 19:20:35.339397 135671054521856 image.py:297] 28000/100000+10000,loss=1.556428e-03, psnr=31.754, bpp=0.8888,
+rd_weight=1.000000e-03, soft_round_temp=2.439995e-01, time=0.3603.
+I0405 19:20:35.718695 135671054521856 image.py:297] 28100/100000+10000,loss=1.542564e-03, psnr=31.863, bpp=0.8914,
+rd_weight=1.000000e-03, soft_round_temp=2.437994e-01, time=0.3603.
+I0405 19:20:36.097974 135671054521856 image.py:297] 28200/100000+10000,loss=1.543357e-03, psnr=31.847, bpp=0.8898,
+rd_weight=1.000000e-03, soft_round_temp=2.435994e-01, time=0.3603.
+I0405 19:20:36.477326 135671054521856 image.py:297] 28300/100000+10000,loss=1.566817e-03, psnr=31.700, bpp=0.8907,
+rd_weight=1.000000e-03, soft_round_temp=2.433994e-01, time=0.3604.
+I0405 19:20:36.856914 135671054521856 image.py:297] 28400/100000+10000,loss=1.562737e-03, psnr=31.728, bpp=0.8911,
+rd_weight=1.000000e-03, soft_round_temp=2.431994e-01, time=0.3606.
+I0405 19:20:37.236387 135671054521856 image.py:297] 28500/100000+10000,loss=1.538778e-03, psnr=31.874, bpp=0.8893,
+rd_weight=1.000000e-03, soft_round_temp=2.429994e-01, time=0.3605.
+I0405 19:20:37.615760 135671054521856 image.py:297] 28600/100000+10000,loss=1.552851e-03, psnr=31.800, bpp=0.8921,
+rd_weight=1.000000e-03, soft_round_temp=2.427994e-01, time=0.3604.
+I0405 19:20:37.995192 135671054521856 image.py:297] 28700/100000+10000,loss=1.543161e-03, psnr=31.842, bpp=0.8889,
+rd_weight=1.000000e-03, soft_round_temp=2.425994e-01, time=0.3603.
+I0405 19:20:38.374626 135671054521856 image.py:297] 28800/100000+10000,loss=1.550774e-03, psnr=31.791, bpp=0.8887,
+rd_weight=1.000000e-03, soft_round_temp=2.423994e-01, time=0.3604.
+I0405 19:20:38.754297 135671054521856 image.py:297] 28900/100000+10000,loss=1.563586e-03, psnr=31.701, bpp=0.8877,
+rd_weight=1.000000e-03, soft_round_temp=2.421994e-01, time=0.3606.
+I0405 19:20:39.133627 135671054521856 image.py:297] 29000/100000+10000,loss=1.570122e-03, psnr=31.668, bpp=0.8891,
+rd_weight=1.000000e-03, soft_round_temp=2.419994e-01, time=0.3602.
+I0405 19:20:39.512984 135671054521856 image.py:297] 29100/100000+10000,loss=1.540281e-03, psnr=31.865, bpp=0.8894,
+rd_weight=1.000000e-03, soft_round_temp=2.417994e-01, time=0.3603.
+I0405 19:20:39.892284 135671054521856 image.py:297] 29200/100000+10000,loss=1.537341e-03, psnr=31.884, bpp=0.8892,
+rd_weight=1.000000e-03, soft_round_temp=2.415994e-01, time=0.3604.
+I0405 19:20:40.271517 135671054521856 image.py:297] 29300/100000+10000,loss=1.595361e-03, psnr=31.520, bpp=0.8906,
+rd_weight=1.000000e-03, soft_round_temp=2.413994e-01, time=0.3603.
+I0405 19:20:40.650959 135671054521856 image.py:297] 29400/100000+10000,loss=1.552603e-03, psnr=31.791, bpp=0.8905,
+rd_weight=1.000000e-03, soft_round_temp=2.411994e-01, time=0.3605.
+I0405 19:20:41.030337 135671054521856 image.py:297] 29500/100000+10000,loss=1.544148e-03, psnr=31.849, bpp=0.8909,
+rd_weight=1.000000e-03, soft_round_temp=2.409994e-01, time=0.3605.
+I0405 19:20:41.409846 135671054521856 image.py:297] 29600/100000+10000,loss=1.551698e-03, psnr=31.804, bpp=0.8917,
+rd_weight=1.000000e-03, soft_round_temp=2.407994e-01, time=0.3606.
+I0405 19:20:41.788967 135671054521856 image.py:297] 29700/100000+10000,loss=1.589200e-03, psnr=31.554, bpp=0.8901,
+rd_weight=1.000000e-03, soft_round_temp=2.405994e-01, time=0.3602.
+I0405 19:20:42.168262 135671054521856 image.py:297] 29800/100000+10000,loss=1.567765e-03, psnr=31.690, bpp=0.8901,
+rd_weight=1.000000e-03, soft_round_temp=2.403994e-01, time=0.3604.
+I0405 19:20:42.547755 135671054521856 image.py:297] 29900/100000+10000,loss=1.542847e-03, psnr=31.863, bpp=0.8917,
+rd_weight=1.000000e-03, soft_round_temp=2.401994e-01, time=0.3606.
+I0405 19:20:42.927568 135671054521856 image.py:297] 30000/100000+10000,loss=1.542298e-03, psnr=31.871, bpp=0.8923,
+rd_weight=1.000000e-03, soft_round_temp=2.399994e-01, time=0.3607.
+I0405 19:20:43.307280 135671054521856 image.py:297] 30100/100000+10000,loss=1.543844e-03, psnr=31.846, bpp=0.8902,
+rd_weight=1.000000e-03, soft_round_temp=2.397994e-01, time=0.3605.
+I0405 19:20:43.686696 135671054521856 image.py:297] 30200/100000+10000,loss=1.558958e-03, psnr=31.759, bpp=0.8920,
+rd_weight=1.000000e-03, soft_round_temp=2.395994e-01, time=0.3602.
+I0405 19:20:44.066284 135671054521856 image.py:297] 30300/100000+10000,loss=1.544204e-03, psnr=31.850, bpp=0.8911,
+rd_weight=1.000000e-03, soft_round_temp=2.393994e-01, time=0.3604.
+I0405 19:20:44.445375 135671054521856 image.py:297] 30400/100000+10000,loss=1.588481e-03, psnr=31.572, bpp=0.8922,
+rd_weight=1.000000e-03, soft_round_temp=2.391994e-01, time=0.3602.
+I0405 19:20:44.824685 135671054521856 image.py:297] 30500/100000+10000,loss=1.553983e-03, psnr=31.794, bpp=0.8924,
+rd_weight=1.000000e-03, soft_round_temp=2.389994e-01, time=0.3604.
+I0405 19:20:45.203933 135671054521856 image.py:297] 30600/100000+10000,loss=1.571906e-03, psnr=31.685, bpp=0.8934,
+rd_weight=1.000000e-03, soft_round_temp=2.387994e-01, time=0.3603.
+I0405 19:20:45.583449 135671054521856 image.py:297] 30700/100000+10000,loss=1.545603e-03, psnr=31.857, bpp=0.8935,
+rd_weight=1.000000e-03, soft_round_temp=2.385994e-01, time=0.3606.
+I0405 19:20:45.962960 135671054521856 image.py:297] 30800/100000+10000,loss=1.576737e-03, psnr=31.642, bpp=0.8916,
+rd_weight=1.000000e-03, soft_round_temp=2.383994e-01, time=0.3604.
+I0405 19:20:46.342820 135671054521856 image.py:297] 30900/100000+10000,loss=1.543100e-03, psnr=31.884, bpp=0.8950,
+rd_weight=1.000000e-03, soft_round_temp=2.381994e-01, time=0.3608.
+I0405 19:20:46.722302 135671054521856 image.py:297] 31000/100000+10000,loss=1.556604e-03, psnr=31.781, bpp=0.8930,
+rd_weight=1.000000e-03, soft_round_temp=2.379994e-01, time=0.3605.
+I0405 19:20:47.101798 135671054521856 image.py:297] 31100/100000+10000,loss=1.610399e-03, psnr=31.431, bpp=0.8910,
+rd_weight=1.000000e-03, soft_round_temp=2.377994e-01, time=0.3605.
+I0405 19:20:47.481239 135671054521856 image.py:297] 31200/100000+10000,loss=1.565253e-03, psnr=31.744, bpp=0.8960,
+rd_weight=1.000000e-03, soft_round_temp=2.375994e-01, time=0.3603.
+I0405 19:20:47.860432 135671054521856 image.py:297] 31300/100000+10000,loss=1.541553e-03, psnr=31.870, bpp=0.8915,
+rd_weight=1.000000e-03, soft_round_temp=2.373994e-01, time=0.3602.
+I0405 19:20:48.239933 135671054521856 image.py:297] 31400/100000+10000,loss=1.543734e-03, psnr=31.858, bpp=0.8918,
+rd_weight=1.000000e-03, soft_round_temp=2.371994e-01, time=0.3601.
+I0405 19:20:48.619208 135671054521856 image.py:297] 31500/100000+10000,loss=1.539959e-03, psnr=31.892, bpp=0.8931,
+rd_weight=1.000000e-03, soft_round_temp=2.369994e-01, time=0.3602.
+I0405 19:20:48.998426 135671054521856 image.py:297] 31600/100000+10000,loss=1.555578e-03, psnr=31.792, bpp=0.8937,
+rd_weight=1.000000e-03, soft_round_temp=2.367994e-01, time=0.3602.
+I0405 19:20:49.377725 135671054521856 image.py:297] 31700/100000+10000,loss=1.576682e-03, psnr=31.656, bpp=0.8938,
+rd_weight=1.000000e-03, soft_round_temp=2.365994e-01, time=0.3603.
+I0405 19:20:49.757035 135671054521856 image.py:297] 31800/100000+10000,loss=1.560865e-03, psnr=31.760, bpp=0.8940,
+rd_weight=1.000000e-03, soft_round_temp=2.363994e-01, time=0.3602.
+I0405 19:20:50.137634 135671054521856 image.py:297] 31900/100000+10000,loss=1.544520e-03, psnr=31.860, bpp=0.8930,
+rd_weight=1.000000e-03, soft_round_temp=2.361993e-01, time=0.3614.
+I0405 19:20:50.517148 135671054521856 image.py:297] 32000/100000+10000,loss=1.616079e-03, psnr=31.417, bpp=0.8944,
+rd_weight=1.000000e-03, soft_round_temp=2.359994e-01, time=0.3604.
+I0405 19:20:50.896596 135671054521856 image.py:297] 32100/100000+10000,loss=1.543636e-03, psnr=31.863, bpp=0.8924,
+rd_weight=1.000000e-03, soft_round_temp=2.357994e-01, time=0.3604.
+I0405 19:20:51.276045 135671054521856 image.py:297] 32200/100000+10000,loss=1.552199e-03, psnr=31.822, bpp=0.8949,
+rd_weight=1.000000e-03, soft_round_temp=2.355994e-01, time=0.3604.
+I0405 19:20:51.655440 135671054521856 image.py:297] 32300/100000+10000,loss=1.542481e-03, psnr=31.873, bpp=0.8928,
+rd_weight=1.000000e-03, soft_round_temp=2.353994e-01, time=0.3604.
+I0405 19:20:52.036976 135671054521856 image.py:297] 32400/100000+10000,loss=1.568115e-03, psnr=31.707, bpp=0.8931,
+rd_weight=1.000000e-03, soft_round_temp=2.351994e-01, time=0.3619.
+I0405 19:20:52.421289 135671054521856 image.py:297] 32500/100000+10000,loss=1.552490e-03, psnr=31.810, bpp=0.8933,
+rd_weight=1.000000e-03, soft_round_temp=2.349994e-01, time=0.3651.
+I0405 19:20:52.805527 135671054521856 image.py:297] 32600/100000+10000,loss=1.540320e-03, psnr=31.882, bpp=0.8920,
+rd_weight=1.000000e-03, soft_round_temp=2.347994e-01, time=0.3650.
+I0405 19:20:53.187931 135671054521856 image.py:297] 32700/100000+10000,loss=1.541968e-03, psnr=31.875, bpp=0.8926,
+rd_weight=1.000000e-03, soft_round_temp=2.345994e-01, time=0.3634.
+I0405 19:20:53.572916 135671054521856 image.py:297] 32800/100000+10000,loss=1.564185e-03, psnr=31.753, bpp=0.8963,
+rd_weight=1.000000e-03, soft_round_temp=2.343993e-01, time=0.3653.
+I0405 19:20:53.957180 135671054521856 image.py:297] 32900/100000+10000,loss=1.552919e-03, psnr=31.812, bpp=0.8941,
+rd_weight=1.000000e-03, soft_round_temp=2.341993e-01, time=0.3651.
+I0405 19:20:54.347951 135671054521856 image.py:297] 33000/100000+10000,loss=1.550423e-03, psnr=31.828, bpp=0.8939,
+rd_weight=1.000000e-03, soft_round_temp=2.339993e-01, time=0.3714.
+I0405 19:20:54.733705 135671054521856 image.py:297] 33100/100000+10000,loss=1.561805e-03, psnr=31.742, bpp=0.8922,
+rd_weight=1.000000e-03, soft_round_temp=2.337993e-01, time=0.3667.
+I0405 19:20:55.114156 135671054521856 image.py:297] 33200/100000+10000,loss=1.569669e-03, psnr=31.707, bpp=0.8946,
+rd_weight=1.000000e-03, soft_round_temp=2.335993e-01, time=0.3614.
+I0405 19:20:55.499567 135671054521856 image.py:297] 33300/100000+10000,loss=1.550462e-03, psnr=31.835, bpp=0.8951,
+rd_weight=1.000000e-03, soft_round_temp=2.333993e-01, time=0.3661.
+I0405 19:20:55.881955 135671054521856 image.py:297] 33400/100000+10000,loss=1.542482e-03, psnr=31.877, bpp=0.8933,
+rd_weight=1.000000e-03, soft_round_temp=2.331993e-01, time=0.3634.
+I0405 19:20:56.263676 135671054521856 image.py:297] 33500/100000+10000,loss=1.575227e-03, psnr=31.672, bpp=0.8947,
+rd_weight=1.000000e-03, soft_round_temp=2.329993e-01, time=0.3626.
+I0405 19:20:56.647471 135671054521856 image.py:297] 33600/100000+10000,loss=1.568958e-03, psnr=31.716, bpp=0.8954,
+rd_weight=1.000000e-03, soft_round_temp=2.327993e-01, time=0.3722.
+I0405 19:20:57.039860 135671054521856 image.py:297] 33700/100000+10000,loss=1.546207e-03, psnr=31.872, bpp=0.8963,
+rd_weight=1.000000e-03, soft_round_temp=2.325993e-01, time=0.3729.
+I0405 19:20:57.420018 135671054521856 image.py:297] 33800/100000+10000,loss=1.544539e-03, psnr=31.858, bpp=0.8927,
+rd_weight=1.000000e-03, soft_round_temp=2.323993e-01, time=0.3607.
+I0405 19:20:57.807969 135671054521856 image.py:297] 33900/100000+10000,loss=1.546289e-03, psnr=31.875, bpp=0.8970,
+rd_weight=1.000000e-03, soft_round_temp=2.321993e-01, time=0.3687.
+I0405 19:20:58.197973 135671054521856 image.py:297] 34000/100000+10000,loss=1.559566e-03, psnr=31.783, bpp=0.8963,
+rd_weight=1.000000e-03, soft_round_temp=2.319993e-01, time=0.3699.
+I0405 19:20:58.589848 135671054521856 image.py:297] 34100/100000+10000,loss=1.559803e-03, psnr=31.792, bpp=0.8978,
+rd_weight=1.000000e-03, soft_round_temp=2.317993e-01, time=0.3707.
+I0405 19:20:58.978248 135671054521856 image.py:297] 34200/100000+10000,loss=1.609730e-03, psnr=31.452, bpp=0.8939,
+rd_weight=1.000000e-03, soft_round_temp=2.315993e-01, time=0.3688.
+I0405 19:20:59.367624 135671054521856 image.py:297] 34300/100000+10000,loss=1.548049e-03, psnr=31.861, bpp=0.8966,
+rd_weight=1.000000e-03, soft_round_temp=2.313993e-01, time=0.3698.
+I0405 19:20:59.756259 135671054521856 image.py:297] 34400/100000+10000,loss=1.558426e-03, psnr=31.776, bpp=0.8941,
+rd_weight=1.000000e-03, soft_round_temp=2.311993e-01, time=0.3684.
+I0405 19:21:00.144728 135671054521856 image.py:297] 34500/100000+10000,loss=1.552757e-03, psnr=31.829, bpp=0.8964,
+rd_weight=1.000000e-03, soft_round_temp=2.309993e-01, time=0.3684.
+I0405 19:21:00.536401 135671054521856 image.py:297] 34600/100000+10000,loss=1.550555e-03, psnr=31.835, bpp=0.8952,
+rd_weight=1.000000e-03, soft_round_temp=2.307993e-01, time=0.3706.
+I0405 19:21:00.926507 135671054521856 image.py:297] 34700/100000+10000,loss=1.551643e-03, psnr=31.830, bpp=0.8956,
+rd_weight=1.000000e-03, soft_round_temp=2.305993e-01, time=0.3708.
+I0405 19:21:01.315562 135671054521856 image.py:297] 34800/100000+10000,loss=1.549054e-03, psnr=31.850, bpp=0.8959,
+rd_weight=1.000000e-03, soft_round_temp=2.303993e-01, time=0.3688.
+I0405 19:21:01.705581 135671054521856 image.py:297] 34900/100000+10000,loss=1.588189e-03, psnr=31.595, bpp=0.8955,
+rd_weight=1.000000e-03, soft_round_temp=2.301993e-01, time=0.3692.
+I0405 19:21:02.093991 135671054521856 image.py:297] 35000/100000+10000,loss=1.560624e-03, psnr=31.784, bpp=0.8976,
+rd_weight=1.000000e-03, soft_round_temp=2.299993e-01, time=0.3684.
+I0405 19:21:02.483570 135671054521856 image.py:297] 35100/100000+10000,loss=1.550469e-03, psnr=31.837, bpp=0.8954,
+rd_weight=1.000000e-03, soft_round_temp=2.297993e-01, time=0.3692.
+I0405 19:21:02.872393 135671054521856 image.py:297] 35200/100000+10000,loss=1.546848e-03, psnr=31.861, bpp=0.8953,
+rd_weight=1.000000e-03, soft_round_temp=2.295993e-01, time=0.3688.
+I0405 19:21:03.261013 135671054521856 image.py:297] 35300/100000+10000,loss=1.556234e-03, psnr=31.824, bpp=0.8991,
+rd_weight=1.000000e-03, soft_round_temp=2.293993e-01, time=0.3688.
+I0405 19:21:03.650678 135671054521856 image.py:297] 35400/100000+10000,loss=1.560865e-03, psnr=31.772, bpp=0.8959,
+rd_weight=1.000000e-03, soft_round_temp=2.291993e-01, time=0.3694.
+I0405 19:21:04.039969 135671054521856 image.py:297] 35500/100000+10000,loss=1.572517e-03, psnr=31.685, bpp=0.8941,
+rd_weight=1.000000e-03, soft_round_temp=2.289993e-01, time=0.3689.
+I0405 19:21:04.426359 135671054521856 image.py:297] 35600/100000+10000,loss=1.544199e-03, psnr=31.877, bpp=0.8951,
+rd_weight=1.000000e-03, soft_round_temp=2.287993e-01, time=0.3668.
+I0405 19:21:04.814368 135671054521856 image.py:297] 35700/100000+10000,loss=1.551670e-03, psnr=31.831, bpp=0.8957,
+rd_weight=1.000000e-03, soft_round_temp=2.285993e-01, time=0.3682.
+I0405 19:21:05.200464 135671054521856 image.py:297] 35800/100000+10000,loss=1.551301e-03, psnr=31.840, bpp=0.8966,
+rd_weight=1.000000e-03, soft_round_temp=2.283993e-01, time=0.3661.
+I0405 19:21:05.589449 135671054521856 image.py:297] 35900/100000+10000,loss=1.592167e-03, psnr=31.582, bpp=0.8974,
+rd_weight=1.000000e-03, soft_round_temp=2.281993e-01, time=0.3694.
+I0405 19:21:05.976766 135671054521856 image.py:297] 36000/100000+10000,loss=1.558449e-03, psnr=31.800, bpp=0.8978,
+rd_weight=1.000000e-03, soft_round_temp=2.279993e-01, time=0.3682.
+I0405 19:21:06.362985 135671054521856 image.py:297] 36100/100000+10000,loss=1.558951e-03, psnr=31.782, bpp=0.8955,
+rd_weight=1.000000e-03, soft_round_temp=2.277993e-01, time=0.3659.
+I0405 19:21:06.750753 135671054521856 image.py:297] 36200/100000+10000,loss=1.558140e-03, psnr=31.793, bpp=0.8964,
+rd_weight=1.000000e-03, soft_round_temp=2.275993e-01, time=0.3682.
+I0405 19:21:07.135946 135671054521856 image.py:297] 36300/100000+10000,loss=1.551075e-03, psnr=31.850, bpp=0.8979,
+rd_weight=1.000000e-03, soft_round_temp=2.273993e-01, time=0.3657.
+I0405 19:21:07.521865 135671054521856 image.py:297] 36400/100000+10000,loss=1.553821e-03, psnr=31.828, bpp=0.8974,
+rd_weight=1.000000e-03, soft_round_temp=2.271993e-01, time=0.3669.
+I0405 19:21:07.910823 135671054521856 image.py:297] 36500/100000+10000,loss=1.579050e-03, psnr=31.652, bpp=0.8954,
+rd_weight=1.000000e-03, soft_round_temp=2.269993e-01, time=0.3688.
+I0405 19:21:08.296348 135671054521856 image.py:297] 36600/100000+10000,loss=1.551419e-03, psnr=31.833, bpp=0.8957,
+rd_weight=1.000000e-03, soft_round_temp=2.267993e-01, time=0.3661.
+I0405 19:21:08.682890 135671054521856 image.py:297] 36700/100000+10000,loss=1.549160e-03, psnr=31.858, bpp=0.8973,
+rd_weight=1.000000e-03, soft_round_temp=2.265993e-01, time=0.3669.
+I0405 19:21:09.069863 135671054521856 image.py:297] 36800/100000+10000,loss=1.560997e-03, psnr=31.806, bpp=0.9012,
+rd_weight=1.000000e-03, soft_round_temp=2.263993e-01, time=0.3671.
+I0405 19:21:09.455074 135671054521856 image.py:297] 36900/100000+10000,loss=1.656782e-03, psnr=31.189, bpp=0.8963,
+rd_weight=1.000000e-03, soft_round_temp=2.261993e-01, time=0.3655.
+I0405 19:21:09.841902 135671054521856 image.py:297] 37000/100000+10000,loss=1.563872e-03, psnr=31.771, bpp=0.8988,
+rd_weight=1.000000e-03, soft_round_temp=2.259993e-01, time=0.3667.
+I0405 19:21:10.230217 135671054521856 image.py:297] 37100/100000+10000,loss=1.551675e-03, psnr=31.855, bpp=0.8992,
+rd_weight=1.000000e-03, soft_round_temp=2.257993e-01, time=0.3681.
+I0405 19:21:10.616941 135671054521856 image.py:297] 37200/100000+10000,loss=1.562779e-03, psnr=31.765, bpp=0.8968,
+rd_weight=1.000000e-03, soft_round_temp=2.255993e-01, time=0.3667.
+I0405 19:21:11.002646 135671054521856 image.py:297] 37300/100000+10000,loss=1.571040e-03, psnr=31.713, bpp=0.8970,
+rd_weight=1.000000e-03, soft_round_temp=2.253993e-01, time=0.3662.
+I0405 19:21:11.393093 135671054521856 image.py:297] 37400/100000+10000,loss=1.557112e-03, psnr=31.810, bpp=0.8980,
+rd_weight=1.000000e-03, soft_round_temp=2.251993e-01, time=0.3699.
+I0405 19:21:11.784370 135671054521856 image.py:297] 37500/100000+10000,loss=1.562752e-03, psnr=31.779, bpp=0.8989,
+rd_weight=1.000000e-03, soft_round_temp=2.249992e-01, time=0.3722.
+I0405 19:21:12.174932 135671054521856 image.py:297] 37600/100000+10000,loss=1.554079e-03, psnr=31.827, bpp=0.8974,
+rd_weight=1.000000e-03, soft_round_temp=2.247992e-01, time=0.3699.
+I0405 19:21:12.566902 135671054521856 image.py:297] 37700/100000+10000,loss=1.578421e-03, psnr=31.668, bpp=0.8973,
+rd_weight=1.000000e-03, soft_round_temp=2.245992e-01, time=0.3716.
+I0405 19:21:12.954700 135671054521856 image.py:297] 37800/100000+10000,loss=1.561906e-03, psnr=31.796, bpp=0.9005,
+rd_weight=1.000000e-03, soft_round_temp=2.243992e-01, time=0.3681.
+I0405 19:21:13.340262 135671054521856 image.py:297] 37900/100000+10000,loss=1.585323e-03, psnr=31.623, bpp=0.8972,
+rd_weight=1.000000e-03, soft_round_temp=2.241993e-01, time=0.3656.
+I0405 19:21:13.727847 135671054521856 image.py:297] 38000/100000+10000,loss=1.551151e-03, psnr=31.868, bpp=0.9007,
+rd_weight=1.000000e-03, soft_round_temp=2.239992e-01, time=0.3678.
+I0405 19:21:14.117745 135671054521856 image.py:297] 38100/100000+10000,loss=1.554094e-03, psnr=31.825, bpp=0.8973,
+rd_weight=1.000000e-03, soft_round_temp=2.237992e-01, time=0.3697.
+I0405 19:21:14.509729 135671054521856 image.py:297] 38200/100000+10000,loss=1.582708e-03, psnr=31.665, bpp=0.9011,
+rd_weight=1.000000e-03, soft_round_temp=2.235993e-01, time=0.3712.
+I0405 19:21:14.902416 135671054521856 image.py:297] 38300/100000+10000,loss=1.556883e-03, psnr=31.831, bpp=0.9008,
+rd_weight=1.000000e-03, soft_round_temp=2.233992e-01, time=0.3736.
+I0405 19:21:15.289475 135671054521856 image.py:297] 38400/100000+10000,loss=1.554333e-03, psnr=31.828, bpp=0.8980,
+rd_weight=1.000000e-03, soft_round_temp=2.231992e-01, time=0.3673.
+I0405 19:21:15.676506 135671054521856 image.py:297] 38500/100000+10000,loss=1.558961e-03, psnr=31.799, bpp=0.8981,
+rd_weight=1.000000e-03, soft_round_temp=2.229992e-01, time=0.3672.
+I0405 19:21:16.061899 135671054521856 image.py:297] 38600/100000+10000,loss=1.557852e-03, psnr=31.807, bpp=0.8983,
+rd_weight=1.000000e-03, soft_round_temp=2.227992e-01, time=0.3663.
+I0405 19:21:16.447343 135671054521856 image.py:297] 38700/100000+10000,loss=1.579558e-03, psnr=31.676, bpp=0.8998,
+rd_weight=1.000000e-03, soft_round_temp=2.225992e-01, time=0.3656.
+I0405 19:21:16.833858 135671054521856 image.py:297] 38800/100000+10000,loss=1.564157e-03, psnr=31.784, bpp=0.9011,
+rd_weight=1.000000e-03, soft_round_temp=2.223992e-01, time=0.3661.
+I0405 19:21:17.219468 135671054521856 image.py:297] 38900/100000+10000,loss=1.562604e-03, psnr=31.789, bpp=0.9003,
+rd_weight=1.000000e-03, soft_round_temp=2.221992e-01, time=0.3664.
+I0405 19:21:17.606845 135671054521856 image.py:297] 39000/100000+10000,loss=1.552423e-03, psnr=31.844, bpp=0.8984,
+rd_weight=1.000000e-03, soft_round_temp=2.219992e-01, time=0.3674.
+I0405 19:21:17.994239 135671054521856 image.py:297] 39100/100000+10000,loss=1.554810e-03, psnr=31.841, bpp=0.9004,
+rd_weight=1.000000e-03, soft_round_temp=2.217992e-01, time=0.3671.
+I0405 19:21:18.380862 135671054521856 image.py:297] 39200/100000+10000,loss=1.551073e-03, psnr=31.870, bpp=0.9010,
+rd_weight=1.000000e-03, soft_round_temp=2.215992e-01, time=0.3664.
+I0405 19:21:18.769835 135671054521856 image.py:297] 39300/100000+10000,loss=1.567011e-03, psnr=31.754, bpp=0.8993,
+rd_weight=1.000000e-03, soft_round_temp=2.213992e-01, time=0.3688.
+I0405 19:21:19.156752 135671054521856 image.py:297] 39400/100000+10000,loss=1.556502e-03, psnr=31.844, bpp=0.9024,
+rd_weight=1.000000e-03, soft_round_temp=2.211992e-01, time=0.3674.
+I0405 19:21:19.543994 135671054521856 image.py:297] 39500/100000+10000,loss=1.551213e-03, psnr=31.869, bpp=0.9010,
+rd_weight=1.000000e-03, soft_round_temp=2.209992e-01, time=0.3679.
+I0405 19:21:19.932788 135671054521856 image.py:297] 39600/100000+10000,loss=1.555655e-03, psnr=31.838, bpp=0.9007,
+rd_weight=1.000000e-03, soft_round_temp=2.207992e-01, time=0.3688.
+I0405 19:21:20.318793 135671054521856 image.py:297] 39700/100000+10000,loss=1.554963e-03, psnr=31.844, bpp=0.9009,
+rd_weight=1.000000e-03, soft_round_temp=2.205992e-01, time=0.3663.
+I0405 19:21:20.706405 135671054521856 image.py:297] 39800/100000+10000,loss=1.559069e-03, psnr=31.809, bpp=0.8998,
+rd_weight=1.000000e-03, soft_round_temp=2.203992e-01, time=0.3682.
+I0405 19:21:21.096118 135671054521856 image.py:297] 39900/100000+10000,loss=1.572062e-03, psnr=31.723, bpp=0.8996,
+rd_weight=1.000000e-03, soft_round_temp=2.201992e-01, time=0.3694.
+I0405 19:21:21.483491 135671054521856 image.py:297] 40000/100000+10000,loss=1.554353e-03, psnr=31.835, bpp=0.8989,
+rd_weight=1.000000e-03, soft_round_temp=2.199992e-01, time=0.3683.
+I0405 19:21:21.870740 135671054521856 image.py:297] 40100/100000+10000,loss=1.565751e-03, psnr=31.771, bpp=0.9006,
+rd_weight=1.000000e-03, soft_round_temp=2.197992e-01, time=0.3674.
+I0405 19:21:22.256850 135671054521856 image.py:297] 40200/100000+10000,loss=1.557049e-03, psnr=31.822, bpp=0.8996,
+rd_weight=1.000000e-03, soft_round_temp=2.195992e-01, time=0.3669.
+I0405 19:21:22.643806 135671054521856 image.py:297] 40300/100000+10000,loss=1.560346e-03, psnr=31.817, bpp=0.9022,
+rd_weight=1.000000e-03, soft_round_temp=2.193992e-01, time=0.3670.
+I0405 19:21:23.030988 135671054521856 image.py:297] 40400/100000+10000,loss=1.563486e-03, psnr=31.788, bpp=0.9010,
+rd_weight=1.000000e-03, soft_round_temp=2.191992e-01, time=0.3674.
+I0405 19:21:23.419335 135671054521856 image.py:297] 40500/100000+10000,loss=1.569271e-03, psnr=31.757, bpp=0.9020,
+rd_weight=1.000000e-03, soft_round_temp=2.189992e-01, time=0.3683.
+I0405 19:21:23.806391 135671054521856 image.py:297] 40600/100000+10000,loss=1.551376e-03, psnr=31.855, bpp=0.8990,
+rd_weight=1.000000e-03, soft_round_temp=2.187992e-01, time=0.3669.
+I0405 19:21:24.194928 135671054521856 image.py:297] 40700/100000+10000,loss=1.556229e-03, psnr=31.839, bpp=0.9014,
+rd_weight=1.000000e-03, soft_round_temp=2.185992e-01, time=0.3690.
+I0405 19:21:24.582615 135671054521856 image.py:297] 40800/100000+10000,loss=1.559982e-03, psnr=31.820, bpp=0.9023,
+rd_weight=1.000000e-03, soft_round_temp=2.183992e-01, time=0.3668.
+I0405 19:21:24.969879 135671054521856 image.py:297] 40900/100000+10000,loss=1.551617e-03, psnr=31.866, bpp=0.9009,
+rd_weight=1.000000e-03, soft_round_temp=2.181992e-01, time=0.3681.
+I0405 19:21:25.356935 135671054521856 image.py:297] 41000/100000+10000,loss=1.552313e-03, psnr=31.862, bpp=0.9009,
+rd_weight=1.000000e-03, soft_round_temp=2.179992e-01, time=0.3677.
+I0405 19:21:25.743732 135671054521856 image.py:297] 41100/100000+10000,loss=1.561762e-03, psnr=31.813, bpp=0.9030,
+rd_weight=1.000000e-03, soft_round_temp=2.177992e-01, time=0.3667.
+I0405 19:21:26.132269 135671054521856 image.py:297] 41200/100000+10000,loss=1.555326e-03, psnr=31.852, bpp=0.9024,
+rd_weight=1.000000e-03, soft_round_temp=2.175992e-01, time=0.3679.
+I0405 19:21:26.514485 135671054521856 image.py:297] 41300/100000+10000,loss=1.555317e-03, psnr=31.840, bpp=0.9007,
+rd_weight=1.000000e-03, soft_round_temp=2.173992e-01, time=0.3632.
+I0405 19:21:26.894385 135671054521856 image.py:297] 41400/100000+10000,loss=1.569154e-03, psnr=31.760, bpp=0.9024,
+rd_weight=1.000000e-03, soft_round_temp=2.171992e-01, time=0.3608.
+I0405 19:21:27.279763 135671054521856 image.py:297] 41500/100000+10000,loss=1.553833e-03, psnr=31.861, bpp=0.9024,
+rd_weight=1.000000e-03, soft_round_temp=2.169992e-01, time=0.3662.
+I0405 19:21:27.659120 135671054521856 image.py:297] 41600/100000+10000,loss=1.562647e-03, psnr=31.796, bpp=0.9013,
+rd_weight=1.000000e-03, soft_round_temp=2.167992e-01, time=0.3603.
+I0405 19:21:28.040416 135671054521856 image.py:297] 41700/100000+10000,loss=1.559045e-03, psnr=31.811, bpp=0.9000,
+rd_weight=1.000000e-03, soft_round_temp=2.165992e-01, time=0.3614.
+I0405 19:21:28.423705 135671054521856 image.py:297] 41800/100000+10000,loss=1.564707e-03, psnr=31.792, bpp=0.9028,
+rd_weight=1.000000e-03, soft_round_temp=2.163992e-01, time=0.3635.
+I0405 19:21:28.807961 135671054521856 image.py:297] 41900/100000+10000,loss=1.583806e-03, psnr=31.671, bpp=0.9032,
+rd_weight=1.000000e-03, soft_round_temp=2.161992e-01, time=0.3652.
+I0405 19:21:29.199601 135671054521856 image.py:297] 42000/100000+10000,loss=1.562872e-03, psnr=31.799, bpp=0.9020,
+rd_weight=1.000000e-03, soft_round_temp=2.159992e-01, time=0.3725.
+I0405 19:21:29.580119 135671054521856 image.py:297] 42100/100000+10000,loss=1.559780e-03, psnr=31.814, bpp=0.9013,
+rd_weight=1.000000e-03, soft_round_temp=2.157992e-01, time=0.3611.
+I0405 19:21:29.959962 135671054521856 image.py:297] 42200/100000+10000,loss=1.577889e-03, psnr=31.687, bpp=0.8998,
+rd_weight=1.000000e-03, soft_round_temp=2.155991e-01, time=0.3607.
+I0405 19:21:30.341139 135671054521856 image.py:297] 42300/100000+10000,loss=1.565294e-03, psnr=31.782, bpp=0.9019,
+rd_weight=1.000000e-03, soft_round_temp=2.153991e-01, time=0.3621.
+I0405 19:21:30.721586 135671054521856 image.py:297] 42400/100000+10000,loss=1.561733e-03, psnr=31.801, bpp=0.9013,
+rd_weight=1.000000e-03, soft_round_temp=2.151992e-01, time=0.3617.
+I0405 19:21:31.100945 135671054521856 image.py:297] 42500/100000+10000,loss=1.570780e-03, psnr=31.744, bpp=0.9015,
+rd_weight=1.000000e-03, soft_round_temp=2.149992e-01, time=0.3604.
+I0405 19:21:31.480552 135671054521856 image.py:297] 42600/100000+10000,loss=1.550082e-03, psnr=31.881, bpp=0.9016,
+rd_weight=1.000000e-03, soft_round_temp=2.147991e-01, time=0.3607.
+I0405 19:21:31.861370 135671054521856 image.py:297] 42700/100000+10000,loss=1.563791e-03, psnr=31.795, bpp=0.9023,
+rd_weight=1.000000e-03, soft_round_temp=2.145991e-01, time=0.3616.
+I0405 19:21:32.241215 135671054521856 image.py:297] 42800/100000+10000,loss=1.559835e-03, psnr=31.812, bpp=0.9010,
+rd_weight=1.000000e-03, soft_round_temp=2.143992e-01, time=0.3607.
+I0405 19:21:32.621664 135671054521856 image.py:297] 42900/100000+10000,loss=1.566474e-03, psnr=31.787, bpp=0.9039,
+rd_weight=1.000000e-03, soft_round_temp=2.141991e-01, time=0.3613.
+I0405 19:21:33.000944 135671054521856 image.py:297] 43000/100000+10000,loss=1.554319e-03, psnr=31.857, bpp=0.9022,
+rd_weight=1.000000e-03, soft_round_temp=2.139992e-01, time=0.3602.
+I0405 19:21:33.380847 135671054521856 image.py:297] 43100/100000+10000,loss=1.559495e-03, psnr=31.830, bpp=0.9033,
+rd_weight=1.000000e-03, soft_round_temp=2.137991e-01, time=0.3608.
+I0405 19:21:33.761358 135671054521856 image.py:297] 43200/100000+10000,loss=1.562033e-03, psnr=31.812, bpp=0.9032,
+rd_weight=1.000000e-03, soft_round_temp=2.135991e-01, time=0.3614.
+I0405 19:21:34.141017 135671054521856 image.py:297] 43300/100000+10000,loss=1.555910e-03, psnr=31.849, bpp=0.9027,
+rd_weight=1.000000e-03, soft_round_temp=2.133991e-01, time=0.3606.
+I0405 19:21:34.520866 135671054521856 image.py:297] 43400/100000+10000,loss=1.562309e-03, psnr=31.805, bpp=0.9024,
+rd_weight=1.000000e-03, soft_round_temp=2.131991e-01, time=0.3608.
+I0405 19:21:34.901379 135671054521856 image.py:297] 43500/100000+10000,loss=1.555222e-03, psnr=31.863, bpp=0.9040,
+rd_weight=1.000000e-03, soft_round_temp=2.129991e-01, time=0.3613.
+I0405 19:21:35.280898 135671054521856 image.py:297] 43600/100000+10000,loss=1.555877e-03, psnr=31.846, bpp=0.9022,
+rd_weight=1.000000e-03, soft_round_temp=2.127991e-01, time=0.3604.
+I0405 19:21:35.661577 135671054521856 image.py:297] 43700/100000+10000,loss=1.565162e-03, psnr=31.780, bpp=0.9015,
+rd_weight=1.000000e-03, soft_round_temp=2.125991e-01, time=0.3614.
+I0405 19:21:36.041512 135671054521856 image.py:297] 43800/100000+10000,loss=1.563270e-03, psnr=31.811, bpp=0.9042,
+rd_weight=1.000000e-03, soft_round_temp=2.123991e-01, time=0.3602.
+I0405 19:21:36.421064 135671054521856 image.py:297] 43900/100000+10000,loss=1.556640e-03, psnr=31.843, bpp=0.9024,
+rd_weight=1.000000e-03, soft_round_temp=2.121991e-01, time=0.3605.
+I0405 19:21:36.801355 135671054521856 image.py:297] 44000/100000+10000,loss=1.565638e-03, psnr=31.802, bpp=0.9053,
+rd_weight=1.000000e-03, soft_round_temp=2.119991e-01, time=0.3614.
+I0405 19:21:37.180909 135671054521856 image.py:297] 44100/100000+10000,loss=1.558113e-03, psnr=31.834, bpp=0.9026,
+rd_weight=1.000000e-03, soft_round_temp=2.117991e-01, time=0.3604.
+I0405 19:21:37.560787 135671054521856 image.py:297] 44200/100000+10000,loss=1.606319e-03, psnr=31.536, bpp=0.9042,
+rd_weight=1.000000e-03, soft_round_temp=2.115991e-01, time=0.3608.
+I0405 19:21:37.941197 135671054521856 image.py:297] 44300/100000+10000,loss=1.562396e-03, psnr=31.822, bpp=0.9050,
+rd_weight=1.000000e-03, soft_round_temp=2.113991e-01, time=0.3613.
+I0405 19:21:38.320906 135671054521856 image.py:297] 44400/100000+10000,loss=1.555157e-03, psnr=31.850, bpp=0.9020,
+rd_weight=1.000000e-03, soft_round_temp=2.111991e-01, time=0.3606.
+I0405 19:21:38.701200 135671054521856 image.py:297] 44500/100000+10000,loss=1.561970e-03, psnr=31.819, bpp=0.9042,
+rd_weight=1.000000e-03, soft_round_temp=2.109991e-01, time=0.3612.
+I0405 19:21:39.080989 135671054521856 image.py:297] 44600/100000+10000,loss=1.552935e-03, psnr=31.866, bpp=0.9023,
+rd_weight=1.000000e-03, soft_round_temp=2.107991e-01, time=0.3607.
+I0405 19:21:39.460141 135671054521856 image.py:297] 44700/100000+10000,loss=1.582793e-03, psnr=31.686, bpp=0.9046,
+rd_weight=1.000000e-03, soft_round_temp=2.105991e-01, time=0.3601.
+I0405 19:21:39.840731 135671054521856 image.py:297] 44800/100000+10000,loss=1.554938e-03, psnr=31.869, bpp=0.9047,
+rd_weight=1.000000e-03, soft_round_temp=2.103991e-01, time=0.3616.
+I0405 19:21:40.219721 135671054521856 image.py:297] 44900/100000+10000,loss=1.560611e-03, psnr=31.827, bpp=0.9041,
+rd_weight=1.000000e-03, soft_round_temp=2.101991e-01, time=0.3600.
+I0405 19:21:40.599146 135671054521856 image.py:297] 45000/100000+10000,loss=1.555555e-03, psnr=31.857, bpp=0.9035,
+rd_weight=1.000000e-03, soft_round_temp=2.099991e-01, time=0.3599.
+I0405 19:21:40.978267 135671054521856 image.py:297] 45100/100000+10000,loss=1.561500e-03, psnr=31.837, bpp=0.9064,
+rd_weight=1.000000e-03, soft_round_temp=2.097991e-01, time=0.3602.
+I0405 19:21:41.357722 135671054521856 image.py:297] 45200/100000+10000,loss=1.558993e-03, psnr=31.842, bpp=0.9046,
+rd_weight=1.000000e-03, soft_round_temp=2.095991e-01, time=0.3604.
+I0405 19:21:41.736878 135671054521856 image.py:297] 45300/100000+10000,loss=1.560377e-03, psnr=31.837, bpp=0.9053,
+rd_weight=1.000000e-03, soft_round_temp=2.093991e-01, time=0.3602.
+I0405 19:21:42.116069 135671054521856 image.py:297] 45400/100000+10000,loss=1.564069e-03, psnr=31.821, bpp=0.9065,
+rd_weight=1.000000e-03, soft_round_temp=2.091991e-01, time=0.3600.
+I0405 19:21:42.495118 135671054521856 image.py:297] 45500/100000+10000,loss=1.561707e-03, psnr=31.829, bpp=0.9054,
+rd_weight=1.000000e-03, soft_round_temp=2.089991e-01, time=0.3602.
+I0405 19:21:42.874056 135671054521856 image.py:297] 45600/100000+10000,loss=1.560741e-03, psnr=31.824, bpp=0.9037,
+rd_weight=1.000000e-03, soft_round_temp=2.087991e-01, time=0.3600.
+I0405 19:21:43.253332 135671054521856 image.py:297] 45700/100000+10000,loss=1.563289e-03, psnr=31.815, bpp=0.9049,
+rd_weight=1.000000e-03, soft_round_temp=2.085991e-01, time=0.3602.
+I0405 19:21:43.632359 135671054521856 image.py:297] 45800/100000+10000,loss=1.560843e-03, psnr=31.825, bpp=0.9039,
+rd_weight=1.000000e-03, soft_round_temp=2.083991e-01, time=0.3600.
+I0405 19:21:44.011268 135671054521856 image.py:297] 45900/100000+10000,loss=1.565568e-03, psnr=31.789, bpp=0.9031,
+rd_weight=1.000000e-03, soft_round_temp=2.081991e-01, time=0.3600.
+I0405 19:21:44.390235 135671054521856 image.py:297] 46000/100000+10000,loss=1.557017e-03, psnr=31.851, bpp=0.9041,
+rd_weight=1.000000e-03, soft_round_temp=2.079991e-01, time=0.3599.
+I0405 19:21:44.769355 135671054521856 image.py:297] 46100/100000+10000,loss=1.564187e-03, psnr=31.812, bpp=0.9053,
+rd_weight=1.000000e-03, soft_round_temp=2.077991e-01, time=0.3600.
+I0405 19:21:45.148330 135671054521856 image.py:297] 46200/100000+10000,loss=1.565731e-03, psnr=31.802, bpp=0.9054,
+rd_weight=1.000000e-03, soft_round_temp=2.075991e-01, time=0.3599.
+I0405 19:21:45.527102 135671054521856 image.py:297] 46300/100000+10000,loss=1.604969e-03, psnr=31.544, bpp=0.9041,
+rd_weight=1.000000e-03, soft_round_temp=2.073991e-01, time=0.3597.
+I0405 19:21:45.905962 135671054521856 image.py:297] 46400/100000+10000,loss=1.570239e-03, psnr=31.761, bpp=0.9035,
+rd_weight=1.000000e-03, soft_round_temp=2.071991e-01, time=0.3598.
+I0405 19:21:46.285129 135671054521856 image.py:297] 46500/100000+10000,loss=1.566748e-03, psnr=31.796, bpp=0.9054,
+rd_weight=1.000000e-03, soft_round_temp=2.069991e-01, time=0.3601.
+I0405 19:21:46.664091 135671054521856 image.py:297] 46600/100000+10000,loss=1.564334e-03, psnr=31.809, bpp=0.9051,
+rd_weight=1.000000e-03, soft_round_temp=2.067991e-01, time=0.3596.
+I0405 19:21:47.042901 135671054521856 image.py:297] 46700/100000+10000,loss=1.567252e-03, psnr=31.772, bpp=0.9024,
+rd_weight=1.000000e-03, soft_round_temp=2.065991e-01, time=0.3598.
+I0405 19:21:47.421949 135671054521856 image.py:297] 46800/100000+10000,loss=1.556685e-03, psnr=31.862, bpp=0.9053,
+rd_weight=1.000000e-03, soft_round_temp=2.063991e-01, time=0.3600.
+I0405 19:21:47.800737 135671054521856 image.py:297] 46900/100000+10000,loss=1.561016e-03, psnr=31.832, bpp=0.9052,
+rd_weight=1.000000e-03, soft_round_temp=2.061991e-01, time=0.3598.
+I0405 19:21:48.179536 135671054521856 image.py:297] 47000/100000+10000,loss=1.567519e-03, psnr=31.791, bpp=0.9054,
+rd_weight=1.000000e-03, soft_round_temp=2.059991e-01, time=0.3598.
+I0405 19:21:48.558498 135671054521856 image.py:297] 47100/100000+10000,loss=1.564641e-03, psnr=31.812, bpp=0.9058,
+rd_weight=1.000000e-03, soft_round_temp=2.057991e-01, time=0.3600.
+I0405 19:21:48.937433 135671054521856 image.py:297] 47200/100000+10000,loss=1.572726e-03, psnr=31.776, bpp=0.9084,
+rd_weight=1.000000e-03, soft_round_temp=2.055991e-01, time=0.3598.
+I0405 19:21:49.316400 135671054521856 image.py:297] 47300/100000+10000,loss=1.557617e-03, psnr=31.857, bpp=0.9056,
+rd_weight=1.000000e-03, soft_round_temp=2.053991e-01, time=0.3600.
+I0405 19:21:49.695118 135671054521856 image.py:297] 47400/100000+10000,loss=1.561029e-03, psnr=31.820, bpp=0.9034,
+rd_weight=1.000000e-03, soft_round_temp=2.051991e-01, time=0.3598.
+I0405 19:21:50.074338 135671054521856 image.py:297] 47500/100000+10000,loss=1.572824e-03, psnr=31.754, bpp=0.9051,
+rd_weight=1.000000e-03, soft_round_temp=2.049990e-01, time=0.3602.
+I0405 19:21:50.453605 135671054521856 image.py:297] 47600/100000+10000,loss=1.558810e-03, psnr=31.848, bpp=0.9054,
+rd_weight=1.000000e-03, soft_round_temp=2.047991e-01, time=0.3604.
+I0405 19:21:50.832930 135671054521856 image.py:297] 47700/100000+10000,loss=1.577152e-03, psnr=31.732, bpp=0.9060,
+rd_weight=1.000000e-03, soft_round_temp=2.045991e-01, time=0.3604.
+I0405 19:21:51.211984 135671054521856 image.py:297] 47800/100000+10000,loss=1.580539e-03, psnr=31.706, bpp=0.9055,
+rd_weight=1.000000e-03, soft_round_temp=2.043990e-01, time=0.3601.
+I0405 19:21:51.591206 135671054521856 image.py:297] 47900/100000+10000,loss=1.563767e-03, psnr=31.828, bpp=0.9073,
+rd_weight=1.000000e-03, soft_round_temp=2.041990e-01, time=0.3603.
+I0405 19:21:51.970457 135671054521856 image.py:297] 48000/100000+10000,loss=1.564761e-03, psnr=31.808, bpp=0.9053,
+rd_weight=1.000000e-03, soft_round_temp=2.039990e-01, time=0.3602.
+I0405 19:21:52.349816 135671054521856 image.py:297] 48100/100000+10000,loss=1.570663e-03, psnr=31.772, bpp=0.9057,
+rd_weight=1.000000e-03, soft_round_temp=2.037990e-01, time=0.3603.
+I0405 19:21:52.729121 135671054521856 image.py:297] 48200/100000+10000,loss=1.573615e-03, psnr=31.756, bpp=0.9062,
+rd_weight=1.000000e-03, soft_round_temp=2.035990e-01, time=0.3603.
+I0405 19:21:53.108435 135671054521856 image.py:297] 48300/100000+10000,loss=1.581113e-03, psnr=31.701, bpp=0.9052,
+rd_weight=1.000000e-03, soft_round_temp=2.033990e-01, time=0.3603.
+I0405 19:21:53.487834 135671054521856 image.py:297] 48400/100000+10000,loss=1.559025e-03, psnr=31.842, bpp=0.9047,
+rd_weight=1.000000e-03, soft_round_temp=2.031990e-01, time=0.3604.
+I0405 19:21:53.867112 135671054521856 image.py:297] 48500/100000+10000,loss=1.557551e-03, psnr=31.848, bpp=0.9042,
+rd_weight=1.000000e-03, soft_round_temp=2.029990e-01, time=0.3602.
+I0405 19:21:54.246274 135671054521856 image.py:297] 48600/100000+10000,loss=1.564049e-03, psnr=31.820, bpp=0.9063,
+rd_weight=1.000000e-03, soft_round_temp=2.027990e-01, time=0.3602.
+I0405 19:21:54.626231 135671054521856 image.py:297] 48700/100000+10000,loss=1.563477e-03, psnr=31.811, bpp=0.9045,
+rd_weight=1.000000e-03, soft_round_temp=2.025990e-01, time=0.3609.
+I0405 19:21:55.006150 135671054521856 image.py:297] 48800/100000+10000,loss=1.563098e-03, psnr=31.829, bpp=0.9068,
+rd_weight=1.000000e-03, soft_round_temp=2.023990e-01, time=0.3610.
+I0405 19:21:55.385792 135671054521856 image.py:297] 48900/100000+10000,loss=1.560213e-03, psnr=31.832, bpp=0.9043,
+rd_weight=1.000000e-03, soft_round_temp=2.021990e-01, time=0.3607.
+I0405 19:21:55.765712 135671054521856 image.py:297] 49000/100000+10000,loss=1.562222e-03, psnr=31.836, bpp=0.9070,
+rd_weight=1.000000e-03, soft_round_temp=2.019990e-01, time=0.3610.
+I0405 19:21:56.145600 135671054521856 image.py:297] 49100/100000+10000,loss=1.558801e-03, psnr=31.843, bpp=0.9046,
+rd_weight=1.000000e-03, soft_round_temp=2.017990e-01, time=0.3609.
+I0405 19:21:56.525462 135671054521856 image.py:297] 49200/100000+10000,loss=1.562204e-03, psnr=31.831, bpp=0.9062,
+rd_weight=1.000000e-03, soft_round_temp=2.015990e-01, time=0.3609.
+I0405 19:21:56.905282 135671054521856 image.py:297] 49300/100000+10000,loss=1.565625e-03, psnr=31.818, bpp=0.9077,
+rd_weight=1.000000e-03, soft_round_temp=2.013990e-01, time=0.3609.
+I0405 19:21:57.285093 135671054521856 image.py:297] 49400/100000+10000,loss=1.558935e-03, psnr=31.854, bpp=0.9064,
+rd_weight=1.000000e-03, soft_round_temp=2.011990e-01, time=0.3608.
+I0405 19:21:57.664970 135671054521856 image.py:297] 49500/100000+10000,loss=1.570067e-03, psnr=31.787, bpp=0.9074,
+rd_weight=1.000000e-03, soft_round_temp=2.009990e-01, time=0.3609.
+I0405 19:21:58.044410 135671054521856 image.py:297] 49600/100000+10000,loss=1.577015e-03, psnr=31.743, bpp=0.9076,
+rd_weight=1.000000e-03, soft_round_temp=2.007990e-01, time=0.3726.
+I0405 19:21:58.423338 135671054521856 image.py:297] 49700/100000+10000,loss=1.561410e-03, psnr=31.844, bpp=0.9073,
+rd_weight=1.000000e-03, soft_round_temp=2.005990e-01, time=0.3594.
+I0405 19:21:58.802044 135671054521856 image.py:297] 49800/100000+10000,loss=1.560846e-03, psnr=31.852, bpp=0.9080,
+rd_weight=1.000000e-03, soft_round_temp=2.003990e-01, time=0.3594.
+I0405 19:21:59.186582 135671054521856 image.py:297] 49900/100000+10000,loss=1.561172e-03, psnr=31.833, bpp=0.9055,
+rd_weight=1.000000e-03, soft_round_temp=2.001990e-01, time=0.3652.
+I0405 19:21:59.566472 135671054521856 image.py:297] 50000/100000+10000,loss=1.571150e-03, psnr=31.780, bpp=0.9075,
+rd_weight=1.000000e-03, soft_round_temp=1.999990e-01, time=0.3608.
+I0405 19:21:59.945998 135671054521856 image.py:297] 50100/100000+10000,loss=1.558055e-03, psnr=31.863, bpp=0.9068,
+rd_weight=1.000000e-03, soft_round_temp=1.997990e-01, time=0.3605.
+I0405 19:22:00.326429 135671054521856 image.py:297] 50200/100000+10000,loss=1.577707e-03, psnr=31.725, bpp=0.9055,
+rd_weight=1.000000e-03, soft_round_temp=1.995990e-01, time=0.3614.
+I0405 19:22:00.705793 135671054521856 image.py:297] 50300/100000+10000,loss=1.562698e-03, psnr=31.827, bpp=0.9061,
+rd_weight=1.000000e-03, soft_round_temp=1.993990e-01, time=0.3603.
+I0405 19:22:01.085942 135671054521856 image.py:297] 50400/100000+10000,loss=1.572415e-03, psnr=31.770, bpp=0.9071,
+rd_weight=1.000000e-03, soft_round_temp=1.991990e-01, time=0.3677.
+I0405 19:22:01.465980 135671054521856 image.py:297] 50500/100000+10000,loss=1.560102e-03, psnr=31.844, bpp=0.9060,
+rd_weight=1.000000e-03, soft_round_temp=1.989990e-01, time=0.3608.
+I0405 19:22:01.845280 135671054521856 image.py:297] 50600/100000+10000,loss=1.568234e-03, psnr=31.799, bpp=0.9073,
+rd_weight=1.000000e-03, soft_round_temp=1.987990e-01, time=0.3603.
+I0405 19:22:02.224716 135671054521856 image.py:297] 50700/100000+10000,loss=1.560751e-03, psnr=31.843, bpp=0.9065,
+rd_weight=1.000000e-03, soft_round_temp=1.985990e-01, time=0.3604.
+I0405 19:22:02.604357 135671054521856 image.py:297] 50800/100000+10000,loss=1.581218e-03, psnr=31.710, bpp=0.9066,
+rd_weight=1.000000e-03, soft_round_temp=1.983990e-01, time=0.3606.
+I0405 19:22:02.983835 135671054521856 image.py:297] 50900/100000+10000,loss=1.567185e-03, psnr=31.809, bpp=0.9079,
+rd_weight=1.000000e-03, soft_round_temp=1.981990e-01, time=0.3605.
+I0405 19:22:03.363144 135671054521856 image.py:297] 51000/100000+10000,loss=1.560247e-03, psnr=31.851, bpp=0.9073,
+rd_weight=1.000000e-03, soft_round_temp=1.979990e-01, time=0.3603.
+I0405 19:22:03.742412 135671054521856 image.py:297] 51100/100000+10000,loss=1.561057e-03, psnr=31.850, bpp=0.9079,
+rd_weight=1.000000e-03, soft_round_temp=1.977990e-01, time=0.3603.
+I0405 19:22:04.122051 135671054521856 image.py:297] 51200/100000+10000,loss=1.565278e-03, psnr=31.813, bpp=0.9066,
+rd_weight=1.000000e-03, soft_round_temp=1.975990e-01, time=0.3606.
+I0405 19:22:04.501507 135671054521856 image.py:297] 51300/100000+10000,loss=1.559685e-03, psnr=31.848, bpp=0.9063,
+rd_weight=1.000000e-03, soft_round_temp=1.973990e-01, time=0.3605.
+I0405 19:22:04.880862 135671054521856 image.py:297] 51400/100000+10000,loss=1.559365e-03, psnr=31.856, bpp=0.9071,
+rd_weight=1.000000e-03, soft_round_temp=1.971990e-01, time=0.3604.
+I0405 19:22:05.260208 135671054521856 image.py:297] 51500/100000+10000,loss=1.565827e-03, psnr=31.814, bpp=0.9073,
+rd_weight=1.000000e-03, soft_round_temp=1.969990e-01, time=0.3603.
+I0405 19:22:05.639792 135671054521856 image.py:297] 51600/100000+10000,loss=1.562353e-03, psnr=31.837, bpp=0.9072,
+rd_weight=1.000000e-03, soft_round_temp=1.967990e-01, time=0.3605.
+I0405 19:22:06.019492 135671054521856 image.py:297] 51700/100000+10000,loss=1.566445e-03, psnr=31.810, bpp=0.9072,
+rd_weight=1.000000e-03, soft_round_temp=1.965990e-01, time=0.3606.
+I0405 19:22:06.398881 135671054521856 image.py:297] 51800/100000+10000,loss=1.566872e-03, psnr=31.820, bpp=0.9092,
+rd_weight=1.000000e-03, soft_round_temp=1.963990e-01, time=0.3604.
+I0405 19:22:06.778217 135671054521856 image.py:297] 51900/100000+10000,loss=1.560988e-03, psnr=31.854, bpp=0.9085,
+rd_weight=1.000000e-03, soft_round_temp=1.961990e-01, time=0.3604.
+I0405 19:22:07.157956 135671054521856 image.py:297] 52000/100000+10000,loss=1.560444e-03, psnr=31.857, bpp=0.9084,
+rd_weight=1.000000e-03, soft_round_temp=1.959990e-01, time=0.3606.
+I0405 19:22:07.537366 135671054521856 image.py:297] 52100/100000+10000,loss=1.566633e-03, psnr=31.814, bpp=0.9081,
+rd_weight=1.000000e-03, soft_round_temp=1.957990e-01, time=0.3604.
+I0405 19:22:07.916598 135671054521856 image.py:297] 52200/100000+10000,loss=1.570411e-03, psnr=31.795, bpp=0.9090,
+rd_weight=1.000000e-03, soft_round_temp=1.955990e-01, time=0.3603.
+I0405 19:22:08.296094 135671054521856 image.py:297] 52300/100000+10000,loss=1.564172e-03, psnr=31.846, bpp=0.9104,
+rd_weight=1.000000e-03, soft_round_temp=1.953990e-01, time=0.3605.
+I0405 19:22:08.675580 135671054521856 image.py:297] 52400/100000+10000,loss=1.559952e-03, psnr=31.865, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.951990e-01, time=0.3606.
+I0405 19:22:09.055063 135671054521856 image.py:297] 52500/100000+10000,loss=1.562746e-03, psnr=31.855, bpp=0.9104,
+rd_weight=1.000000e-03, soft_round_temp=1.949989e-01, time=0.3606.
+I0405 19:22:09.434425 135671054521856 image.py:297] 52600/100000+10000,loss=1.558557e-03, psnr=31.860, bpp=0.9069,
+rd_weight=1.000000e-03, soft_round_temp=1.947989e-01, time=0.3604.
+I0405 19:22:09.814107 135671054521856 image.py:297] 52700/100000+10000,loss=1.571168e-03, psnr=31.779, bpp=0.9073,
+rd_weight=1.000000e-03, soft_round_temp=1.945989e-01, time=0.3607.
+I0405 19:22:10.193478 135671054521856 image.py:297] 52800/100000+10000,loss=1.562215e-03, psnr=31.846, bpp=0.9085,
+rd_weight=1.000000e-03, soft_round_temp=1.943989e-01, time=0.3606.
+I0405 19:22:10.572922 135671054521856 image.py:297] 52900/100000+10000,loss=1.562180e-03, psnr=31.843, bpp=0.9080,
+rd_weight=1.000000e-03, soft_round_temp=1.941989e-01, time=0.3605.
+I0405 19:22:10.952214 135671054521856 image.py:297] 53000/100000+10000,loss=1.560102e-03, psnr=31.850, bpp=0.9070,
+rd_weight=1.000000e-03, soft_round_temp=1.939989e-01, time=0.3602.
+I0405 19:22:11.331637 135671054521856 image.py:297] 53100/100000+10000,loss=1.579550e-03, psnr=31.721, bpp=0.9067,
+rd_weight=1.000000e-03, soft_round_temp=1.937989e-01, time=0.3605.
+I0405 19:22:11.711165 135671054521856 image.py:297] 53200/100000+10000,loss=1.569961e-03, psnr=31.806, bpp=0.9102,
+rd_weight=1.000000e-03, soft_round_temp=1.935989e-01, time=0.3606.
+I0405 19:22:12.090603 135671054521856 image.py:297] 53300/100000+10000,loss=1.560829e-03, psnr=31.850, bpp=0.9077,
+rd_weight=1.000000e-03, soft_round_temp=1.933989e-01, time=0.3605.
+I0405 19:22:12.469706 135671054521856 image.py:297] 53400/100000+10000,loss=1.561161e-03, psnr=31.835, bpp=0.9057,
+rd_weight=1.000000e-03, soft_round_temp=1.931989e-01, time=0.3601.
+I0405 19:22:12.849032 135671054521856 image.py:297] 53500/100000+10000,loss=1.568748e-03, psnr=31.801, bpp=0.9082,
+rd_weight=1.000000e-03, soft_round_temp=1.929989e-01, time=0.3604.
+I0405 19:22:13.228441 135671054521856 image.py:297] 53600/100000+10000,loss=1.568279e-03, psnr=31.788, bpp=0.9058,
+rd_weight=1.000000e-03, soft_round_temp=1.927989e-01, time=0.3604.
+I0405 19:22:13.607862 135671054521856 image.py:297] 53700/100000+10000,loss=1.558586e-03, psnr=31.872, bpp=0.9087,
+rd_weight=1.000000e-03, soft_round_temp=1.925989e-01, time=0.3605.
+I0405 19:22:13.987025 135671054521856 image.py:297] 53800/100000+10000,loss=1.563024e-03, psnr=31.839, bpp=0.9083,
+rd_weight=1.000000e-03, soft_round_temp=1.923989e-01, time=0.3602.
+I0405 19:22:14.366410 135671054521856 image.py:297] 53900/100000+10000,loss=1.574504e-03, psnr=31.769, bpp=0.9092,
+rd_weight=1.000000e-03, soft_round_temp=1.921989e-01, time=0.3604.
+I0405 19:22:14.746313 135671054521856 image.py:297] 54000/100000+10000,loss=1.566092e-03, psnr=31.829, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=1.919989e-01, time=0.3606.
+I0405 19:22:15.125892 135671054521856 image.py:297] 54100/100000+10000,loss=1.562634e-03, psnr=31.854, bpp=0.9101,
+rd_weight=1.000000e-03, soft_round_temp=1.917989e-01, time=0.3605.
+I0405 19:22:15.504917 135671054521856 image.py:297] 54200/100000+10000,loss=1.566273e-03, psnr=31.820, bpp=0.9086,
+rd_weight=1.000000e-03, soft_round_temp=1.915989e-01, time=0.3755.
+I0405 19:22:15.883668 135671054521856 image.py:297] 54300/100000+10000,loss=1.572725e-03, psnr=31.782, bpp=0.9093,
+rd_weight=1.000000e-03, soft_round_temp=1.913989e-01, time=0.3611.
+I0405 19:22:16.262411 135671054521856 image.py:297] 54400/100000+10000,loss=1.562256e-03, psnr=31.850, bpp=0.9092,
+rd_weight=1.000000e-03, soft_round_temp=1.911989e-01, time=0.3604.
+I0405 19:22:16.641535 135671054521856 image.py:297] 54500/100000+10000,loss=1.562887e-03, psnr=31.841, bpp=0.9084,
+rd_weight=1.000000e-03, soft_round_temp=1.909989e-01, time=0.3595.
+I0405 19:22:17.028540 135671054521856 image.py:297] 54600/100000+10000,loss=1.561752e-03, psnr=31.841, bpp=0.9073,
+rd_weight=1.000000e-03, soft_round_temp=1.907989e-01, time=0.3658.
+I0405 19:22:17.432365 135671054521856 image.py:297] 54700/100000+10000,loss=1.561562e-03, psnr=31.848, bpp=0.9081,
+rd_weight=1.000000e-03, soft_round_temp=1.905989e-01, time=0.3842.
+I0405 19:22:17.831350 135671054521856 image.py:297] 54800/100000+10000,loss=1.560920e-03, psnr=31.856, bpp=0.9087,
+rd_weight=1.000000e-03, soft_round_temp=1.903989e-01, time=0.3773.
+I0405 19:22:18.217261 135671054521856 image.py:297] 54900/100000+10000,loss=1.575946e-03, psnr=31.760, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.901989e-01, time=0.3660.
+I0405 19:22:18.596427 135671054521856 image.py:297] 55000/100000+10000,loss=1.579782e-03, psnr=31.742, bpp=0.9102,
+rd_weight=1.000000e-03, soft_round_temp=1.899989e-01, time=0.3600.
+I0405 19:22:18.976963 135671054521856 image.py:297] 55100/100000+10000,loss=1.566754e-03, psnr=31.808, bpp=0.9072,
+rd_weight=1.000000e-03, soft_round_temp=1.897989e-01, time=0.3614.
+I0405 19:22:19.356319 135671054521856 image.py:297] 55200/100000+10000,loss=1.563303e-03, psnr=31.843, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.895989e-01, time=0.3605.
+I0405 19:22:19.736707 135671054521856 image.py:297] 55300/100000+10000,loss=1.561400e-03, psnr=31.858, bpp=0.9094,
+rd_weight=1.000000e-03, soft_round_temp=1.893989e-01, time=0.3614.
+I0405 19:22:20.116971 135671054521856 image.py:297] 55400/100000+10000,loss=1.566451e-03, psnr=31.822, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.891989e-01, time=0.3612.
+I0405 19:22:20.500368 135671054521856 image.py:297] 55500/100000+10000,loss=1.565313e-03, psnr=31.830, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.889989e-01, time=0.3643.
+I0405 19:22:20.880391 135671054521856 image.py:297] 55600/100000+10000,loss=1.563124e-03, psnr=31.845, bpp=0.9093,
+rd_weight=1.000000e-03, soft_round_temp=1.887989e-01, time=0.3609.
+I0405 19:22:21.260838 135671054521856 image.py:297] 55700/100000+10000,loss=1.577953e-03, psnr=31.752, bpp=0.9099,
+rd_weight=1.000000e-03, soft_round_temp=1.885989e-01, time=0.3613.
+I0405 19:22:21.640154 135671054521856 image.py:297] 55800/100000+10000,loss=1.561650e-03, psnr=31.858, bpp=0.9097,
+rd_weight=1.000000e-03, soft_round_temp=1.883989e-01, time=0.3602.
+I0405 19:22:22.021713 135671054521856 image.py:297] 55900/100000+10000,loss=1.562787e-03, psnr=31.850, bpp=0.9096,
+rd_weight=1.000000e-03, soft_round_temp=1.881989e-01, time=0.3626.
+I0405 19:22:22.406392 135671054521856 image.py:297] 56000/100000+10000,loss=1.562237e-03, psnr=31.850, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.879989e-01, time=0.3653.
+I0405 19:22:22.788713 135671054521856 image.py:297] 56100/100000+10000,loss=1.569831e-03, psnr=31.799, bpp=0.9089,
+rd_weight=1.000000e-03, soft_round_temp=1.877989e-01, time=0.3631.
+I0405 19:22:23.174672 135671054521856 image.py:297] 56200/100000+10000,loss=1.568268e-03, psnr=31.811, bpp=0.9092,
+rd_weight=1.000000e-03, soft_round_temp=1.875989e-01, time=0.3663.
+I0405 19:22:23.556757 135671054521856 image.py:297] 56300/100000+10000,loss=1.563281e-03, psnr=31.839, bpp=0.9085,
+rd_weight=1.000000e-03, soft_round_temp=1.873989e-01, time=0.3629.
+I0405 19:22:23.938261 135671054521856 image.py:297] 56400/100000+10000,loss=1.564962e-03, psnr=31.832, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.871989e-01, time=0.3615.
+I0405 19:22:24.325233 135671054521856 image.py:297] 56500/100000+10000,loss=1.564495e-03, psnr=31.836, bpp=0.9093,
+rd_weight=1.000000e-03, soft_round_temp=1.869989e-01, time=0.3671.
+I0405 19:22:24.706577 135671054521856 image.py:297] 56600/100000+10000,loss=1.577163e-03, psnr=31.758, bpp=0.9101,
+rd_weight=1.000000e-03, soft_round_temp=1.867989e-01, time=0.3623.
+I0405 19:22:25.088160 135671054521856 image.py:297] 56700/100000+10000,loss=1.564088e-03, psnr=31.839, bpp=0.9093,
+rd_weight=1.000000e-03, soft_round_temp=1.865989e-01, time=0.3618.
+I0405 19:22:25.484334 135671054521856 image.py:297] 56800/100000+10000,loss=1.567413e-03, psnr=31.831, bpp=0.9114,
+rd_weight=1.000000e-03, soft_round_temp=1.863989e-01, time=0.3771.
+I0405 19:22:25.872126 135671054521856 image.py:297] 56900/100000+10000,loss=1.565192e-03, psnr=31.830, bpp=0.9090,
+rd_weight=1.000000e-03, soft_round_temp=1.861989e-01, time=0.3711.
+I0405 19:22:26.254112 135671054521856 image.py:297] 57000/100000+10000,loss=1.570159e-03, psnr=31.808, bpp=0.9106,
+rd_weight=1.000000e-03, soft_round_temp=1.859989e-01, time=0.3625.
+I0405 19:22:26.633358 135671054521856 image.py:297] 57100/100000+10000,loss=1.569014e-03, psnr=31.800, bpp=0.9084,
+rd_weight=1.000000e-03, soft_round_temp=1.857989e-01, time=0.3600.
+I0405 19:22:27.019190 135671054521856 image.py:297] 57200/100000+10000,loss=1.569003e-03, psnr=31.798, bpp=0.9080,
+rd_weight=1.000000e-03, soft_round_temp=1.855989e-01, time=0.3667.
+I0405 19:22:27.410207 135671054521856 image.py:297] 57300/100000+10000,loss=1.564041e-03, psnr=31.845, bpp=0.9102,
+rd_weight=1.000000e-03, soft_round_temp=1.853988e-01, time=0.3718.
+I0405 19:22:27.800225 135671054521856 image.py:297] 57400/100000+10000,loss=1.563378e-03, psnr=31.851, bpp=0.9103,
+rd_weight=1.000000e-03, soft_round_temp=1.851989e-01, time=0.3692.
+I0405 19:22:28.191180 135671054521856 image.py:297] 57500/100000+10000,loss=1.571702e-03, psnr=31.803, bpp=0.9114,
+rd_weight=1.000000e-03, soft_round_temp=1.849988e-01, time=0.3708.
+I0405 19:22:28.573093 135671054521856 image.py:297] 57600/100000+10000,loss=1.563981e-03, psnr=31.834, bpp=0.9084,
+rd_weight=1.000000e-03, soft_round_temp=1.847989e-01, time=0.3626.
+I0405 19:22:28.957227 135671054521856 image.py:297] 57700/100000+10000,loss=1.572123e-03, psnr=31.789, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=1.845989e-01, time=0.3649.
+I0405 19:22:29.345283 135671054521856 image.py:297] 57800/100000+10000,loss=1.563165e-03, psnr=31.857, bpp=0.9111,
+rd_weight=1.000000e-03, soft_round_temp=1.843988e-01, time=0.3679.
+I0405 19:22:29.736105 135671054521856 image.py:297] 57900/100000+10000,loss=1.564693e-03, psnr=31.838, bpp=0.9097,
+rd_weight=1.000000e-03, soft_round_temp=1.841989e-01, time=0.3710.
+I0405 19:22:30.125139 135671054521856 image.py:297] 58000/100000+10000,loss=1.565798e-03, psnr=31.832, bpp=0.9100,
+rd_weight=1.000000e-03, soft_round_temp=1.839988e-01, time=0.3701.
+I0405 19:22:30.505023 135671054521856 image.py:297] 58100/100000+10000,loss=1.561299e-03, psnr=31.853, bpp=0.9086,
+rd_weight=1.000000e-03, soft_round_temp=1.837988e-01, time=0.3608.
+I0405 19:22:30.888062 135671054521856 image.py:297] 58200/100000+10000,loss=1.562276e-03, psnr=31.858, bpp=0.9104,
+rd_weight=1.000000e-03, soft_round_temp=1.835988e-01, time=0.3638.
+I0405 19:22:31.270267 135671054521856 image.py:297] 58300/100000+10000,loss=1.564292e-03, psnr=31.852, bpp=0.9114,
+rd_weight=1.000000e-03, soft_round_temp=1.833988e-01, time=0.3629.
+I0405 19:22:31.656947 135671054521856 image.py:297] 58400/100000+10000,loss=1.565149e-03, psnr=31.835, bpp=0.9097,
+rd_weight=1.000000e-03, soft_round_temp=1.831988e-01, time=0.3672.
+I0405 19:22:32.044544 135671054521856 image.py:297] 58500/100000+10000,loss=1.565690e-03, psnr=31.831, bpp=0.9097,
+rd_weight=1.000000e-03, soft_round_temp=1.829988e-01, time=0.3680.
+I0405 19:22:32.424766 135671054521856 image.py:297] 58600/100000+10000,loss=1.587340e-03, psnr=31.690, bpp=0.9097,
+rd_weight=1.000000e-03, soft_round_temp=1.827988e-01, time=0.3611.
+I0405 19:22:32.805254 135671054521856 image.py:297] 58700/100000+10000,loss=1.568519e-03, psnr=31.815, bpp=0.9101,
+rd_weight=1.000000e-03, soft_round_temp=1.825988e-01, time=0.3615.
+I0405 19:22:33.194156 135671054521856 image.py:297] 58800/100000+10000,loss=1.565285e-03, psnr=31.835, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=1.823988e-01, time=0.3694.
+I0405 19:22:33.573125 135671054521856 image.py:297] 58900/100000+10000,loss=1.564656e-03, psnr=31.845, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.821988e-01, time=0.3598.
+I0405 19:22:33.955700 135671054521856 image.py:297] 59000/100000+10000,loss=1.564215e-03, psnr=31.832, bpp=0.9084,
+rd_weight=1.000000e-03, soft_round_temp=1.819988e-01, time=0.3619.
+I0405 19:22:34.346595 135671054521856 image.py:297] 59100/100000+10000,loss=1.570455e-03, psnr=31.796, bpp=0.9092,
+rd_weight=1.000000e-03, soft_round_temp=1.817988e-01, time=0.3705.
+I0405 19:22:34.737236 135671054521856 image.py:297] 59200/100000+10000,loss=1.565768e-03, psnr=31.830, bpp=0.9096,
+rd_weight=1.000000e-03, soft_round_temp=1.815988e-01, time=0.3708.
+I0405 19:22:35.122448 135671054521856 image.py:297] 59300/100000+10000,loss=1.565525e-03, psnr=31.832, bpp=0.9097,
+rd_weight=1.000000e-03, soft_round_temp=1.813988e-01, time=0.3662.
+I0405 19:22:35.509981 135671054521856 image.py:297] 59400/100000+10000,loss=1.565235e-03, psnr=31.833, bpp=0.9096,
+rd_weight=1.000000e-03, soft_round_temp=1.811988e-01, time=0.3684.
+I0405 19:22:35.891242 135671054521856 image.py:297] 59500/100000+10000,loss=1.565178e-03, psnr=31.845, bpp=0.9113,
+rd_weight=1.000000e-03, soft_round_temp=1.809988e-01, time=0.3620.
+I0405 19:22:36.271731 135671054521856 image.py:297] 59600/100000+10000,loss=1.566904e-03, psnr=31.821, bpp=0.9094,
+rd_weight=1.000000e-03, soft_round_temp=1.807988e-01, time=0.3613.
+I0405 19:22:36.652119 135671054521856 image.py:297] 59700/100000+10000,loss=1.561919e-03, psnr=31.852, bpp=0.9091,
+rd_weight=1.000000e-03, soft_round_temp=1.805988e-01, time=0.3605.
+I0405 19:22:37.031826 135671054521856 image.py:297] 59800/100000+10000,loss=1.575975e-03, psnr=31.773, bpp=0.9112,
+rd_weight=1.000000e-03, soft_round_temp=1.803988e-01, time=0.3606.
+I0405 19:22:37.412153 135671054521856 image.py:297] 59900/100000+10000,loss=1.569735e-03, psnr=31.811, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.801988e-01, time=0.3613.
+I0405 19:22:37.793313 135671054521856 image.py:297] 60000/100000+10000,loss=1.570525e-03, psnr=31.804, bpp=0.9104,
+rd_weight=1.000000e-03, soft_round_temp=1.799988e-01, time=0.3618.
+I0405 19:22:38.173569 135671054521856 image.py:297] 60100/100000+10000,loss=1.565653e-03, psnr=31.848, bpp=0.9122,
+rd_weight=1.000000e-03, soft_round_temp=1.797988e-01, time=0.3611.
+I0405 19:22:38.552850 135671054521856 image.py:297] 60200/100000+10000,loss=1.563881e-03, psnr=31.850, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.795988e-01, time=0.3603.
+I0405 19:22:38.933590 135671054521856 image.py:297] 60300/100000+10000,loss=1.570005e-03, psnr=31.808, bpp=0.9105,
+rd_weight=1.000000e-03, soft_round_temp=1.793988e-01, time=0.3618.
+I0405 19:22:39.314441 135671054521856 image.py:297] 60400/100000+10000,loss=1.568696e-03, psnr=31.819, bpp=0.9109,
+rd_weight=1.000000e-03, soft_round_temp=1.791988e-01, time=0.3616.
+I0405 19:22:39.695057 135671054521856 image.py:297] 60500/100000+10000,loss=1.565791e-03, psnr=31.830, bpp=0.9096,
+rd_weight=1.000000e-03, soft_round_temp=1.789988e-01, time=0.3617.
+I0405 19:22:40.086310 135671054521856 image.py:297] 60600/100000+10000,loss=1.565998e-03, psnr=31.834, bpp=0.9104,
+rd_weight=1.000000e-03, soft_round_temp=1.787988e-01, time=0.3720.
+I0405 19:22:40.471214 135671054521856 image.py:297] 60700/100000+10000,loss=1.562310e-03, psnr=31.852, bpp=0.9094,
+rd_weight=1.000000e-03, soft_round_temp=1.785988e-01, time=0.3658.
+I0405 19:22:40.851943 135671054521856 image.py:297] 60800/100000+10000,loss=1.565262e-03, psnr=31.842, bpp=0.9109,
+rd_weight=1.000000e-03, soft_round_temp=1.783988e-01, time=0.3616.
+I0405 19:22:41.232482 135671054521856 image.py:297] 60900/100000+10000,loss=1.570315e-03, psnr=31.811, bpp=0.9112,
+rd_weight=1.000000e-03, soft_round_temp=1.781988e-01, time=0.3614.
+I0405 19:22:41.623941 135671054521856 image.py:297] 61000/100000+10000,loss=1.561758e-03, psnr=31.852, bpp=0.9089,
+rd_weight=1.000000e-03, soft_round_temp=1.779988e-01, time=0.3722.
+I0405 19:22:42.013982 135671054521856 image.py:297] 61100/100000+10000,loss=1.563310e-03, psnr=31.849, bpp=0.9100,
+rd_weight=1.000000e-03, soft_round_temp=1.777988e-01, time=0.3702.
+I0405 19:22:42.395824 135671054521856 image.py:297] 61200/100000+10000,loss=1.563481e-03, psnr=31.857, bpp=0.9115,
+rd_weight=1.000000e-03, soft_round_temp=1.775988e-01, time=0.3626.
+I0405 19:22:42.775923 135671054521856 image.py:297] 61300/100000+10000,loss=1.563303e-03, psnr=31.847, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=1.773988e-01, time=0.3610.
+I0405 19:22:43.155009 135671054521856 image.py:297] 61400/100000+10000,loss=1.565723e-03, psnr=31.843, bpp=0.9115,
+rd_weight=1.000000e-03, soft_round_temp=1.771988e-01, time=0.3601.
+I0405 19:22:43.535501 135671054521856 image.py:297] 61500/100000+10000,loss=1.567836e-03, psnr=31.811, bpp=0.9088,
+rd_weight=1.000000e-03, soft_round_temp=1.769988e-01, time=0.3615.
+I0405 19:22:43.916002 135671054521856 image.py:297] 61600/100000+10000,loss=1.564384e-03, psnr=31.853, bpp=0.9117,
+rd_weight=1.000000e-03, soft_round_temp=1.767988e-01, time=0.3608.
+I0405 19:22:44.295256 135671054521856 image.py:297] 61700/100000+10000,loss=1.568537e-03, psnr=31.820, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.765988e-01, time=0.3602.
+I0405 19:22:44.675445 135671054521856 image.py:297] 61800/100000+10000,loss=1.564329e-03, psnr=31.857, bpp=0.9122,
+rd_weight=1.000000e-03, soft_round_temp=1.763988e-01, time=0.3612.
+I0405 19:22:45.056334 135671054521856 image.py:297] 61900/100000+10000,loss=1.563656e-03, psnr=31.851, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.761988e-01, time=0.3619.
+I0405 19:22:45.436816 135671054521856 image.py:297] 62000/100000+10000,loss=1.564439e-03, psnr=31.845, bpp=0.9106,
+rd_weight=1.000000e-03, soft_round_temp=1.759988e-01, time=0.3615.
+I0405 19:22:45.818151 135671054521856 image.py:297] 62100/100000+10000,loss=1.565509e-03, psnr=31.849, bpp=0.9122,
+rd_weight=1.000000e-03, soft_round_temp=1.757988e-01, time=0.3623.
+I0405 19:22:46.197323 135671054521856 image.py:297] 62200/100000+10000,loss=1.574077e-03, psnr=31.793, bpp=0.9123,
+rd_weight=1.000000e-03, soft_round_temp=1.755988e-01, time=0.3600.
+I0405 19:22:46.577839 135671054521856 image.py:297] 62300/100000+10000,loss=1.565673e-03, psnr=31.847, bpp=0.9121,
+rd_weight=1.000000e-03, soft_round_temp=1.753988e-01, time=0.3616.
+I0405 19:22:46.959037 135671054521856 image.py:297] 62400/100000+10000,loss=1.564448e-03, psnr=31.848, bpp=0.9111,
+rd_weight=1.000000e-03, soft_round_temp=1.751988e-01, time=0.3621.
+I0405 19:22:47.338342 135671054521856 image.py:297] 62500/100000+10000,loss=1.565302e-03, psnr=31.852, bpp=0.9125,
+rd_weight=1.000000e-03, soft_round_temp=1.749988e-01, time=0.3603.
+I0405 19:22:47.719827 135671054521856 image.py:297] 62600/100000+10000,loss=1.564982e-03, psnr=31.843, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.747988e-01, time=0.3624.
+I0405 19:22:48.111914 135671054521856 image.py:297] 62700/100000+10000,loss=1.563698e-03, psnr=31.846, bpp=0.9099,
+rd_weight=1.000000e-03, soft_round_temp=1.745988e-01, time=0.3726.
+I0405 19:22:48.502713 135671054521856 image.py:297] 62800/100000+10000,loss=1.564440e-03, psnr=31.847, bpp=0.9109,
+rd_weight=1.000000e-03, soft_round_temp=1.743988e-01, time=0.3703.
+I0405 19:22:48.897511 135671054521856 image.py:297] 62900/100000+10000,loss=1.565628e-03, psnr=31.841, bpp=0.9112,
+rd_weight=1.000000e-03, soft_round_temp=1.741987e-01, time=0.3748.
+I0405 19:22:49.279216 135671054521856 image.py:297] 63000/100000+10000,loss=1.568669e-03, psnr=31.820, bpp=0.9110,
+rd_weight=1.000000e-03, soft_round_temp=1.739987e-01, time=0.3627.
+I0405 19:22:49.659536 135671054521856 image.py:297] 63100/100000+10000,loss=1.566297e-03, psnr=31.843, bpp=0.9121,
+rd_weight=1.000000e-03, soft_round_temp=1.737987e-01, time=0.3614.
+I0405 19:22:50.040407 135671054521856 image.py:297] 63200/100000+10000,loss=1.562302e-03, psnr=31.856, bpp=0.9101,
+rd_weight=1.000000e-03, soft_round_temp=1.735987e-01, time=0.3607.
+I0405 19:22:50.419868 135671054521856 image.py:297] 63300/100000+10000,loss=1.567394e-03, psnr=31.820, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=1.733987e-01, time=0.3604.
+I0405 19:22:50.808170 135671054521856 image.py:297] 63400/100000+10000,loss=1.563001e-03, psnr=31.864, bpp=0.9119,
+rd_weight=1.000000e-03, soft_round_temp=1.731987e-01, time=0.3689.
+I0405 19:22:51.199772 135671054521856 image.py:297] 63500/100000+10000,loss=1.567773e-03, psnr=31.826, bpp=0.9110,
+rd_weight=1.000000e-03, soft_round_temp=1.729987e-01, time=0.3714.
+I0405 19:22:51.592219 135671054521856 image.py:297] 63600/100000+10000,loss=1.564977e-03, psnr=31.844, bpp=0.9109,
+rd_weight=1.000000e-03, soft_round_temp=1.727987e-01, time=0.3714.
+I0405 19:22:51.984378 135671054521856 image.py:297] 63700/100000+10000,loss=1.568552e-03, psnr=31.819, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.725987e-01, time=0.3720.
+I0405 19:22:52.368684 135671054521856 image.py:297] 63800/100000+10000,loss=1.564549e-03, psnr=31.853, bpp=0.9119,
+rd_weight=1.000000e-03, soft_round_temp=1.723987e-01, time=0.3649.
+I0405 19:22:52.748769 135671054521856 image.py:297] 63900/100000+10000,loss=1.565387e-03, psnr=31.840, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.721987e-01, time=0.3606.
+I0405 19:22:53.138951 135671054521856 image.py:297] 64000/100000+10000,loss=1.565306e-03, psnr=31.849, bpp=0.9120,
+rd_weight=1.000000e-03, soft_round_temp=1.719987e-01, time=0.3710.
+I0405 19:22:53.521478 135671054521856 image.py:297] 64100/100000+10000,loss=1.568692e-03, psnr=31.823, bpp=0.9114,
+rd_weight=1.000000e-03, soft_round_temp=1.717987e-01, time=0.3634.
+I0405 19:22:53.908827 135671054521856 image.py:297] 64200/100000+10000,loss=1.564621e-03, psnr=31.845, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.715987e-01, time=0.3682.
+I0405 19:22:54.288624 135671054521856 image.py:297] 64300/100000+10000,loss=1.564173e-03, psnr=31.853, bpp=0.9115,
+rd_weight=1.000000e-03, soft_round_temp=1.713987e-01, time=0.3607.
+I0405 19:22:54.669738 135671054521856 image.py:297] 64400/100000+10000,loss=1.564284e-03, psnr=31.847, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.711987e-01, time=0.3620.
+I0405 19:22:55.050992 135671054521856 image.py:297] 64500/100000+10000,loss=1.566165e-03, psnr=31.838, bpp=0.9112,
+rd_weight=1.000000e-03, soft_round_temp=1.709987e-01, time=0.3622.
+I0405 19:22:55.430199 135671054521856 image.py:297] 64600/100000+10000,loss=1.562219e-03, psnr=31.862, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.707987e-01, time=0.3601.
+I0405 19:22:55.813438 135671054521856 image.py:297] 64700/100000+10000,loss=1.567304e-03, psnr=31.837, bpp=0.9121,
+rd_weight=1.000000e-03, soft_round_temp=1.705987e-01, time=0.3641.
+I0405 19:22:56.195118 135671054521856 image.py:297] 64800/100000+10000,loss=1.567046e-03, psnr=31.830, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.703987e-01, time=0.3626.
+I0405 19:22:56.575851 135671054521856 image.py:297] 64900/100000+10000,loss=1.565458e-03, psnr=31.848, bpp=0.9120,
+rd_weight=1.000000e-03, soft_round_temp=1.701987e-01, time=0.3615.
+I0405 19:22:56.964993 135671054521856 image.py:297] 65000/100000+10000,loss=1.565013e-03, psnr=31.841, bpp=0.9106,
+rd_weight=1.000000e-03, soft_round_temp=1.699987e-01, time=0.3699.
+I0405 19:22:57.347207 135671054521856 image.py:297] 65100/100000+10000,loss=1.567203e-03, psnr=31.829, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.697987e-01, time=0.3630.
+I0405 19:22:57.727209 135671054521856 image.py:297] 65200/100000+10000,loss=1.570776e-03, psnr=31.804, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.695987e-01, time=0.3610.
+I0405 19:22:58.107135 135671054521856 image.py:297] 65300/100000+10000,loss=1.567426e-03, psnr=31.836, bpp=0.9122,
+rd_weight=1.000000e-03, soft_round_temp=1.693987e-01, time=0.3609.
+I0405 19:22:58.486908 135671054521856 image.py:297] 65400/100000+10000,loss=1.565676e-03, psnr=31.838, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.691987e-01, time=0.3607.
+I0405 19:22:58.866717 135671054521856 image.py:297] 65500/100000+10000,loss=1.571148e-03, psnr=31.801, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.689987e-01, time=0.3607.
+I0405 19:22:59.246273 135671054521856 image.py:297] 65600/100000+10000,loss=1.564185e-03, psnr=31.845, bpp=0.9103,
+rd_weight=1.000000e-03, soft_round_temp=1.687987e-01, time=0.3605.
+I0405 19:22:59.626461 135671054521856 image.py:297] 65700/100000+10000,loss=1.563703e-03, psnr=31.859, bpp=0.9119,
+rd_weight=1.000000e-03, soft_round_temp=1.685987e-01, time=0.3609.
+I0405 19:23:00.006320 135671054521856 image.py:297] 65800/100000+10000,loss=1.564243e-03, psnr=31.852, bpp=0.9114,
+rd_weight=1.000000e-03, soft_round_temp=1.683987e-01, time=0.3606.
+I0405 19:23:00.386335 135671054521856 image.py:297] 65900/100000+10000,loss=1.566088e-03, psnr=31.849, bpp=0.9128,
+rd_weight=1.000000e-03, soft_round_temp=1.681987e-01, time=0.3609.
+I0405 19:23:00.765930 135671054521856 image.py:297] 66000/100000+10000,loss=1.565439e-03, psnr=31.831, bpp=0.9094,
+rd_weight=1.000000e-03, soft_round_temp=1.679987e-01, time=0.3605.
+I0405 19:23:01.145688 135671054521856 image.py:297] 66100/100000+10000,loss=1.564797e-03, psnr=31.856, bpp=0.9126,
+rd_weight=1.000000e-03, soft_round_temp=1.677987e-01, time=0.3608.
+I0405 19:23:01.525428 135671054521856 image.py:297] 66200/100000+10000,loss=1.563512e-03, psnr=31.848, bpp=0.9101,
+rd_weight=1.000000e-03, soft_round_temp=1.675987e-01, time=0.3606.
+I0405 19:23:01.905227 135671054521856 image.py:297] 66300/100000+10000,loss=1.566080e-03, psnr=31.842, bpp=0.9117,
+rd_weight=1.000000e-03, soft_round_temp=1.673987e-01, time=0.3606.
+I0405 19:23:02.284940 135671054521856 image.py:297] 66400/100000+10000,loss=1.564553e-03, psnr=31.847, bpp=0.9110,
+rd_weight=1.000000e-03, soft_round_temp=1.671987e-01, time=0.3607.
+I0405 19:23:02.664456 135671054521856 image.py:297] 66500/100000+10000,loss=1.566492e-03, psnr=31.841, bpp=0.9120,
+rd_weight=1.000000e-03, soft_round_temp=1.669987e-01, time=0.3606.
+I0405 19:23:03.060530 135671054521856 image.py:297] 66600/100000+10000,loss=1.565007e-03, psnr=31.854, bpp=0.9125,
+rd_weight=1.000000e-03, soft_round_temp=1.667987e-01, time=0.3756.
+I0405 19:23:03.448252 135671054521856 image.py:297] 66700/100000+10000,loss=1.563042e-03, psnr=31.856, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.665987e-01, time=0.3684.
+I0405 19:23:03.836836 135671054521856 image.py:297] 66800/100000+10000,loss=1.563631e-03, psnr=31.847, bpp=0.9100,
+rd_weight=1.000000e-03, soft_round_temp=1.663987e-01, time=0.3693.
+I0405 19:23:04.221120 135671054521856 image.py:297] 66900/100000+10000,loss=1.563684e-03, psnr=31.855, bpp=0.9113,
+rd_weight=1.000000e-03, soft_round_temp=1.661987e-01, time=0.3652.
+I0405 19:23:04.600639 135671054521856 image.py:297] 67000/100000+10000,loss=1.565418e-03, psnr=31.845, bpp=0.9116,
+rd_weight=1.000000e-03, soft_round_temp=1.659987e-01, time=0.3604.
+I0405 19:23:04.980561 135671054521856 image.py:297] 67100/100000+10000,loss=1.563994e-03, psnr=31.853, bpp=0.9113,
+rd_weight=1.000000e-03, soft_round_temp=1.657987e-01, time=0.3610.
+I0405 19:23:05.360365 135671054521856 image.py:297] 67200/100000+10000,loss=1.568046e-03, psnr=31.829, bpp=0.9118,
+rd_weight=1.000000e-03, soft_round_temp=1.655987e-01, time=0.3609.
+I0405 19:23:05.739942 135671054521856 image.py:297] 67300/100000+10000,loss=1.571348e-03, psnr=31.806, bpp=0.9116,
+rd_weight=1.000000e-03, soft_round_temp=1.653987e-01, time=0.3605.
+I0405 19:23:06.119294 135671054521856 image.py:297] 67400/100000+10000,loss=1.567317e-03, psnr=31.830, bpp=0.9111,
+rd_weight=1.000000e-03, soft_round_temp=1.651987e-01, time=0.3603.
+I0405 19:23:06.498741 135671054521856 image.py:297] 67500/100000+10000,loss=1.567159e-03, psnr=31.835, bpp=0.9117,
+rd_weight=1.000000e-03, soft_round_temp=1.649987e-01, time=0.3605.
+I0405 19:23:06.878149 135671054521856 image.py:297] 67600/100000+10000,loss=1.563884e-03, psnr=31.858, bpp=0.9120,
+rd_weight=1.000000e-03, soft_round_temp=1.647986e-01, time=0.3604.
+I0405 19:23:07.257810 135671054521856 image.py:297] 67700/100000+10000,loss=1.563980e-03, psnr=31.853, bpp=0.9113,
+rd_weight=1.000000e-03, soft_round_temp=1.645986e-01, time=0.3606.
+I0405 19:23:07.637381 135671054521856 image.py:297] 67800/100000+10000,loss=1.568318e-03, psnr=31.825, bpp=0.9114,
+rd_weight=1.000000e-03, soft_round_temp=1.643986e-01, time=0.3605.
+I0405 19:23:08.017228 135671054521856 image.py:297] 67900/100000+10000,loss=1.569656e-03, psnr=31.821, bpp=0.9122,
+rd_weight=1.000000e-03, soft_round_temp=1.641986e-01, time=0.3605.
+I0405 19:23:08.396858 135671054521856 image.py:297] 68000/100000+10000,loss=1.565196e-03, psnr=31.842, bpp=0.9109,
+rd_weight=1.000000e-03, soft_round_temp=1.639986e-01, time=0.3607.
+I0405 19:23:08.776534 135671054521856 image.py:297] 68100/100000+10000,loss=1.567362e-03, psnr=31.842, bpp=0.9130,
+rd_weight=1.000000e-03, soft_round_temp=1.637986e-01, time=0.3606.
+I0405 19:23:09.156152 135671054521856 image.py:297] 68200/100000+10000,loss=1.565586e-03, psnr=31.846, bpp=0.9119,
+rd_weight=1.000000e-03, soft_round_temp=1.635986e-01, time=0.3604.
+I0405 19:23:09.535761 135671054521856 image.py:297] 68300/100000+10000,loss=1.563149e-03, psnr=31.846, bpp=0.9094,
+rd_weight=1.000000e-03, soft_round_temp=1.633986e-01, time=0.3604.
+I0405 19:23:09.915951 135671054521856 image.py:297] 68400/100000+10000,loss=1.568201e-03, psnr=31.813, bpp=0.9094,
+rd_weight=1.000000e-03, soft_round_temp=1.631986e-01, time=0.3606.
+I0405 19:23:10.300374 135671054521856 image.py:297] 68500/100000+10000,loss=1.566023e-03, psnr=31.858, bpp=0.9140,
+rd_weight=1.000000e-03, soft_round_temp=1.629986e-01, time=0.3652.
+I0405 19:23:10.679810 135671054521856 image.py:297] 68600/100000+10000,loss=1.566483e-03, psnr=31.841, bpp=0.9120,
+rd_weight=1.000000e-03, soft_round_temp=1.627986e-01, time=0.3604.
+I0405 19:23:11.059845 135671054521856 image.py:297] 68700/100000+10000,loss=1.568203e-03, psnr=31.827, bpp=0.9117,
+rd_weight=1.000000e-03, soft_round_temp=1.625986e-01, time=0.3610.
+I0405 19:23:11.439662 135671054521856 image.py:297] 68800/100000+10000,loss=1.561628e-03, psnr=31.861, bpp=0.9101,
+rd_weight=1.000000e-03, soft_round_temp=1.623986e-01, time=0.3608.
+I0405 19:23:11.819437 135671054521856 image.py:297] 68900/100000+10000,loss=1.566536e-03, psnr=31.833, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.621986e-01, time=0.3607.
+I0405 19:23:12.199237 135671054521856 image.py:297] 69000/100000+10000,loss=1.567375e-03, psnr=31.820, bpp=0.9097,
+rd_weight=1.000000e-03, soft_round_temp=1.619986e-01, time=0.3606.
+I0405 19:23:12.579204 135671054521856 image.py:297] 69100/100000+10000,loss=1.565481e-03, psnr=31.836, bpp=0.9103,
+rd_weight=1.000000e-03, soft_round_temp=1.617986e-01, time=0.3607.
+I0405 19:23:12.961436 135671054521856 image.py:297] 69200/100000+10000,loss=1.565018e-03, psnr=31.842, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.615986e-01, time=0.3625.
+I0405 19:23:13.345090 135671054521856 image.py:297] 69300/100000+10000,loss=1.565311e-03, psnr=31.848, bpp=0.9119,
+rd_weight=1.000000e-03, soft_round_temp=1.613986e-01, time=0.3643.
+I0405 19:23:13.729067 135671054521856 image.py:297] 69400/100000+10000,loss=1.562868e-03, psnr=31.853, bpp=0.9101,
+rd_weight=1.000000e-03, soft_round_temp=1.611986e-01, time=0.3648.
+I0405 19:23:14.109183 135671054521856 image.py:297] 69500/100000+10000,loss=1.563407e-03, psnr=31.857, bpp=0.9114,
+rd_weight=1.000000e-03, soft_round_temp=1.609986e-01, time=0.3610.
+I0405 19:23:14.490397 135671054521856 image.py:297] 69600/100000+10000,loss=1.562092e-03, psnr=31.862, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.607986e-01, time=0.3621.
+I0405 19:23:14.871170 135671054521856 image.py:297] 69700/100000+10000,loss=1.562084e-03, psnr=31.850, bpp=0.9090,
+rd_weight=1.000000e-03, soft_round_temp=1.605986e-01, time=0.3615.
+I0405 19:23:15.251295 135671054521856 image.py:297] 69800/100000+10000,loss=1.563732e-03, psnr=31.854, bpp=0.9112,
+rd_weight=1.000000e-03, soft_round_temp=1.603986e-01, time=0.3607.
+I0405 19:23:15.631813 135671054521856 image.py:297] 69900/100000+10000,loss=1.564371e-03, psnr=31.850, bpp=0.9112,
+rd_weight=1.000000e-03, soft_round_temp=1.601986e-01, time=0.3615.
+I0405 19:23:16.012092 135671054521856 image.py:297] 70000/100000+10000,loss=1.567472e-03, psnr=31.827, bpp=0.9109,
+rd_weight=1.000000e-03, soft_round_temp=1.599986e-01, time=0.3610.
+I0405 19:23:16.392841 135671054521856 image.py:297] 70100/100000+10000,loss=1.565445e-03, psnr=31.847, bpp=0.9119,
+rd_weight=1.000000e-03, soft_round_temp=1.597986e-01, time=0.3615.
+I0405 19:23:16.773452 135671054521856 image.py:297] 70200/100000+10000,loss=1.562921e-03, psnr=31.859, bpp=0.9111,
+rd_weight=1.000000e-03, soft_round_temp=1.595986e-01, time=0.3615.
+I0405 19:23:17.153286 135671054521856 image.py:297] 70300/100000+10000,loss=1.566709e-03, psnr=31.826, bpp=0.9100,
+rd_weight=1.000000e-03, soft_round_temp=1.593986e-01, time=0.3608.
+I0405 19:23:17.534039 135671054521856 image.py:297] 70400/100000+10000,loss=1.562435e-03, psnr=31.862, bpp=0.9112,
+rd_weight=1.000000e-03, soft_round_temp=1.591986e-01, time=0.3616.
+I0405 19:23:17.916942 135671054521856 image.py:297] 70500/100000+10000,loss=1.563736e-03, psnr=31.852, bpp=0.9108,
+rd_weight=1.000000e-03, soft_round_temp=1.589986e-01, time=0.3636.
+I0405 19:23:18.296542 135671054521856 image.py:297] 70600/100000+10000,loss=1.564584e-03, psnr=31.851, bpp=0.9116,
+rd_weight=1.000000e-03, soft_round_temp=1.587986e-01, time=0.3605.
+I0405 19:23:18.677216 135671054521856 image.py:297] 70700/100000+10000,loss=1.562554e-03, psnr=31.857, bpp=0.9104,
+rd_weight=1.000000e-03, soft_round_temp=1.585986e-01, time=0.3614.
+I0405 19:23:19.059092 135671054521856 image.py:297] 70800/100000+10000,loss=1.566634e-03, psnr=31.833, bpp=0.9109,
+rd_weight=1.000000e-03, soft_round_temp=1.583986e-01, time=0.3627.
+I0405 19:23:19.441121 135671054521856 image.py:297] 70900/100000+10000,loss=1.566065e-03, psnr=31.829, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=1.581986e-01, time=0.3629.
+I0405 19:23:19.822607 135671054521856 image.py:297] 71000/100000+10000,loss=1.563993e-03, psnr=31.857, bpp=0.9120,
+rd_weight=1.000000e-03, soft_round_temp=1.579986e-01, time=0.3622.
+I0405 19:23:20.202753 135671054521856 image.py:297] 71100/100000+10000,loss=1.564036e-03, psnr=31.851, bpp=0.9110,
+rd_weight=1.000000e-03, soft_round_temp=1.577986e-01, time=0.3609.
+I0405 19:23:20.582278 135671054521856 image.py:297] 71200/100000+10000,loss=1.568723e-03, psnr=31.829, bpp=0.9124,
+rd_weight=1.000000e-03, soft_round_temp=1.575986e-01, time=0.3605.
+I0405 19:23:20.963092 135671054521856 image.py:297] 71300/100000+10000,loss=1.564537e-03, psnr=31.851, bpp=0.9115,
+rd_weight=1.000000e-03, soft_round_temp=1.573986e-01, time=0.3618.
+I0405 19:23:21.343439 135671054521856 image.py:297] 71400/100000+10000,loss=1.563249e-03, psnr=31.854, bpp=0.9107,
+rd_weight=1.000000e-03, soft_round_temp=1.571986e-01, time=0.3604.
+I0405 19:23:21.722882 135671054521856 image.py:297] 71500/100000+10000,loss=1.562746e-03, psnr=31.851, bpp=0.9098,
+rd_weight=1.000000e-03, soft_round_temp=1.569986e-01, time=0.3604.
+I0405 19:23:22.103420 135671054521856 image.py:297] 71600/100000+10000,loss=1.567691e-03, psnr=31.835, bpp=0.9123,
+rd_weight=1.000000e-03, soft_round_temp=1.567986e-01, time=0.3616.
+I0405 19:23:22.482627 135671054521856 image.py:297] 71700/100000+10000,loss=1.565815e-03, psnr=31.835, bpp=0.9105,
+rd_weight=1.000000e-03, soft_round_temp=1.565986e-01, time=0.3602.
+I0405 19:23:22.862931 135671054521856 image.py:297] 71800/100000+10000,loss=1.564911e-03, psnr=31.849, bpp=0.9116,
+rd_weight=1.000000e-03, soft_round_temp=1.563986e-01, time=0.3613.
+I0405 19:23:23.243824 135671054521856 image.py:297] 71900/100000+10000,loss=1.565082e-03, psnr=31.853, bpp=0.9125,
+rd_weight=1.000000e-03, soft_round_temp=1.561986e-01, time=0.3617.
+I0405 19:23:23.622973 135671054521856 image.py:297] 72000/100000+10000,loss=1.564699e-03, psnr=31.850, bpp=0.9115,
+rd_weight=1.000000e-03, soft_round_temp=1.559986e-01, time=0.3601.
+I0405 19:23:24.003864 135671054521856 image.py:297] 72100/100000+10000,loss=1.566359e-03, psnr=31.844, bpp=0.9123,
+rd_weight=1.000000e-03, soft_round_temp=1.557986e-01, time=0.3614.
