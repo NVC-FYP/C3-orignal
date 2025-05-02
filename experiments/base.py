@@ -32,6 +32,8 @@ from utils import data_loading
 from utils import experiment as experiment_utils
 from utils import macs
 
+from model.synthesis import KANSynthesis
+
 Array = chex.Array
 
 
@@ -155,6 +157,23 @@ class Experiment(experiment.AbstractExperiment):
     """Returns parameters of autoregressive Laplace distribution."""
     raise NotImplementedError()
 
+  # def _get_synthesis_model(self, b_last_init_input_mean=None, is_video=False):
+  #   """Returns synthesis model."""
+  #   if not self.config.model.synthesis.b_last_init_input_mean:
+  #     assert b_last_init_input_mean is None, (
+  #         '`b_last_init_input_mean` is not None but `b_last_init_input_mean` is'
+  #         ' `False`.'
+  #     )
+  #   out_channels = data_loading.DATASET_ATTRIBUTES[self.config.dataset.name][
+  #       'num_channels'
+  #   ]
+  #   return synthesis.Synthesis(
+  #       out_channels=out_channels,
+  #       is_video=is_video,
+  #       b_last_init_value=b_last_init_input_mean,
+  #       **self.config.model.synthesis,
+  #   )
+
   def _get_synthesis_model(self, b_last_init_input_mean=None, is_video=False):
     """Returns synthesis model."""
     if not self.config.model.synthesis.b_last_init_input_mean:
@@ -165,12 +184,30 @@ class Experiment(experiment.AbstractExperiment):
     out_channels = data_loading.DATASET_ATTRIBUTES[self.config.dataset.name][
         'num_channels'
     ]
-    return synthesis.Synthesis(
-        out_channels=out_channels,
-        is_video=is_video,
-        b_last_init_value=b_last_init_input_mean,
-        **self.config.model.synthesis,
-    )
+  
+    # Check if we should use KAN synthesis model
+    if getattr(self.config.model, 'use_kan_synthesis', False):
+      # Get KAN-specific parameters from config
+      kan_num_knots = getattr(self.config.model, 'kan_num_knots', 10)
+      kan_spline_range = getattr(self.config.model, 'kan_spline_range', 3.0)
+      
+      # Return KANSynthesis model
+      return KANSynthesis(
+          out_channels=out_channels,
+          is_video=is_video,
+          b_last_init_value=b_last_init_input_mean,
+          num_knots=kan_num_knots,
+          spline_range=kan_spline_range,
+          **self.config.model.synthesis,
+      )
+    else:
+      # Return original Synthesis model
+      return synthesis.Synthesis(
+          out_channels=out_channels,
+          is_video=is_video,
+          b_last_init_value=b_last_init_input_mean,
+          **self.config.model.synthesis,
+      )
 
   def _synthesize(self, upsampled_latents, b_last_init_input_mean=None,
                   is_video=False):
