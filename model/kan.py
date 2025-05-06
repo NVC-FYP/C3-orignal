@@ -44,10 +44,7 @@ class SplineActivation(hk.Module):
         # Initialize knot values (heights) based on init_scheme
         if self.init_scheme == "relu_like":
             # Initialize to approximate ReLU
-            init_ys = np.zeros(self.num_knots)
-            for i, x_val in enumerate(knot_xs):
-                if x_val > 0:
-                    init_ys[i] = x_val
+            init_ys = jnp.where(knot_xs > 0, knot_xs, 0)
             init_fn = lambda shape, dtype: jnp.array(init_ys, dtype=dtype)
         else:
             # Random initialization

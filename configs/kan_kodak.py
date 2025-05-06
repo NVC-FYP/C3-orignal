@@ -32,6 +32,9 @@ def get_config() -> config_dict.ConfigDict:
   exp.model.kan.num_knots = 10
   exp.model.kan.spline_range = 3.0
   
+  # Fix dataset path
+  exp.dataset.root_dir = '/home/shittyprogrammers/Desktop/Datasets/Kodak'  # Update to a valid path
+  
   # Remove the lock to allow modifications
   config.unlock()
   

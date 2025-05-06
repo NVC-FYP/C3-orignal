@@ -63,6 +63,8 @@ def get_config() -> config_dict.ConfigDict:
   exp.model.entropy = config_dict.ConfigDict()
   exp.model.upsampling = config_dict.ConfigDict()
   exp.model.quant = config_dict.ConfigDict()
+  exp.model.kan = config_dict.ConfigDict()  # Default configuration for KAN
+  exp.model.use_kan_synthesis = False  # Default value for KAN synthesis
 
   # Whether to log per-datum metrics.
   exp.log_per_datum_metrics = True
