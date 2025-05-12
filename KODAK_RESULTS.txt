@@ -1,0 +1,470 @@
+Train datum 00023: {'psnr': Array(32.840183, dtype=float32), 'psnr_quantized':
+Array(32.828575, dtype=float32), 'loss': Array(0.00139771, dtype=float32),
+'loss_quantized': Array(0.00139915, dtype=float32), 'distortion':
+Array(0.00051997, dtype=float32), 'distortion_quantized': Array(0.00052137,
+dtype=float32), 'ssim': Array(0.9043755, dtype=float32), 'ssim_quantized':
+Array(0.90430874, dtype=float32), 'rate_latents': Array(345140.7,
+dtype=float32), 'bpp_latents': Array(0.8777382, dtype=float32),
+'rate_latents_quantized': Array(345159.12, dtype=float32),
+'bpp_latents_quantized': Array(0.8777851, dtype=float32), 'rate_synthesis':
+Array(8426.571, dtype=float32), 'bpp_synthesis': Array(0.02142988,
+dtype=float32), 'rate_entropy': Array(9490.172, dtype=float32), 'bpp_entropy':
+Array(0.02413476, dtype=float32), 'rate_total': Array(363075.88, dtype=float32),
+'bpp_total': Array(0.92334974, dtype=float32), 'q_step_weight': 0.001,
+'q_step_bias': 0.001, 'macs_per_pixel_interpolation': 48,
+'macs_per_pixel_entropy_model': 1056, 'macs_per_pixel_synthesis': 666,
+'macs_per_pixel_total_no_interpolation': 1722, 'macs_per_pixel_total': 1770,
+'macs_per_pixel_num_pixels': 393216, 'macs_per_pixel_num_latents': 524256.0}
+I0512 16:45:59.019539 139867377092096 image.py:675] All metrics: {'psnr': Array(32.381104, dtype=float32), 'psnr_quantized':
+Array(32.358593, dtype=float32), 'loss': Array(0.00334335, dtype=float32),
+'loss_quantized': Array(0.00334543, dtype=float32), 'distortion':
+Array(0.00284922, dtype=float32), 'distortion_quantized': Array(0.00285116,
+dtype=float32), 'ssim': Array(0.86799574, dtype=float32), 'ssim_quantized':
+Array(0.8679321, dtype=float32), 'rate_latents': Array(194298.53,
+dtype=float32), 'bpp_latents': Array(0.49412686, dtype=float32),
+'rate_latents_quantized': Array(194354.97, dtype=float32),
+'bpp_latents_quantized': Array(0.4942702, dtype=float32), 'rate_synthesis':
+Array(8347.629, dtype=float32), 'bpp_synthesis': Array(0.02122912,
+dtype=float32), 'rate_entropy': Array(9144.194, dtype=float32), 'bpp_entropy':
+Array(0.02325489, dtype=float32), 'rate_total': Array(211846.81, dtype=float32),
+'bpp_total': Array(0.5387542, dtype=float32), 'q_step_weight': Array(0.00164583,
+dtype=float32), 'q_step_bias': Array(0.00189583, dtype=float32),
+'macs_per_pixel_interpolation': Array(48., dtype=float32),
+'macs_per_pixel_entropy_model': Array(1056., dtype=float32),
+'macs_per_pixel_synthesis': Array(666., dtype=float32),
+'macs_per_pixel_total_no_interpolation': Array(1722., dtype=float32),
+'macs_per_pixel_total': Array(1770., dtype=float32),
+'macs_per_pixel_num_pixels': Array(393216., dtype=float32),
+'macs_per_pixel_num_latents': Array(524256., dtype=float32), 'psnr_0':
+Array(31.656765, dtype=float32), 'psnr_quantized_0': Array(31.64631,
+dtype=float32), 'loss_0': Array(0.00156268, dtype=float32), 'loss_quantized_0':
+Array(0.00156447, dtype=float32), 'distortion_0': Array(0.00068285,
+dtype=float32), 'distortion_quantized_0': Array(0.00068449, dtype=float32),
+'ssim_0': Array(0.89993405, dtype=float32), 'ssim_quantized_0':
+Array(0.89990765, dtype=float32), 'rate_latents_0': Array(345965.75,
+dtype=float32), 'bpp_latents_0': Array(0.87983644, dtype=float32),
+'rate_latents_quantized_0': Array(346021.34, dtype=float32),
+'bpp_latents_quantized_0': Array(0.8799778, dtype=float32), 'rate_synthesis_0':
+Array(8776.83, dtype=float32), 'bpp_synthesis_0': Array(0.02232063,
+dtype=float32), 'rate_entropy_0': Array(9460.823, dtype=float32),
+'bpp_entropy_0': Array(0.02406012, dtype=float32), 'rate_total_0':
+Array(364259., dtype=float32), 'bpp_total_0': Array(0.9263586, dtype=float32),
+'q_step_weight_0': 0.001, 'q_step_bias_0': 0.003,
+'macs_per_pixel_interpolation_0': 48, 'macs_per_pixel_entropy_model_0': 1056,
+'macs_per_pixel_synthesis_0': 666, 'macs_per_pixel_total_no_interpolation_0':
+1722, 'macs_per_pixel_total_0': 1770, 'macs_per_pixel_num_pixels_0': 393216,
+'macs_per_pixel_num_latents_0': 524256.0, 'psnr_1': Array(34.645725,
+dtype=float32), 'psnr_quantized_1': Array(34.62555, dtype=float32), 'loss_1':
+Array(0.00057669, dtype=float32), 'loss_quantized_1': Array(0.00057839,
+dtype=float32), 'distortion_1': Array(0.00034311, dtype=float32),
+'distortion_quantized_1': Array(0.0003447, dtype=float32), 'ssim_1':
+Array(0.8665914, dtype=float32), 'ssim_quantized_1': Array(0.8666313,
+dtype=float32), 'rate_latents_1': Array(91849.55, dtype=float32),
+'bpp_latents_1': Array(0.23358548, dtype=float32), 'rate_latents_quantized_1':
+Array(91890.79, dtype=float32), 'bpp_latents_quantized_1': Array(0.23369037,
+dtype=float32), 'rate_synthesis_1': Array(7366.3184, dtype=float32),
+'bpp_synthesis_1': Array(0.01873352, dtype=float32), 'rate_entropy_1':
+Array(8302.803, dtype=float32), 'bpp_entropy_1': Array(0.02111512,
+dtype=float32), 'rate_total_1': Array(107559.914, dtype=float32), 'bpp_total_1':
+Array(0.273539, dtype=float32), 'q_step_weight_1': 0.003, 'q_step_bias_1':
+0.0005, 'macs_per_pixel_interpolation_1': 48, 'macs_per_pixel_entropy_model_1':
+1056, 'macs_per_pixel_synthesis_1': 666,
+'macs_per_pixel_total_no_interpolation_1': 1722, 'macs_per_pixel_total_1': 1770,
+'macs_per_pixel_num_pixels_1': 393216, 'macs_per_pixel_num_latents_1': 524256.0,
+'psnr_2': Array(36.63454, dtype=float32), 'psnr_quantized_2': Array(36.583714,
+dtype=float32), 'loss_2': Array(0.00044308, dtype=float32), 'loss_quantized_2':
+Array(0.00044572, dtype=float32), 'distortion_2': Array(0.00021704,
+dtype=float32), 'distortion_quantized_2': Array(0.0002196, dtype=float32),
+'ssim_2': Array(0.92600596, dtype=float32), 'ssim_quantized_2': Array(0.9260145,
+dtype=float32), 'rate_latents_2': Array(88881.45, dtype=float32),
+'bpp_latents_2': Array(0.22603723, dtype=float32), 'rate_latents_quantized_2':
+Array(88916.56, dtype=float32), 'bpp_latents_quantized_2': Array(0.22612652,
+dtype=float32), 'rate_synthesis_2': Array(8491.24, dtype=float32),
+'bpp_synthesis_2': Array(0.02159434, dtype=float32), 'rate_entropy_2':
+Array(9525.814, dtype=float32), 'bpp_entropy_2': Array(0.0242254,
+dtype=float32), 'rate_total_2': Array(106933.62, dtype=float32), 'bpp_total_2':
+Array(0.27194625, dtype=float32), 'q_step_weight_2': 0.001, 'q_step_bias_2':
+0.003, 'macs_per_pixel_interpolation_2': 48, 'macs_per_pixel_entropy_model_2':
+1056, 'macs_per_pixel_synthesis_2': 666,
+'macs_per_pixel_total_no_interpolation_2': 1722, 'macs_per_pixel_total_2': 1770,
+'macs_per_pixel_num_pixels_2': 393216, 'macs_per_pixel_num_latents_2': 524256.0,
+'psnr_3': Array(34.062527, dtype=float32), 'psnr_quantized_3': Array(34.047516,
+dtype=float32), 'loss_3': Array(0.00072564, dtype=float32), 'loss_quantized_3':
+Array(0.00072702, dtype=float32), 'distortion_3': Array(0.00039242,
+dtype=float32), 'distortion_quantized_3': Array(0.00039378, dtype=float32),
+'ssim_3': Array(0.8708382, dtype=float32), 'ssim_quantized_3': Array(0.8708425,
+dtype=float32), 'rate_latents_3': Array(131028.57, dtype=float32),
+'bpp_latents_3': Array(0.3332229, dtype=float32), 'rate_latents_quantized_3':
+Array(131036.82, dtype=float32), 'bpp_latents_quantized_3': Array(0.33324388,
+dtype=float32), 'rate_synthesis_3': Array(8296.398, dtype=float32),
+'bpp_synthesis_3': Array(0.02109883, dtype=float32), 'rate_entropy_3':
+Array(9449.405, dtype=float32), 'bpp_entropy_3': Array(0.02403108,
+dtype=float32), 'rate_total_3': Array(148782.62, dtype=float32), 'bpp_total_3':
+Array(0.3783738, dtype=float32), 'q_step_weight_3': 0.001, 'q_step_bias_3':
+0.001, 'macs_per_pixel_interpolation_3': 48, 'macs_per_pixel_entropy_model_3':
+1056, 'macs_per_pixel_synthesis_3': 666,
+'macs_per_pixel_total_no_interpolation_3': 1722, 'macs_per_pixel_total_3': 1770,
+'macs_per_pixel_num_pixels_3': 393216, 'macs_per_pixel_num_latents_3': 524256.0,
+'psnr_4': Array(32.530994, dtype=float32), 'psnr_quantized_4': Array(32.50262,
+dtype=float32), 'loss_4': Array(0.00151463, dtype=float32), 'loss_quantized_4':
+Array(0.00151832, dtype=float32), 'distortion_4': Array(0.00055834,
+dtype=float32), 'distortion_quantized_4': Array(0.000562, dtype=float32),
+'ssim_4': Array(0.9261391, dtype=float32), 'ssim_quantized_4': Array(0.9259842,
+dtype=float32), 'rate_latents_4': Array(376025.97, dtype=float32),
+'bpp_latents_4': Array(0.9562835, dtype=float32), 'rate_latents_quantized_4':
+Array(376039.3, dtype=float32), 'bpp_latents_quantized_4': Array(0.9563174,
+dtype=float32), 'rate_synthesis_4': Array(8554.267, dtype=float32),
+'bpp_synthesis_4': Array(0.02175463, dtype=float32), 'rate_entropy_4':
+Array(9438.541, dtype=float32), 'bpp_entropy_4': Array(0.02400345,
+dtype=float32), 'rate_total_4': Array(394032.12, dtype=float32), 'bpp_total_4':
+Array(1.0020756, dtype=float32), 'q_step_weight_4': 0.001, 'q_step_bias_4':
+0.001, 'macs_per_pixel_interpolation_4': 48, 'macs_per_pixel_entropy_model_4':
+1056, 'macs_per_pixel_synthesis_4': 666,
+'macs_per_pixel_total_no_interpolation_4': 1722, 'macs_per_pixel_total_4': 1770,
+'macs_per_pixel_num_pixels_4': 393216, 'macs_per_pixel_num_latents_4': 524256.0,
+'psnr_5': Array(33.170338, dtype=float32), 'psnr_quantized_5': Array(33.15567,
+dtype=float32), 'loss_5': Array(0.00114746, dtype=float32), 'loss_quantized_5':
+Array(0.00114911, dtype=float32), 'distortion_5': Array(0.00048191,
+dtype=float32), 'distortion_quantized_5': Array(0.00048354, dtype=float32),
+'ssim_5': Array(0.9026428, dtype=float32), 'ssim_quantized_5': Array(0.9025384,
+dtype=float32), 'rate_latents_5': Array(261705.52, dtype=float32),
+'bpp_latents_5': Array(0.66555154, dtype=float32), 'rate_latents_quantized_5':
+Array(261714.52, dtype=float32), 'bpp_latents_quantized_5': Array(0.66557443,
+dtype=float32), 'rate_synthesis_5': Array(8811.821, dtype=float32),
+'bpp_synthesis_5': Array(0.02240962, dtype=float32), 'rate_entropy_5':
+Array(9422.082, dtype=float32), 'bpp_entropy_5': Array(0.02396159,
+dtype=float32), 'rate_total_5': Array(279948.44, dtype=float32), 'bpp_total_5':
+Array(0.7119457, dtype=float32), 'q_step_weight_5': 0.001, 'q_step_bias_5':
+0.0005, 'macs_per_pixel_interpolation_5': 48, 'macs_per_pixel_entropy_model_5':
+1056, 'macs_per_pixel_synthesis_5': 666,
+'macs_per_pixel_total_no_interpolation_5': 1722, 'macs_per_pixel_total_5': 1770,
+'macs_per_pixel_num_pixels_5': 393216, 'macs_per_pixel_num_latents_5': 524256.0,
+'psnr_6': Array(36.246017, dtype=float32), 'psnr_quantized_6': Array(36.14108,
+dtype=float32), 'loss_6': Array(0.00054535, dtype=float32), 'loss_quantized_6':
+Array(0.00055136, dtype=float32), 'distortion_6': Array(0.00023735,
+dtype=float32), 'distortion_quantized_6': Array(0.00024316, dtype=float32),
+'ssim_6': Array(0.9485247, dtype=float32), 'ssim_quantized_6': Array(0.9483098,
+dtype=float32), 'rate_latents_6': Array(121108.44, dtype=float32),
+'bpp_latents_6': Array(0.3079947, dtype=float32), 'rate_latents_quantized_6':
+Array(121188.414, dtype=float32), 'bpp_latents_quantized_6': Array(0.3081981,
+dtype=float32), 'rate_synthesis_6': Array(7641.355, dtype=float32),
+'bpp_synthesis_6': Array(0.01943297, dtype=float32), 'rate_entropy_6':
+Array(8198.92, dtype=float32), 'bpp_entropy_6': Array(0.02085093,
+dtype=float32), 'rate_total_6': Array(137028.69, dtype=float32), 'bpp_total_6':
+Array(0.34848198, dtype=float32), 'q_step_weight_6': 0.003, 'q_step_bias_6':
+0.003, 'macs_per_pixel_interpolation_6': 48, 'macs_per_pixel_entropy_model_6':
+1056, 'macs_per_pixel_synthesis_6': 666,
+'macs_per_pixel_total_no_interpolation_6': 1722, 'macs_per_pixel_total_6': 1770,
+'macs_per_pixel_num_pixels_6': 393216, 'macs_per_pixel_num_latents_6': 524256.0,
+'psnr_7': Array(30.68664, dtype=float32), 'psnr_quantized_7': Array(30.671492,
+dtype=float32), 'loss_7': Array(0.00201062, dtype=float32), 'loss_quantized_7':
+Array(0.00201367, dtype=float32), 'distortion_7': Array(0.00085376,
+dtype=float32), 'distortion_quantized_7': Array(0.00085674, dtype=float32),
+'ssim_7': Array(0.90952027, dtype=float32), 'ssim_quantized_7': Array(0.9094551,
+dtype=float32), 'rate_latents_7': Array(454896.5, dtype=float32),
+'bpp_latents_7': Array(1.1568617, dtype=float32), 'rate_latents_quantized_7':
+Array(454922., dtype=float32), 'bpp_latents_quantized_7': Array(1.1569265,
+dtype=float32), 'rate_synthesis_7': Array(8560.539, dtype=float32),
+'bpp_synthesis_7': Array(0.02177058, dtype=float32), 'rate_entropy_7':
+Array(9315.615, dtype=float32), 'bpp_entropy_7': Array(0.02369083,
+dtype=float32), 'rate_total_7': Array(472798.16, dtype=float32), 'bpp_total_7':
+Array(1.2023879, dtype=float32), 'q_step_weight_7': 0.001, 'q_step_bias_7':
+0.001, 'macs_per_pixel_interpolation_7': 48, 'macs_per_pixel_entropy_model_7':
+1056, 'macs_per_pixel_synthesis_7': 666,
+'macs_per_pixel_total_no_interpolation_7': 1722, 'macs_per_pixel_total_7': 1770,
+'macs_per_pixel_num_pixels_7': 393216, 'macs_per_pixel_num_latents_7': 524256.0,
+'psnr_8': Array(35.91065, dtype=float32), 'psnr_quantized_8': Array(35.89755,
+dtype=float32), 'loss_8': Array(0.00052372, dtype=float32), 'loss_quantized_8':
+Array(0.00052452, dtype=float32), 'distortion_8': Array(0.00025641,
+dtype=float32), 'distortion_quantized_8': Array(0.00025718, dtype=float32),
+'ssim_8': Array(0.9178313, dtype=float32), 'ssim_quantized_8': Array(0.9177801,
+dtype=float32), 'rate_latents_8': Array(105110.555, dtype=float32),
+'bpp_latents_8': Array(0.26730996, dtype=float32), 'rate_latents_quantized_8':
+Array(105119.984, dtype=float32), 'bpp_latents_quantized_8': Array(0.26733395,
+dtype=float32), 'rate_synthesis_8': Array(8699.949, dtype=float32),
+'bpp_synthesis_8': Array(0.02212512, dtype=float32), 'rate_entropy_8':
+Array(9535.223, dtype=float32), 'bpp_entropy_8': Array(0.02424933,
+dtype=float32), 'rate_total_8': Array(123355.16, dtype=float32), 'bpp_total_8':
+Array(0.3137084, dtype=float32), 'q_step_weight_8': 0.001, 'q_step_bias_8':
+0.001, 'macs_per_pixel_interpolation_8': 48, 'macs_per_pixel_entropy_model_8':
+1056, 'macs_per_pixel_synthesis_8': 666,
+'macs_per_pixel_total_no_interpolation_8': 1722, 'macs_per_pixel_total_8': 1770,
+'macs_per_pixel_num_pixels_8': 393216, 'macs_per_pixel_num_latents_8': 524256.0,
+'psnr_9': Array(35.033134, dtype=float32), 'psnr_quantized_9': Array(35.026417,
+dtype=float32), 'loss_9': Array(0.00064245, dtype=float32), 'loss_quantized_9':
+Array(0.000643, dtype=float32), 'distortion_9': Array(0.00031382,
+dtype=float32), 'distortion_quantized_9': Array(0.00031431, dtype=float32),
+'ssim_9': Array(0.9015177, dtype=float32), 'ssim_quantized_9': Array(0.9015736,
+dtype=float32), 'rate_latents_9': Array(129221.33, dtype=float32),
+'bpp_latents_9': Array(0.32862684, dtype=float32), 'rate_latents_quantized_9':
+Array(129246.83, dtype=float32), 'bpp_latents_quantized_9': Array(0.3286917,
+dtype=float32), 'rate_synthesis_9': Array(9275.933, dtype=float32),
+'bpp_synthesis_9': Array(0.02358992, dtype=float32), 'rate_entropy_9':
+Array(10227.713, dtype=float32), 'bpp_entropy_9': Array(0.02601042,
+dtype=float32), 'rate_total_9': Array(148750.48, dtype=float32), 'bpp_total_9':
+Array(0.37829205, dtype=float32), 'q_step_weight_9': 0.0005, 'q_step_bias_9':
+0.001, 'macs_per_pixel_interpolation_9': 48, 'macs_per_pixel_entropy_model_9':
+1056, 'macs_per_pixel_synthesis_9': 666,
+'macs_per_pixel_total_no_interpolation_9': 1722, 'macs_per_pixel_total_9': 1770,
+'macs_per_pixel_num_pixels_9': 393216, 'macs_per_pixel_num_latents_9': 524256.0,
+'psnr_10': Array(33.52261, dtype=float32), 'psnr_quantized_10': Array(33.51603,
+dtype=float32), 'loss_10': Array(0.00092203, dtype=float32),
+'loss_quantized_10': Array(0.00092279, dtype=float32), 'distortion_10':
+Array(0.00044436, dtype=float32), 'distortion_quantized_10': Array(0.00044504,
+dtype=float32), 'ssim_10': Array(0.87415534, dtype=float32),
+'ssim_quantized_10': Array(0.8741378, dtype=float32), 'rate_latents_10':
+Array(187824.55, dtype=float32), 'bpp_latents_10': Array(0.47766253,
+dtype=float32), 'rate_latents_quantized_10': Array(187857.98, dtype=float32),
+'bpp_latents_quantized_10': Array(0.47774756, dtype=float32),
+'rate_synthesis_10': Array(8777.041, dtype=float32), 'bpp_synthesis_10':
+Array(0.02232117, dtype=float32), 'rate_entropy_10': Array(9277.127,
+dtype=float32), 'bpp_entropy_10': Array(0.02359295, dtype=float32),
+'rate_total_10': Array(205912.16, dtype=float32), 'bpp_total_10':
+Array(0.52366173, dtype=float32), 'q_step_weight_10': 0.001, 'q_step_bias_10':
+0.003, 'macs_per_pixel_interpolation_10': 48, 'macs_per_pixel_entropy_model_10':
+1056, 'macs_per_pixel_synthesis_10': 666,
+'macs_per_pixel_total_no_interpolation_10': 1722, 'macs_per_pixel_total_10':
+1770, 'macs_per_pixel_num_pixels_10': 393216, 'macs_per_pixel_num_latents_10':
+524256.0, 'psnr_11': Array(35.147568, dtype=float32), 'psnr_quantized_11':
+Array(35.11783, dtype=float32), 'loss_11': Array(0.00054077, dtype=float32),
+'loss_quantized_11': Array(0.0005429, dtype=float32), 'distortion_11':
+Array(0.00030566, dtype=float32), 'distortion_quantized_11': Array(0.00030776,
+dtype=float32), 'ssim_11': Array(0.8808664, dtype=float32), 'ssim_quantized_11':
+Array(0.8809822, dtype=float32), 'rate_latents_11': Array(92448.37,
+dtype=float32), 'bpp_latents_11': Array(0.23510836, dtype=float32),
+'rate_latents_quantized_11': Array(92460.4, dtype=float32),
+'bpp_latents_quantized_11': Array(0.23513895, dtype=float32),
+'rate_synthesis_11': Array(8463.243, dtype=float32), 'bpp_synthesis_11':
+Array(0.02152314, dtype=float32), 'rate_entropy_11': Array(9448.521,
+dtype=float32), 'bpp_entropy_11': Array(0.02402883, dtype=float32),
+'rate_total_11': Array(110372.164, dtype=float32), 'bpp_total_11':
+Array(0.28069094, dtype=float32), 'q_step_weight_11': 0.001, 'q_step_bias_11':
+0.001, 'macs_per_pixel_interpolation_11': 48, 'macs_per_pixel_entropy_model_11':
+1056, 'macs_per_pixel_synthesis_11': 666,
+'macs_per_pixel_total_no_interpolation_11': 1722, 'macs_per_pixel_total_11':
+1770, 'macs_per_pixel_num_pixels_11': 393216, 'macs_per_pixel_num_latents_11':
+524256.0, 'psnr_12': Array(31.0308, dtype=float32), 'psnr_quantized_12':
+Array(31.025362, dtype=float32), 'loss_12': Array(0.00210416, dtype=float32),
+'loss_quantized_12': Array(0.00210518, dtype=float32), 'distortion_12':
+Array(0.00078871, dtype=float32), 'distortion_quantized_12': Array(0.0007897,
+dtype=float32), 'ssim_12': Array(0.8981609, dtype=float32), 'ssim_quantized_12':
+Array(0.8979929, dtype=float32), 'rate_latents_12': Array(517252.8,
+dtype=float32), 'bpp_latents_12': Array(1.315442, dtype=float32),
+'rate_latents_quantized_12': Array(517267.56, dtype=float32),
+'bpp_latents_quantized_12': Array(1.3154795, dtype=float32),
+'rate_synthesis_12': Array(8949.244, dtype=float32), 'bpp_synthesis_12':
+Array(0.02275911, dtype=float32), 'rate_entropy_12': Array(9302.22,
+dtype=float32), 'bpp_entropy_12': Array(0.02365677, dtype=float32),
+'rate_total_12': Array(535519.06, dtype=float32), 'bpp_total_12':
+Array(1.3618954, dtype=float32), 'q_step_weight_12': 0.001, 'q_step_bias_12':
+0.001, 'macs_per_pixel_interpolation_12': 48, 'macs_per_pixel_entropy_model_12':
+1056, 'macs_per_pixel_synthesis_12': 666,
+'macs_per_pixel_total_no_interpolation_12': 1722, 'macs_per_pixel_total_12':
+1770, 'macs_per_pixel_num_pixels_12': 393216, 'macs_per_pixel_num_latents_12':
+524256.0, 'psnr_13': Array(32.606598, dtype=float32), 'psnr_quantized_13':
+Array(32.587746, dtype=float32), 'loss_13': Array(0.0012077, dtype=float32),
+'loss_quantized_13': Array(0.00121011, dtype=float32), 'distortion_13':
+Array(0.00054871, dtype=float32), 'distortion_quantized_13': Array(0.00055109,
+dtype=float32), 'ssim_13': Array(0.8811344, dtype=float32), 'ssim_quantized_13':
+Array(0.88090324, dtype=float32), 'rate_latents_13': Array(259125.66,
+dtype=float32), 'bpp_latents_13': Array(0.6589906, dtype=float32),
+'rate_latents_quantized_13': Array(259134.2, dtype=float32),
+'bpp_latents_quantized_13': Array(0.6590124, dtype=float32),
+'rate_synthesis_13': Array(8327.443, dtype=float32), 'bpp_synthesis_13':
+Array(0.02117778, dtype=float32), 'rate_entropy_13': Array(9267.243,
+dtype=float32), 'bpp_entropy_13': Array(0.02356782, dtype=float32),
+'rate_total_13': Array(276728.9, dtype=float32), 'bpp_total_13': Array(0.703758,
+dtype=float32), 'q_step_weight_13': 0.001, 'q_step_bias_13': 0.003,
+'macs_per_pixel_interpolation_13': 48, 'macs_per_pixel_entropy_model_13': 1056,
+'macs_per_pixel_synthesis_13': 666, 'macs_per_pixel_total_no_interpolation_13':
+1722, 'macs_per_pixel_total_13': 1770, 'macs_per_pixel_num_pixels_13': 393216,
+'macs_per_pixel_num_latents_13': 524256.0, 'psnr_14': Array(34.5353,
+dtype=float32), 'psnr_quantized_14': Array(34.49919, dtype=float32), 'loss_14':
+Array(0.00066087, dtype=float32), 'loss_quantized_14': Array(0.00066385,
+dtype=float32), 'distortion_14': Array(0.00035194, dtype=float32),
+'distortion_quantized_14': Array(0.00035488, dtype=float32), 'ssim_14':
+Array(0.88636833, dtype=float32), 'ssim_quantized_14': Array(0.88637227,
+dtype=float32), 'rate_latents_14': Array(121475.08, dtype=float32),
+'bpp_latents_14': Array(0.30892712, dtype=float32), 'rate_latents_quantized_14':
+Array(121491.44, dtype=float32), 'bpp_latents_quantized_14': Array(0.30896872,
+dtype=float32), 'rate_synthesis_14': Array(8765.308, dtype=float32),
+'bpp_synthesis_14': Array(0.02229133, dtype=float32), 'rate_entropy_14':
+Array(9416.3, dtype=float32), 'bpp_entropy_14': Array(0.02394689,
+dtype=float32), 'rate_total_14': Array(139673.05, dtype=float32),
+'bpp_total_14': Array(0.35520694, dtype=float32), 'q_step_weight_14': 0.001,
+'q_step_bias_14': 0.0005, 'macs_per_pixel_interpolation_14': 48,
+'macs_per_pixel_entropy_model_14': 1056, 'macs_per_pixel_synthesis_14': 666,
+'macs_per_pixel_total_no_interpolation_14': 1722, 'macs_per_pixel_total_14':
+1770, 'macs_per_pixel_num_pixels_14': 393216, 'macs_per_pixel_num_latents_14':
+524256.0, 'psnr_15': Array(15.548693, dtype=float32), 'psnr_quantized_15':
+Array(15.548693, dtype=float32), 'loss_15': Array(0.02788987, dtype=float32),
+'loss_quantized_15': Array(0.02789076, dtype=float32), 'distortion_15':
+Array(0.02786959, dtype=float32), 'distortion_quantized_15': Array(0.02786959,
+dtype=float32), 'ssim_15': Array(0.5311991, dtype=float32), 'ssim_quantized_15':
+Array(0.5311991, dtype=float32), 'rate_latents_15': Array(7974.194,
+dtype=float32), 'bpp_latents_15': Array(0.02027942, dtype=float32),
+'rate_latents_quantized_15': Array(8325.289, dtype=float32),
+'bpp_latents_quantized_15': Array(0.02117231, dtype=float32),
+'rate_synthesis_15': Array(6806.0312, dtype=float32), 'bpp_synthesis_15':
+Array(0.01730863, dtype=float32), 'rate_entropy_15': Array(7369.38,
+dtype=float32), 'bpp_entropy_15': Array(0.0187413, dtype=float32),
+'rate_total_15': Array(22500.7, dtype=float32), 'bpp_total_15':
+Array(0.05722224, dtype=float32), 'q_step_weight_15': 0.006, 'q_step_bias_15':
+0.006, 'macs_per_pixel_interpolation_15': 48, 'macs_per_pixel_entropy_model_15':
+1056, 'macs_per_pixel_synthesis_15': 666,
+'macs_per_pixel_total_no_interpolation_15': 1722, 'macs_per_pixel_total_15':
+1770, 'macs_per_pixel_num_pixels_15': 393216, 'macs_per_pixel_num_latents_15':
+524256.0, 'psnr_16': Array(35.11004, dtype=float32), 'psnr_quantized_16':
+Array(35.09759, dtype=float32), 'loss_16': Array(0.00064633, dtype=float32),
+'loss_quantized_16': Array(0.00064724, dtype=float32), 'distortion_16':
+Array(0.00030832, dtype=float32), 'distortion_quantized_16': Array(0.0003092,
+dtype=float32), 'ssim_16': Array(0.90736616, dtype=float32),
+'ssim_quantized_16': Array(0.90727407, dtype=float32), 'rate_latents_16':
+Array(132911.42, dtype=float32), 'bpp_latents_16': Array(0.33801123,
+dtype=float32), 'rate_latents_quantized_16': Array(132920.66, dtype=float32),
+'bpp_latents_quantized_16': Array(0.33803472, dtype=float32),
+'rate_synthesis_16': Array(8589.643, dtype=float32), 'bpp_synthesis_16':
+Array(0.02184459, dtype=float32), 'rate_entropy_16': Array(9382.253,
+dtype=float32), 'bpp_entropy_16': Array(0.0238603, dtype=float32),
+'rate_total_16': Array(150892.55, dtype=float32), 'bpp_total_16':
+Array(0.3837396, dtype=float32), 'q_step_weight_16': 0.001, 'q_step_bias_16':
+0.003, 'macs_per_pixel_interpolation_16': 48, 'macs_per_pixel_entropy_model_16':
+1056, 'macs_per_pixel_synthesis_16': 666,
+'macs_per_pixel_total_no_interpolation_16': 1722, 'macs_per_pixel_total_16':
+1770, 'macs_per_pixel_num_pixels_16': 393216, 'macs_per_pixel_num_latents_16':
+524256.0, 'psnr_17': Array(32.701855, dtype=float32), 'psnr_quantized_17':
+Array(32.661854, dtype=float32), 'loss_17': Array(0.0012503, dtype=float32),
+'loss_quantized_17': Array(0.00125539, dtype=float32), 'distortion_17':
+Array(0.0005368, dtype=float32), 'distortion_quantized_17': Array(0.00054177,
+dtype=float32), 'ssim_17': Array(0.88869864, dtype=float32),
+'ssim_quantized_17': Array(0.8883473, dtype=float32), 'rate_latents_17':
+Array(280557.25, dtype=float32), 'bpp_latents_17': Array(0.713494,
+dtype=float32), 'rate_latents_quantized_17': Array(280607.47, dtype=float32),
+'bpp_latents_quantized_17': Array(0.71362174, dtype=float32),
+'rate_synthesis_17': Array(7515.692, dtype=float32), 'bpp_synthesis_17':
+Array(0.01911339, dtype=float32), 'rate_entropy_17': Array(8214.281,
+dtype=float32), 'bpp_entropy_17': Array(0.02089, dtype=float32),
+'rate_total_17': Array(296337.44, dtype=float32), 'bpp_total_17':
+Array(0.7536251, dtype=float32), 'q_step_weight_17': 0.003, 'q_step_bias_17':
+0.0005, 'macs_per_pixel_interpolation_17': 48,
+'macs_per_pixel_entropy_model_17': 1056, 'macs_per_pixel_synthesis_17': 666,
+'macs_per_pixel_total_no_interpolation_17': 1722, 'macs_per_pixel_total_17':
+1770, 'macs_per_pixel_num_pixels_17': 393216, 'macs_per_pixel_num_latents_17':
+524256.0, 'psnr_18': Array(33.39515, dtype=float32), 'psnr_quantized_18':
+Array(33.382675, dtype=float32), 'loss_18': Array(0.00093435, dtype=float32),
+'loss_quantized_18': Array(0.00093573, dtype=float32), 'distortion_18':
+Array(0.0004576, dtype=float32), 'distortion_quantized_18': Array(0.00045892,
+dtype=float32), 'ssim_18': Array(0.8867701, dtype=float32), 'ssim_quantized_18':
+Array(0.88672245, dtype=float32), 'rate_latents_18': Array(187464.86,
+dtype=float32), 'bpp_latents_18': Array(0.4767478, dtype=float32),
+'rate_latents_quantized_18': Array(187489.62, dtype=float32),
+'bpp_latents_quantized_18': Array(0.47681078, dtype=float32),
+'rate_synthesis_18': Array(8377.515, dtype=float32), 'bpp_synthesis_18':
+Array(0.02130512, dtype=float32), 'rate_entropy_18': Array(9626.412,
+dtype=float32), 'bpp_entropy_18': Array(0.02448123, dtype=float32),
+'rate_total_18': Array(205493.55, dtype=float32), 'bpp_total_18':
+Array(0.52259713, dtype=float32), 'q_step_weight_18': 0.001, 'q_step_bias_18':
+0.001, 'macs_per_pixel_interpolation_18': 48, 'macs_per_pixel_entropy_model_18':
+1056, 'macs_per_pixel_synthesis_18': 666,
+'macs_per_pixel_total_no_interpolation_18': 1722, 'macs_per_pixel_total_18':
+1770, 'macs_per_pixel_num_pixels_18': 393216, 'macs_per_pixel_num_latents_18':
+524256.0, 'psnr_19': Array(35.096912, dtype=float32), 'psnr_quantized_19':
+Array(35.06818, dtype=float32), 'loss_19': Array(0.00065934, dtype=float32),
+'loss_quantized_19': Array(0.00066142, dtype=float32), 'distortion_19':
+Array(0.00030925, dtype=float32), 'distortion_quantized_19': Array(0.0003113,
+dtype=float32), 'ssim_19': Array(0.9120324, dtype=float32), 'ssim_quantized_19':
+Array(0.91204834, dtype=float32), 'rate_latents_19': Array(137659.47,
+dtype=float32), 'bpp_latents_19': Array(0.35008615, dtype=float32),
+'rate_latents_quantized_19': Array(137671.89, dtype=float32),
+'bpp_latents_quantized_19': Array(0.35011774, dtype=float32),
+'rate_synthesis_19': Array(8782.264, dtype=float32), 'bpp_synthesis_19':
+Array(0.02233445, dtype=float32), 'rate_entropy_19': Array(9528.25,
+dtype=float32), 'bpp_entropy_19': Array(0.02423159, dtype=float32),
+'rate_total_19': Array(155982.4, dtype=float32), 'bpp_total_19':
+Array(0.39668378, dtype=float32), 'q_step_weight_19': 0.001, 'q_step_bias_19':
+0.0005, 'macs_per_pixel_interpolation_19': 48,
+'macs_per_pixel_entropy_model_19': 1056, 'macs_per_pixel_synthesis_19': 666,
+'macs_per_pixel_total_no_interpolation_19': 1722, 'macs_per_pixel_total_19':
+1770, 'macs_per_pixel_num_pixels_19': 393216, 'macs_per_pixel_num_latents_19':
+524256.0, 'psnr_20': Array(15.099794, dtype=float32), 'psnr_quantized_20':
+Array(15.099794, dtype=float32), 'loss_20': Array(0.03091791, dtype=float32),
+'loss_quantized_20': Array(0.03091913, dtype=float32), 'distortion_20':
+Array(0.03090441, dtype=float32), 'distortion_quantized_20': Array(0.03090441,
+dtype=float32), 'ssim_20': Array(0.51535505, dtype=float32),
+'ssim_quantized_20': Array(0.51535505, dtype=float32), 'rate_latents_20':
+Array(5309.6245, dtype=float32), 'bpp_latents_20': Array(0.01350307,
+dtype=float32), 'rate_latents_quantized_20': Array(5788.939, dtype=float32),
+'bpp_latents_quantized_20': Array(0.01472203, dtype=float32),
+'rate_synthesis_20': Array(6868.845, dtype=float32), 'bpp_synthesis_20':
+Array(0.01746838, dtype=float32), 'rate_entropy_20': Array(7370.008,
+dtype=float32), 'bpp_entropy_20': Array(0.0187429, dtype=float32),
+'rate_total_20': Array(20027.793, dtype=float32), 'bpp_total_20':
+Array(0.05093331, dtype=float32), 'q_step_weight_20': 0.006, 'q_step_bias_20':
+0.006, 'macs_per_pixel_interpolation_20': 48, 'macs_per_pixel_entropy_model_20':
+1056, 'macs_per_pixel_synthesis_20': 666,
+'macs_per_pixel_total_no_interpolation_20': 1722, 'macs_per_pixel_total_20':
+1770, 'macs_per_pixel_num_pixels_20': 393216, 'macs_per_pixel_num_latents_20':
+524256.0, 'psnr_21': Array(33.072433, dtype=float32), 'psnr_quantized_21':
+Array(33.047672, dtype=float32), 'loss_21': Array(0.00100614, dtype=float32),
+'loss_quantized_21': Array(0.00100898, dtype=float32), 'distortion_21':
+Array(0.0004929, dtype=float32), 'distortion_quantized_21': Array(0.00049572,
+dtype=float32), 'ssim_21': Array(0.86888605, dtype=float32),
+'ssim_quantized_21': Array(0.868756, dtype=float32), 'rate_latents_21':
+Array(201816.72, dtype=float32), 'bpp_latents_21': Array(0.5132465,
+dtype=float32), 'rate_latents_quantized_21': Array(201825.56, dtype=float32),
+'bpp_latents_quantized_21': Array(0.51326895, dtype=float32),
+'rate_synthesis_21': Array(8674.566, dtype=float32), 'bpp_synthesis_21':
+Array(0.02206056, dtype=float32), 'rate_entropy_21': Array(9410.34,
+dtype=float32), 'bpp_entropy_21': Array(0.02393173, dtype=float32),
+'rate_total_21': Array(219910.47, dtype=float32), 'bpp_total_21':
+Array(0.55926126, dtype=float32), 'q_step_weight_21': 0.001, 'q_step_bias_21':
+0.001, 'macs_per_pixel_interpolation_21': 48, 'macs_per_pixel_entropy_model_21':
+1056, 'macs_per_pixel_synthesis_21': 666,
+'macs_per_pixel_total_no_interpolation_21': 1722, 'macs_per_pixel_total_21':
+1770, 'macs_per_pixel_num_pixels_21': 393216, 'macs_per_pixel_num_latents_21':
+524256.0, 'psnr_22': Array(36.861156, dtype=float32), 'psnr_quantized_22':
+Array(36.827095, dtype=float32), 'loss_22': Array(0.0004105, dtype=float32),
+'loss_quantized_22': Array(0.00041215, dtype=float32), 'distortion_22':
+Array(0.00020601, dtype=float32), 'distortion_quantized_22': Array(0.00020763,
+dtype=float32), 'ssim_22': Array(0.9269849, dtype=float32), 'ssim_quantized_22':
+Array(0.9269331, dtype=float32), 'rate_latents_22': Array(80411.24,
+dtype=float32), 'bpp_latents_22': Array(0.20449637, dtype=float32),
+'rate_latents_quantized_22': Array(80422.164, dtype=float32),
+'bpp_latents_quantized_22': Array(0.20452414, dtype=float32),
+'rate_synthesis_22': Array(8545.04, dtype=float32), 'bpp_synthesis_22':
+Array(0.02173116, dtype=float32), 'rate_entropy_22': Array(9481.231,
+dtype=float32), 'bpp_entropy_22': Array(0.02411202, dtype=float32),
+'rate_total_22': Array(98448.44, dtype=float32), 'bpp_total_22':
+Array(0.25036734, dtype=float32), 'q_step_weight_22': 0.001, 'q_step_bias_22':
+0.003, 'macs_per_pixel_interpolation_22': 48, 'macs_per_pixel_entropy_model_22':
+1056, 'macs_per_pixel_synthesis_22': 666,
+'macs_per_pixel_total_no_interpolation_22': 1722, 'macs_per_pixel_total_22':
+1770, 'macs_per_pixel_num_pixels_22': 393216, 'macs_per_pixel_num_latents_22':
+524256.0, 'psnr_23': Array(32.840183, dtype=float32), 'psnr_quantized_23':
+Array(32.828575, dtype=float32), 'loss_23': Array(0.00139771, dtype=float32),
+'loss_quantized_23': Array(0.00139915, dtype=float32), 'distortion_23':
+Array(0.00051997, dtype=float32), 'distortion_quantized_23': Array(0.00052137,
+dtype=float32), 'ssim_23': Array(0.9043755, dtype=float32), 'ssim_quantized_23':
+Array(0.90430874, dtype=float32), 'rate_latents_23': Array(345140.7,
+dtype=float32), 'bpp_latents_23': Array(0.8777382, dtype=float32),
+'rate_latents_quantized_23': Array(345159.12, dtype=float32),
+'bpp_latents_quantized_23': Array(0.8777851, dtype=float32),
+'rate_synthesis_23': Array(8426.571, dtype=float32), 'bpp_synthesis_23':
+Array(0.02142988, dtype=float32), 'rate_entropy_23': Array(9490.172,
+dtype=float32), 'bpp_entropy_23': Array(0.02413476, dtype=float32),
+'rate_total_23': Array(363075.88, dtype=float32), 'bpp_total_23':
+Array(0.92334974, dtype=float32), 'q_step_weight_23': 0.001, 'q_step_bias_23':
+0.001, 'macs_per_pixel_interpolation_23': 48, 'macs_per_pixel_entropy_model_23':
+1056, 'macs_per_pixel_synthesis_23': 666,
+'macs_per_pixel_total_no_interpolation_23': 1722, 'macs_per_pixel_total_23':
+1770, 'macs_per_pixel_num_pixels_23': 393216, 'macs_per_pixel_num_latents_23':
+524256.0}
+I0512 16:45:59.029088 139833045407424 train.py:40] global_step: 1, {'bpp_entropy': 0.023254891857504845, 'bpp_entropy_0': 0.024060118943452835, 'bpp_entropy_1': 0.021115120500326157, 'bpp_entropy_10': 0.023592954501509666, 'bpp_entropy_11': 0.024028833955526352, 'bpp_entropy_12': 0.02365676872432232, 'bpp_entropy_13': 0.023567818105220795, 'bpp_entropy_14': 0.023946888744831085, 'bpp_entropy_15': 0.01874130219221115, 'bpp_entropy_16': 0.023860303685069084, 'bpp_entropy_17': 0.020889997482299805, 'bpp_entropy_18': 0.024481233209371567, 'bpp_entropy_19': 0.024231594055891037, 'bpp_entropy_2': 0.024225398898124695, 'bpp_entropy_20': 0.01874290034174919, 'bpp_entropy_21': 0.023931732401251793, 'bpp_entropy_22': 0.024112019687891006, 'bpp_entropy_23': 0.02413475513458252, 'bpp_entropy_3': 0.024031080305576324, 'bpp_entropy_4': 0.02400345169007778, 'bpp_entropy_5': 0.023961594328284264, 'bpp_entropy_6': 0.020850932225584984, 'bpp_entropy_7': 0.023690834641456604, 'bpp_entropy_8': 0.024249326437711716, 'bpp_entropy_9': 0.0260104201734066, 'bpp_latents': 0.4941268563270569, 'bpp_latents_0': 0.8798364400863647, 'bpp_latents_1': 0.23358547687530518, 'bpp_latents_10': 0.4776625335216522, 'bpp_latents_11': 0.2351083606481552, 'bpp_latents_12': 1.3154419660568237, 'bpp_latents_13': 0.6589906215667725, 'bpp_latents_14': 0.30892711877822876, 'bpp_latents_15': 0.020279424265027046, 'bpp_latents_16': 0.338011234998703, 'bpp_latents_17': 0.7134940028190613, 'bpp_latents_18': 0.4767478108406067, 'bpp_latents_19': 0.35008615255355835, 'bpp_latents_2': 0.22603723406791687, 'bpp_latents_20': 0.01350307371467352, 'bpp_latents_21': 0.513246476650238, 'bpp_latents_22': 0.204496368765831, 'bpp_latents_23': 0.8777381777763367, 'bpp_latents_3': 0.333222895860672, 'bpp_latents_4': 0.9562835097312927, 'bpp_latents_5': 0.6655515432357788, 'bpp_latents_6': 0.30799469351768494, 'bpp_latents_7': 1.156861662864685, 'bpp_latents_8': 0.2673099637031555, 'bpp_latents_9': 0.3286268413066864, 'bpp_latents_quantized': 0.4942702054977417, 'bpp_latents_quantized_0': 0.879977822303772, 'bpp_latents_quantized_1': 0.23369036614894867, 'bpp_latents_quantized_10': 0.4777475595474243, 'bpp_latents_quantized_11': 0.23513895273208618, 'bpp_latents_quantized_12': 1.3154795169830322, 'bpp_latents_quantized_13': 0.6590123772621155, 'bpp_latents_quantized_14': 0.308968722820282, 'bpp_latents_quantized_15': 0.021172305569052696, 'bpp_latents_quantized_16': 0.3380347192287445, 'bpp_latents_quantized_17': 0.7136217355728149, 'bpp_latents_quantized_18': 0.4768107831478119, 'bpp_latents_quantized_19': 0.3501177430152893, 'bpp_latents_quantized_2': 0.2261265218257904, 'bpp_latents_quantized_20': 0.014722033403813839, 'bpp_latents_quantized_21': 0.5132689476013184, 'bpp_latents_quantized_22': 0.20452414453029633, 'bpp_latents_quantized_23': 0.8777850866317749, 'bpp_latents_quantized_3': 0.33324387669563293, 'bpp_latents_quantized_4': 0.9563174247741699, 'bpp_latents_quantized_5': 0.6655744314193726, 'bpp_latents_quantized_6': 0.30819809436798096, 'bpp_latents_quantized_7': 1.1569265127182007, 'bpp_latents_quantized_8': 0.2673339545726776, 'bpp_latents_quantized_9': 0.328691691160202, 'bpp_synthesis': 0.02122911810874939, 'bpp_synthesis_0': 0.022320633754134178, 'bpp_synthesis_1': 0.018733516335487366, 'bpp_synthesis_10': 0.022321170195937157, 'bpp_synthesis_11': 0.021523140370845795, 'bpp_synthesis_12': 0.022759106010198593, 'bpp_synthesis_13': 0.021177783608436584, 'bpp_synthesis_14': 0.022291330620646477, 'bpp_synthesis_15': 0.017308633774518967, 'bpp_synthesis_16': 0.021844591945409775, 'bpp_synthesis_17': 0.019113393500447273, 'bpp_synthesis_18': 0.02130512148141861, 'bpp_synthesis_19': 0.022334452718496323, 'bpp_synthesis_2': 0.021594341844320297, 'bpp_synthesis_20': 0.017468377947807312, 'bpp_synthesis_21': 0.022060563787817955, 'bpp_synthesis_22': 0.021731160581111908, 'bpp_synthesis_23': 0.02142987959086895, 'bpp_synthesis_3': 0.02109883353114128, 'bpp_synthesis_4': 0.02175462618470192, 'bpp_synthesis_5': 0.022409621626138687, 'bpp_synthesis_6': 0.019432971253991127, 'bpp_synthesis_7': 0.021770577877759933, 'bpp_synthesis_8': 0.022125115618109703, 'bpp_synthesis_9': 0.02358991652727127, 'bpp_total': 0.5387542247772217, 'bpp_total_0': 0.9263585805892944, 'bpp_total_1': 0.2735390067100525, 'bpp_total_10': 0.523661732673645, 'bpp_total_11': 0.2806909382343292, 'bpp_total_12': 1.3618954420089722, 'bpp_total_13': 0.7037580013275146, 'bpp_total_14': 0.3552069365978241, 'bpp_total_15': 0.057222239673137665, 'bpp_total_16': 0.3837395906448364, 'bpp_total_17': 0.7536250948905945, 'bpp_total_18': 0.5225971341133118, 'bpp_total_19': 0.39668378233909607, 'bpp_total_2': 0.2719462513923645, 'bpp_total_20': 0.05093331262469292, 'bpp_total_21': 0.5592612624168396, 'bpp_total_22': 0.25036734342575073, 'bpp_total_23': 0.9233497381210327, 'bpp_total_3': 0.37837380170822144, 'bpp_total_4': 1.0020755529403687, 'bpp_total_5': 0.7119457125663757, 'bpp_total_6': 0.3484819829463959, 'bpp_total_7': 1.2023879289627075, 'bpp_total_8': 0.3137083947658539, 'bpp_total_9': 0.378292053937912, 'distortion': 0.0028492193669080734, 'distortion_0': 0.000682846934068948, 'distortion_1': 0.00034310526098124683, 'distortion_10': 0.0004443641228135675, 'distortion_11': 0.0003056631830986589, 'distortion_12': 0.0007887146202847362, 'distortion_13': 0.000548706331755966, 'distortion_14': 0.00035194080555811524, 'distortion_15': 0.027869591489434242, 'distortion_16': 0.00030831588082946837, 'distortion_17': 0.0005368024576455355, 'distortion_18': 0.0004575986822601408, 'distortion_19': 0.000309249444399029, 'distortion_2': 0.00021704292157664895, 'distortion_20': 0.030904412269592285, 'distortion_21': 0.0004928974085487425, 'distortion_22': 0.0002060079714283347, 'distortion_23': 0.0005199737497605383, 'distortion_3': 0.00039241628837771714, 'distortion_4': 0.000558342260774225, 'distortion_5': 0.00048191018868237734, 'distortion_6': 0.00023735483409836888, 'distortion_7': 0.0008537599933333695, 'distortion_8': 0.0002564100723247975, 'distortion_9': 0.0003138239844702184, 'distortion_quantized': 0.0028511625714600086, 'distortion_quantized_0': 0.0006844924064353108, 'distortion_quantized_1': 0.0003447027993388474, 'distortion_quantized_10': 0.0004450380802154541, 'distortion_quantized_11': 0.00030776351923123, 'distortion_quantized_12': 0.0007897025207057595, 'distortion_quantized_13': 0.0005510935443453491, 'distortion_quantized_14': 0.00035487927380017936, 'distortion_quantized_15': 0.027869591489434242, 'distortion_quantized_16': 0.00030920084100216627, 'distortion_quantized_17': 0.0005417693173512816, 'distortion_quantized_18': 0.00045891516492702067, 'distortion_quantized_19': 0.0003113020502496511, 'distortion_quantized_2': 0.0002195979468524456, 'distortion_quantized_20': 0.030904412269592285, 'distortion_quantized_21': 0.0004957154742442071, 'distortion_quantized_22': 0.00020763005886692554, 'distortion_quantized_23': 0.0005213656113483012, 'distortion_quantized_3': 0.0003937753208447248, 'distortion_quantized_4': 0.0005620018346235156, 'distortion_quantized_5': 0.0004835403524339199, 'distortion_quantized_6': 0.0002431597822578624, 'distortion_quantized_7': 0.0008567431359551847, 'distortion_quantized_8': 0.00025718449614942074, 'distortion_quantized_9': 0.0003143098729196936, 'loss': 0.00334334559738636, 'loss_0': 0.0015626833774149418, 'loss_1': 0.0005766907706856728, 'loss_10': 0.0009220266947522759, 'loss_11': 0.000540771521627903, 'loss_12': 0.0021041566506028175, 'loss_13': 0.0012076969724148512, 'loss_14': 0.0006608678959310055, 'loss_15': 0.02788987010717392, 'loss_16': 0.000646327156573534, 'loss_17': 0.001250296481885016, 'loss_18': 0.0009343465208075941, 'loss_19': 0.0006593356374651194, 'loss_2': 0.0004430801491253078, 'loss_20': 0.03091791458427906, 'loss_21': 0.0010061438661068678, 'loss_22': 0.0004105043481104076, 'loss_23': 0.0013977119233459234, 'loss_3': 0.0007256391691043973, 'loss_4': 0.001514625851996243, 'loss_5': 0.0011474618222564459, 'loss_6': 0.0005453495541587472, 'loss_7': 0.0020106215961277485, 'loss_8': 0.00052372005302459, 'loss_9': 0.0006424508756026626, 'loss_quantized': 0.003345432225614786, 'loss_quantized_0': 0.0015644702361896634, 'loss_quantized_1': 0.0005783931701444089, 'loss_quantized_10': 0.0009227856644429266, 'loss_quantized_11': 0.000542902504093945, 'loss_quantized_12': 0.002105182036757469, 'loss_quantized_13': 0.001210105954669416, 'loss_quantized_14': 0.0006638480117544532, 'loss_quantized_15': 0.02789076417684555, 'loss_quantized_16': 0.0006472355453297496, 'loss_quantized_17': 0.0012553910491988063, 'loss_quantized_18': 0.0009357259841635823, 'loss_quantized_19': 0.000661419820971787, 'loss_quantized_2': 0.0004457244649529457, 'loss_quantized_20': 0.030919134616851807, 'loss_quantized_21': 0.001008984399959445, 'loss_quantized_22': 0.00041215421515516937, 'loss_quantized_23': 0.0013991507003083825, 'loss_quantized_3': 0.0007270192145369947, 'loss_quantized_4': 0.0015183193609118462, 'loss_quantized_5': 0.0011491149198263884, 'loss_quantized_6': 0.0005513578653335571, 'loss_quantized_7': 0.0020136695820838213, 'loss_quantized_8': 0.0005245184293016791, 'loss_quantized_9': 0.0006430015782825649, 'macs_per_pixel_entropy_model': 1056.0, 'macs_per_pixel_entropy_model_0': 1056, 'macs_per_pixel_entropy_model_1': 1056, 'macs_per_pixel_entropy_model_10': 1056, 'macs_per_pixel_entropy_model_11': 1056, 'macs_per_pixel_entropy_model_12': 1056, 'macs_per_pixel_entropy_model_13': 1056, 'macs_per_pixel_entropy_model_14': 1056, 'macs_per_pixel_entropy_model_15': 1056, 'macs_per_pixel_entropy_model_16': 1056, 'macs_per_pixel_entropy_model_17': 1056, 'macs_per_pixel_entropy_model_18': 1056, 'macs_per_pixel_entropy_model_19': 1056, 'macs_per_pixel_entropy_model_2': 1056, 'macs_per_pixel_entropy_model_20': 1056, 'macs_per_pixel_entropy_model_21': 1056, 'macs_per_pixel_entropy_model_22': 1056, 'macs_per_pixel_entropy_model_23': 1056, 'macs_per_pixel_entropy_model_3': 1056, 'macs_per_pixel_entropy_model_4': 1056, 'macs_per_pixel_entropy_model_5': 1056, 'macs_per_pixel_entropy_model_6': 1056, 'macs_per_pixel_entropy_model_7': 1056, 'macs_per_pixel_entropy_model_8': 1056, 'macs_per_pixel_entropy_model_9': 1056, 'macs_per_pixel_interpolation': 48.0, 'macs_per_pixel_interpolation_0': 48, 'macs_per_pixel_interpolation_1': 48, 'macs_per_pixel_interpolation_10': 48, 'macs_per_pixel_interpolation_11': 48, 'macs_per_pixel_interpolation_12': 48, 'macs_per_pixel_interpolation_13': 48, 'macs_per_pixel_interpolation_14': 48, 'macs_per_pixel_interpolation_15': 48, 'macs_per_pixel_interpolation_16': 48, 'macs_per_pixel_interpolation_17': 48, 'macs_per_pixel_interpolation_18': 48, 'macs_per_pixel_interpolation_19': 48, 'macs_per_pixel_interpolation_2': 48, 'macs_per_pixel_interpolation_20': 48, 'macs_per_pixel_interpolation_21': 48, 'macs_per_pixel_interpolation_22': 48, 'macs_per_pixel_interpolation_23': 48, 'macs_per_pixel_interpolation_3': 48, 'macs_per_pixel_interpolation_4': 48, 'macs_per_pixel_interpolation_5': 48, 'macs_per_pixel_interpolation_6': 48, 'macs_per_pixel_interpolation_7': 48, 'macs_per_pixel_interpolation_8': 48, 'macs_per_pixel_interpolation_9': 48, 'macs_per_pixel_num_latents': 524256.0, 'macs_per_pixel_num_latents_0': 524256.0, 'macs_per_pixel_num_latents_1': 524256.0, 'macs_per_pixel_num_latents_10': 524256.0, 'macs_per_pixel_num_latents_11': 524256.0, 'macs_per_pixel_num_latents_12': 524256.0, 'macs_per_pixel_num_latents_13': 524256.0, 'macs_per_pixel_num_latents_14': 524256.0, 'macs_per_pixel_num_latents_15': 524256.0, 'macs_per_pixel_num_latents_16': 524256.0, 'macs_per_pixel_num_latents_17': 524256.0, 'macs_per_pixel_num_latents_18': 524256.0, 'macs_per_pixel_num_latents_19': 524256.0, 'macs_per_pixel_num_latents_2': 524256.0, 'macs_per_pixel_num_latents_20': 524256.0, 'macs_per_pixel_num_latents_21': 524256.0, 'macs_per_pixel_num_latents_22': 524256.0, 'macs_per_pixel_num_latents_23': 524256.0, 'macs_per_pixel_num_latents_3': 524256.0, 'macs_per_pixel_num_latents_4': 524256.0, 'macs_per_pixel_num_latents_5': 524256.0, 'macs_per_pixel_num_latents_6': 524256.0, 'macs_per_pixel_num_latents_7': 524256.0, 'macs_per_pixel_num_latents_8': 524256.0, 'macs_per_pixel_num_latents_9': 524256.0, 'macs_per_pixel_num_pixels': 393216.0, 'macs_per_pixel_num_pixels_0': 393216, 'macs_per_pixel_num_pixels_1': 393216, 'macs_per_pixel_num_pixels_10': 393216, 'macs_per_pixel_num_pixels_11': 393216, 'macs_per_pixel_num_pixels_12': 393216, 'macs_per_pixel_num_pixels_13': 393216, 'macs_per_pixel_num_pixels_14': 393216, 'macs_per_pixel_num_pixels_15': 393216, 'macs_per_pixel_num_pixels_16': 393216, 'macs_per_pixel_num_pixels_17': 393216, 'macs_per_pixel_num_pixels_18': 393216, 'macs_per_pixel_num_pixels_19': 393216, 'macs_per_pixel_num_pixels_2': 393216, 'macs_per_pixel_num_pixels_20': 393216, 'macs_per_pixel_num_pixels_21': 393216, 'macs_per_pixel_num_pixels_22': 393216, 'macs_per_pixel_num_pixels_23': 393216, 'macs_per_pixel_num_pixels_3': 393216, 'macs_per_pixel_num_pixels_4': 393216, 'macs_per_pixel_num_pixels_5': 393216, 'macs_per_pixel_num_pixels_6': 393216, 'macs_per_pixel_num_pixels_7': 393216, 'macs_per_pixel_num_pixels_8': 393216, 'macs_per_pixel_num_pixels_9': 393216, 'macs_per_pixel_synthesis': 666.0, 'macs_per_pixel_synthesis_0': 666, 'macs_per_pixel_synthesis_1': 666, 'macs_per_pixel_synthesis_10': 666, 'macs_per_pixel_synthesis_11': 666, 'macs_per_pixel_synthesis_12': 666, 'macs_per_pixel_synthesis_13': 666, 'macs_per_pixel_synthesis_14': 666, 'macs_per_pixel_synthesis_15': 666, 'macs_per_pixel_synthesis_16': 666, 'macs_per_pixel_synthesis_17': 666, 'macs_per_pixel_synthesis_18': 666, 'macs_per_pixel_synthesis_19': 666, 'macs_per_pixel_synthesis_2': 666, 'macs_per_pixel_synthesis_20': 666, 'macs_per_pixel_synthesis_21': 666, 'macs_per_pixel_synthesis_22': 666, 'macs_per_pixel_synthesis_23': 666, 'macs_per_pixel_synthesis_3': 666, 'macs_per_pixel_synthesis_4': 666, 'macs_per_pixel_synthesis_5': 666, 'macs_per_pixel_synthesis_6': 666, 'macs_per_pixel_synthesis_7': 666, 'macs_per_pixel_synthesis_8': 666, 'macs_per_pixel_synthesis_9': 666, 'macs_per_pixel_total': 1770.0, 'macs_per_pixel_total_0': 1770, 'macs_per_pixel_total_1': 1770, 'macs_per_pixel_total_10': 1770, 'macs_per_pixel_total_11': 1770, 'macs_per_pixel_total_12': 1770, 'macs_per_pixel_total_13': 1770, 'macs_per_pixel_total_14': 1770, 'macs_per_pixel_total_15': 1770, 'macs_per_pixel_total_16': 1770, 'macs_per_pixel_total_17': 1770, 'macs_per_pixel_total_18': 1770, 'macs_per_pixel_total_19': 1770, 'macs_per_pixel_total_2': 1770, 'macs_per_pixel_total_20': 1770, 'macs_per_pixel_total_21': 1770, 'macs_per_pixel_total_22': 1770, 'macs_per_pixel_total_23': 1770, 'macs_per_pixel_total_3': 1770, 'macs_per_pixel_total_4': 1770, 'macs_per_pixel_total_5': 1770, 'macs_per_pixel_total_6': 1770, 'macs_per_pixel_total_7': 1770, 'macs_per_pixel_total_8': 1770, 'macs_per_pixel_total_9': 1770, 'macs_per_pixel_total_no_interpolation': 1722.0, 'macs_per_pixel_total_no_interpolation_0': 1722, 'macs_per_pixel_total_no_interpolation_1': 1722, 'macs_per_pixel_total_no_interpolation_10': 1722, 'macs_per_pixel_total_no_interpolation_11': 1722, 'macs_per_pixel_total_no_interpolation_12': 1722, 'macs_per_pixel_total_no_interpolation_13': 1722, 'macs_per_pixel_total_no_interpolation_14': 1722, 'macs_per_pixel_total_no_interpolation_15': 1722, 'macs_per_pixel_total_no_interpolation_16': 1722, 'macs_per_pixel_total_no_interpolation_17': 1722, 'macs_per_pixel_total_no_interpolation_18': 1722, 'macs_per_pixel_total_no_interpolation_19': 1722, 'macs_per_pixel_total_no_interpolation_2': 1722, 'macs_per_pixel_total_no_interpolation_20': 1722, 'macs_per_pixel_total_no_interpolation_21': 1722, 'macs_per_pixel_total_no_interpolation_22': 1722, 'macs_per_pixel_total_no_interpolation_23': 1722, 'macs_per_pixel_total_no_interpolation_3': 1722, 'macs_per_pixel_total_no_interpolation_4': 1722, 'macs_per_pixel_total_no_interpolation_5': 1722, 'macs_per_pixel_total_no_interpolation_6': 1722, 'macs_per_pixel_total_no_interpolation_7': 1722, 'macs_per_pixel_total_no_interpolation_8': 1722, 'macs_per_pixel_total_no_interpolation_9': 1722, 'psnr': 32.381103515625, 'psnr_0': 31.65676498413086, 'psnr_1': 34.64572525024414, 'psnr_10': 33.52260971069336, 'psnr_11': 35.14756774902344, 'psnr_12': 31.030799865722656, 'psnr_13': 32.606597900390625, 'psnr_14': 34.535301208496094, 'psnr_15': 15.54869270324707, 'psnr_16': 35.11003875732422, 'psnr_17': 32.70185470581055, 'psnr_18': 33.39514923095703, 'psnr_19': 35.0969123840332, 'psnr_2': 36.63454055786133, 'psnr_20': 15.099794387817383, 'psnr_21': 33.07243347167969, 'psnr_22': 36.86115646362305, 'psnr_23': 32.84018325805664, 'psnr_3': 34.06252670288086, 'psnr_4': 32.5309944152832, 'psnr_5': 33.17033767700195, 'psnr_6': 36.24601745605469, 'psnr_7': 30.6866397857666, 'psnr_8': 35.910648345947266, 'psnr_9': 35.03313446044922, 'psnr_quantized': 32.35859298706055, 'psnr_quantized_0': 31.646310806274414, 'psnr_quantized_1': 34.62554931640625, 'psnr_quantized_10': 33.516029357910156, 'psnr_quantized_11': 35.117828369140625, 'psnr_quantized_12': 31.025362014770508, 'psnr_quantized_13': 32.587745666503906, 'psnr_quantized_14': 34.49919128417969, 'psnr_quantized_15': 15.54869270324707, 'psnr_quantized_16': 35.097591400146484, 'psnr_quantized_17': 32.6618537902832, 'psnr_quantized_18': 33.38267517089844, 'psnr_quantized_19': 35.068180084228516, 'psnr_quantized_2': 36.58371353149414, 'psnr_quantized_20': 15.099794387817383, 'psnr_quantized_21': 33.047672271728516, 'psnr_quantized_22': 36.82709503173828, 'psnr_quantized_23': 32.828575134277344, 'psnr_quantized_3': 34.047515869140625, 'psnr_quantized_4': 32.502620697021484, 'psnr_quantized_5': 33.155670166015625, 'psnr_quantized_6': 36.14107894897461, 'psnr_quantized_7': 30.671491622924805, 'psnr_quantized_8': 35.89754867553711, 'psnr_quantized_9': 35.02641677856445, 'q_step_bias': 0.001895833178423345, 'q_step_bias_0': 0.003, 'q_step_bias_1': 0.0005, 'q_step_bias_10': 0.003, 'q_step_bias_11': 0.001, 'q_step_bias_12': 0.001, 'q_step_bias_13': 0.003, 'q_step_bias_14': 0.0005, 'q_step_bias_15': 0.006, 'q_step_bias_16': 0.003, 'q_step_bias_17': 0.0005, 'q_step_bias_18': 0.001, 'q_step_bias_19': 0.0005, 'q_step_bias_2': 0.003, 'q_step_bias_20': 0.006, 'q_step_bias_21': 0.001, 'q_step_bias_22': 0.003, 'q_step_bias_23': 0.001, 'q_step_bias_3': 0.001, 'q_step_bias_4': 0.001, 'q_step_bias_5': 0.0005, 'q_step_bias_6': 0.003, 'q_step_bias_7': 0.001, 'q_step_bias_8': 0.001, 'q_step_bias_9': 0.001, 'q_step_weight': 0.0016458332538604736, 'q_step_weight_0': 0.001, 'q_step_weight_1': 0.003, 'q_step_weight_10': 0.001, 'q_step_weight_11': 0.001, 'q_step_weight_12': 0.001, 'q_step_weight_13': 0.001, 'q_step_weight_14': 0.001, 'q_step_weight_15': 0.006, 'q_step_weight_16': 0.001, 'q_step_weight_17': 0.003, 'q_step_weight_18': 0.001, 'q_step_weight_19': 0.001, 'q_step_weight_2': 0.001, 'q_step_weight_20': 0.006, 'q_step_weight_21': 0.001, 'q_step_weight_22': 0.001, 'q_step_weight_23': 0.001, 'q_step_weight_3': 0.001, 'q_step_weight_4': 0.001, 'q_step_weight_5': 0.001, 'q_step_weight_6': 0.003, 'q_step_weight_7': 0.001, 'q_step_weight_8': 0.001, 'q_step_weight_9': 0.0005, 'rate_entropy': 9144.1943359375, 'rate_entropy_0': 9460.8232421875, 'rate_entropy_1': 8302.802734375, 'rate_entropy_10': 9277.126953125, 'rate_entropy_11': 9448.521484375, 'rate_entropy_12': 9302.2197265625, 'rate_entropy_13': 9267.2431640625, 'rate_entropy_14': 9416.2998046875, 'rate_entropy_15': 7369.3798828125, 'rate_entropy_16': 9382.2529296875, 'rate_entropy_17': 8214.28125, 'rate_entropy_18': 9626.412109375, 'rate_entropy_19': 9528.25, 'rate_entropy_2': 9525.814453125, 'rate_entropy_20': 7370.0078125, 'rate_entropy_21': 9410.33984375, 'rate_entropy_22': 9481.2314453125, 'rate_entropy_23': 9490.171875, 'rate_entropy_3': 9449.4052734375, 'rate_entropy_4': 9438.541015625, 'rate_entropy_5': 9422.08203125, 'rate_entropy_6': 8198.919921875, 'rate_entropy_7': 9315.615234375, 'rate_entropy_8': 9535.22265625, 'rate_entropy_9': 10227.712890625, 'rate_latents': 194298.53125, 'rate_latents_0': 345965.75, 'rate_latents_1': 91849.546875, 'rate_latents_10': 187824.546875, 'rate_latents_11': 92448.3671875, 'rate_latents_12': 517252.8125, 'rate_latents_13': 259125.65625, 'rate_latents_14': 121475.078125, 'rate_latents_15': 7974.19384765625, 'rate_latents_16': 132911.421875, 'rate_latents_17': 280557.25, 'rate_latents_18': 187464.859375, 'rate_latents_19': 137659.46875, 'rate_latents_2': 88881.453125, 'rate_latents_20': 5309.62451171875, 'rate_latents_21': 201816.71875, 'rate_latents_22': 80411.2421875, 'rate_latents_23': 345140.6875, 'rate_latents_3': 131028.5703125, 'rate_latents_4': 376025.96875, 'rate_latents_5': 261705.515625, 'rate_latents_6': 121108.4375, 'rate_latents_7': 454896.5, 'rate_latents_8': 105110.5546875, 'rate_latents_9': 129221.328125, 'rate_latents_quantized': 194354.96875, 'rate_latents_quantized_0': 346021.34375, 'rate_latents_quantized_1': 91890.7890625, 'rate_latents_quantized_10': 187857.984375, 'rate_latents_quantized_11': 92460.3984375, 'rate_latents_quantized_12': 517267.5625, 'rate_latents_quantized_13': 259134.203125, 'rate_latents_quantized_14': 121491.4375, 'rate_latents_quantized_15': 8325.2890625, 'rate_latents_quantized_16': 132920.65625, 'rate_latents_quantized_17': 280607.46875, 'rate_latents_quantized_18': 187489.625, 'rate_latents_quantized_19': 137671.890625, 'rate_latents_quantized_2': 88916.5625, 'rate_latents_quantized_20': 5788.93896484375, 'rate_latents_quantized_21': 201825.5625, 'rate_latents_quantized_22': 80422.1640625, 'rate_latents_quantized_23': 345159.125, 'rate_latents_quantized_3': 131036.8203125, 'rate_latents_quantized_4': 376039.3125, 'rate_latents_quantized_5': 261714.515625, 'rate_latents_quantized_6': 121188.4140625, 'rate_latents_quantized_7': 454922.0, 'rate_latents_quantized_8': 105119.984375, 'rate_latents_quantized_9': 129246.828125, 'rate_synthesis': 8347.62890625, 'rate_synthesis_0': 8776.830078125, 'rate_synthesis_1': 7366.318359375, 'rate_synthesis_10': 8777.041015625, 'rate_synthesis_11': 8463.2431640625, 'rate_synthesis_12': 8949.244140625, 'rate_synthesis_13': 8327.443359375, 'rate_synthesis_14': 8765.3076171875, 'rate_synthesis_15': 6806.03125, 'rate_synthesis_16': 8589.642578125, 'rate_synthesis_17': 7515.69189453125, 'rate_synthesis_18': 8377.5146484375, 'rate_synthesis_19': 8782.263671875, 'rate_synthesis_2': 8491.240234375, 'rate_synthesis_20': 6868.84521484375, 'rate_synthesis_21': 8674.56640625, 'rate_synthesis_22': 8545.0400390625, 'rate_synthesis_23': 8426.5712890625, 'rate_synthesis_3': 8296.3984375, 'rate_synthesis_4': 8554.2666015625, 'rate_synthesis_5': 8811.8212890625, 'rate_synthesis_6': 7641.35498046875, 'rate_synthesis_7': 8560.5390625, 'rate_synthesis_8': 8699.94921875, 'rate_synthesis_9': 9275.9326171875, 'rate_total': 211846.8125, 'rate_total_0': 364259.0, 'rate_total_1': 107559.9140625, 'rate_total_10': 205912.15625, 'rate_total_11': 110372.1640625, 'rate_total_12': 535519.0625, 'rate_total_13': 276728.90625, 'rate_total_14': 139673.046875, 'rate_total_15': 22500.69921875, 'rate_total_16': 150892.546875, 'rate_total_17': 296337.4375, 'rate_total_18': 205493.546875, 'rate_total_19': 155982.40625, 'rate_total_2': 106933.6171875, 'rate_total_20': 20027.79296875, 'rate_total_21': 219910.46875, 'rate_total_22': 98448.4375, 'rate_total_23': 363075.875, 'rate_total_3': 148782.625, 'rate_total_4': 394032.125, 'rate_total_5': 279948.4375, 'rate_total_6': 137028.6875, 'rate_total_7': 472798.15625, 'rate_total_8': 123355.15625, 'rate_total_9': 148750.484375, 'ssim': 0.8679957389831543, 'ssim_0': 0.8999340534210205, 'ssim_1': 0.8665913939476013, 'ssim_10': 0.8741553425788879, 'ssim_11': 0.8808664083480835, 'ssim_12': 0.8981608748435974, 'ssim_13': 0.8811343908309937, 'ssim_14': 0.8863683342933655, 'ssim_15': 0.5311990976333618, 'ssim_16': 0.907366156578064, 'ssim_17': 0.8886986374855042, 'ssim_18': 0.8867701292037964, 'ssim_19': 0.912032425403595, 'ssim_2': 0.9260059595108032, 'ssim_20': 0.5153550505638123, 'ssim_21': 0.8688860535621643, 'ssim_22': 0.9269849061965942, 'ssim_23': 0.9043754935264587, 'ssim_3': 0.8708382248878479, 'ssim_4': 0.9261391162872314, 'ssim_5': 0.9026427865028381, 'ssim_6': 0.9485247135162354, 'ssim_7': 0.9095202684402466, 'ssim_8': 0.917831301689148, 'ssim_9': 0.9015176892280579, 'ssim_quantized': 0.8679320812225342, 'ssim_quantized_0': 0.899907648563385, 'ssim_quantized_1': 0.8666313290596008, 'ssim_quantized_10': 0.874137818813324, 'ssim_quantized_11': 0.8809822201728821, 'ssim_quantized_12': 0.8979929089546204, 'ssim_quantized_13': 0.8809032440185547, 'ssim_quantized_14': 0.8863722681999207, 'ssim_quantized_15': 0.5311990976333618, 'ssim_quantized_16': 0.907274067401886, 'ssim_quantized_17': 0.888347327709198, 'ssim_quantized_18': 0.8867224454879761, 'ssim_quantized_19': 0.91204833984375, 'ssim_quantized_2': 0.9260144829750061, 'ssim_quantized_20': 0.5153550505638123, 'ssim_quantized_21': 0.8687559962272644, 'ssim_quantized_22': 0.9269331097602844, 'ssim_quantized_23': 0.9043087363243103, 'ssim_quantized_3': 0.8708425164222717, 'ssim_quantized_4': 0.9259842038154602, 'ssim_quantized_5': 0.9025384187698364, 'ssim_quantized_6': 0.9483097791671753, 'ssim_quantized_7': 0.9094551205635071, 'ssim_quantized_8': 0.9177801012992859, 'ssim_quantized_9': 0.9015735983848572, 'steps_per_sec': 9.459986240056594e-05}
+I0512 16:45:59.034947 139867377092096 utils.py:316] [jaxline] training loop finished.
+I0512 16:45:59.036448 139867377092096 utils.py:309] [jaxline] final checkpoint starting...
+W0512 16:45:59.036601 139867377092096 experiment.py:220] Your experiment's self.CHECKPOINT_ATTRS and self.NON_BROADCAST_CHECKPOINT_ATTRS are empty. Your job will not checkpoint any state or parameters.
+I0512 16:45:59.036786 139867377092096 utils.py:615] Saved checkpoint latest with id 0.
+I0512 16:45:59.036846 139867377092096 utils.py:316] [jaxline] final checkpoint finished.
+I0512 16:45:59.036906 139867377092096 utils.py:498] Waiting for a periodic action to finish...
+I0512 16:46:00.007680 139867377092096 utils.py:309] [jaxline] rendezvous starting...
+I0512 16:46:00.046542 139867377092096 utils.py:316] [jaxline] rendezvous finished.
