@@ -29,7 +29,7 @@ def get_config() -> config_dict.ConfigDict:
   # Dataset config
   exp.dataset.name = 'kodak'
   # Make sure root_dir matches the directory where data files are stored.
-  exp.dataset.root_dir = '/home/shitty-gang/Desktop/Datasets/Kodak'
+  exp.dataset.root_dir = '/home/shittyprogrammers/Desktop/Datasets/Kodak'
   exp.dataset.skip_examples = 0
   exp.dataset.num_examples = 1  # Set this to None to train on whole dataset.
   exp.dataset.num_frames = None
