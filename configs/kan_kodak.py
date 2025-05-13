@@ -34,6 +34,7 @@ def get_config() -> config_dict.ConfigDict:
   
   # Fix dataset path
   exp.dataset.root_dir = '/home/shittyprogrammers/Desktop/Datasets/Kodak'  # Update to a valid path
+  exp.dataset.num_examples = 1 
   
   # Remove the lock to allow modifications
   config.unlock()
