@@ -384,28 +384,42 @@ class Synthesis(hk.Module, model_coding.QuantizableMixin):
     b_last_init = lambda shape, dtype: b_init_custom_value(  # pylint: disable=g-long-lambda
         shape, dtype, b_last_init_value)
 
-    # Initialize layers (equivalent to a pixelwise MLP if we use {1}x1x1 convs)
+    # Initialize layers using KANs instead of MLPs for pixelwise processing
     net_layers = []
+    
+    # Select appropriate KAN convolutional layer based on input type
     if is_video:
-      conv_cstr = hk.Conv3D
+      from model.kan import KANConv3D
+      conv_cstr = KANConv3D
     else:
-      conv_cstr = hk.Conv2D
+      from model.kan import KANConv2D
+      conv_cstr = KANConv2D
 
     if add_layer_norm:
       net_layers += [
           hk.LayerNorm(axis=-1, create_scale=True, create_offset=True)
       ]
+    
+    # Replace standard convolution + activation with KAN convolutions
+    # which have built-in spline activations
     for layer_size in layers:
       net_layers += [
-          conv_cstr(layer_size, kernel_shape=kernel_shape),
-          activation_fn,
+          conv_cstr(
+              layer_size, 
+              kernel_shape=kernel_shape,
+              num_knots=15,  # Number of knots for spline approximation
+              spline_range=3.0,  # Range for spline approximation
+          ),
       ]
-    # If we are not using residual conv layers, the number of output channels
-    # will be out_channels. Otherwise, the number of output channels will be
-    # equal to the number of conv channels to be used in the subsequent residual
-    # conv layers.
+    
+    # Final layer - we don't need activation after this, so use standard conv
+    if is_video:
+      final_conv = hk.Conv3D
+    else:
+      final_conv = hk.Conv2D
+      
     net_layers += [
-        conv_cstr(
+        final_conv(
             out_channels,
             kernel_shape=kernel_shape,
             b_init=None if num_residual_layers > 0 else b_last_init,

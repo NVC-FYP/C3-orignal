@@ -39,6 +39,7 @@ import scipy
 
 from experiments import base
 from model import entropy_models
+from model import kan_integration
 from utils import experiment as experiment_utils
 from utils import psnr as psnr_utils
 
@@ -92,10 +93,15 @@ class Experiment(base.Experiment):
       )
     else:
       entropy_config = self.config.model.entropy
-    return entropy_models.AutoregressiveEntropyModelConvVideo(
-        num_grids=self.config.model.latents.num_grids,
-        **entropy_config,
-    )
+      
+    # Use KAN integration if specified in config
+    if hasattr(self.config.model, 'use_kan') and self.config.model.use_kan:
+      return kan_integration.get_entropy_model_video(self.config)
+    else:
+      return entropy_models.AutoregressiveEntropyModelConvVideo(
+          num_grids=self.config.model.latents.num_grids,
+          **entropy_config,
+      )
 
   def _get_entropy_params(self, latent_grids, learn_mask=False,
                           prev_frame_mask_top_lefts=None):
